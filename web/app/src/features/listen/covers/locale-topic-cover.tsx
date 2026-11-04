@@ -5,8 +5,6 @@ import { EnTopicCoverSvg } from "@/features/listen/covers/en-topic-cover"
 import { JpTopicCoverSvg } from "@/features/listen/covers/jp-topic-cover"
 import { ZhTopicCoverSvg } from "@/features/listen/covers/zh-topic-cover"
 
-import "./topic-cover-locale.css"
-
 type LocaleTopicCoverProps = {
   cover: TopicCover
 }

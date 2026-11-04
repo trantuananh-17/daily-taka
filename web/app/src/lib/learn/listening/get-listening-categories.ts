@@ -18,6 +18,3 @@ export async function getListeningCategories(
   return MOCKS[language]
 }
 
-export function listeningCategoryHref(language: LanguageHubCode, slug: string): string {
-  return `/${language}/listen/${slug}`
-}
