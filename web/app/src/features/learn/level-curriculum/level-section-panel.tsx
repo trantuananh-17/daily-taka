@@ -169,7 +169,7 @@ export function LevelSectionPanel({
           ) : (openLessons?.length ?? 0) === 0 ? (
             <p className="font-body text-sm text-[var(--dlx-muted)]">Không có bài học trong chủ đề này.</p>
           ) : (
-            <ul className="m-0 grid list-none grid-cols-1 gap-2 p-0 md:grid-cols-2 min-[1100px]:grid-cols-3">
+            <ul className="m-0 grid list-none grid-cols-1 gap-2 p-0 md:grid-cols-3">
               {openLessons!.map((lesson) => (
                 <LevelLessonCard
                   key={lesson.id}

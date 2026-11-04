@@ -1,0 +1,3261 @@
+{
+  "units": [
+    {
+      "moduleId": "a1-m2",
+      "unitId": "u2.1",
+      "points": [
+        {
+          "type": "lesson",
+          "title": "Thì Hiện tại đơn: câu khẳng định",
+          "intro": "Thì <b>Hiện tại đơn</b> (Present Simple) dùng để nói về những việc xảy ra thường xuyên, những điều luôn đúng và những tình huống lâu dài ở hiện tại. Ở câu khẳng định, động từ giữ <b>nguyên mẫu</b> với I / you / we / they và thêm <b>-s/-es</b> với he / she / it.",
+          "sections": [
+            {
+              "kind": "table",
+              "heading": "Dạng khẳng định",
+              "head": [
+                "Chủ ngữ",
+                "Động từ",
+                "Ví dụ"
+              ],
+              "rows": [
+                [
+                  "I / you / we / they, danh từ số nhiều (my parents, the kids…)",
+                  "<b>V nguyên mẫu</b>",
+                  "They live in Da Nang."
+                ],
+                [
+                  "he / she / it, danh từ số ít (my mother, the dog…)",
+                  "<b>V-s / V-es</b>",
+                  "She lives in Da Nang."
+                ]
+              ]
+            },
+            {
+              "kind": "usage",
+              "heading": "Cách dùng",
+              "items": [
+                {
+                  "use": "Thói quen, việc lặp lại thường xuyên",
+                  "examples": [
+                    {
+                      "en": "I drink a glass of water every morning.",
+                      "vi": "Mỗi sáng tôi uống một cốc nước."
+                    },
+                    {
+                      "en": "My dad reads the news after dinner.",
+                      "vi": "Bố tôi đọc tin tức sau bữa tối."
+                    }
+                  ]
+                },
+                {
+                  "use": "Sự thật, điều luôn đúng",
+                  "examples": [
+                    {
+                      "en": "Water boils at 100 degrees Celsius.",
+                      "vi": "Nước sôi ở 100 độ C."
+                    },
+                    {
+                      "en": "The sun rises in the east.",
+                      "vi": "Mặt trời mọc ở hướng đông."
+                    }
+                  ]
+                },
+                {
+                  "use": "Tình huống lâu dài: nơi sống, công việc, sở thích",
+                  "examples": [
+                    {
+                      "en": "My aunt teaches English at a high school.",
+                      "vi": "Dì tôi dạy tiếng Anh ở một trường cấp ba."
+                    },
+                    {
+                      "en": "We like Korean food.",
+                      "vi": "Chúng tôi thích món ăn Hàn Quốc."
+                    }
+                  ]
+                },
+                {
+                  "use": "Lịch trình, thời gian biểu cố định",
+                  "examples": [
+                    {
+                      "en": "The train leaves at 7:15.",
+                      "vi": "Tàu khởi hành lúc 7 giờ 15."
+                    },
+                    {
+                      "en": "The bank opens at 8 a.m.",
+                      "vi": "Ngân hàng mở cửa lúc 8 giờ sáng."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "explain",
+              "heading": "Lưu ý",
+              "bullets": [
+                "Danh từ số ít (my mom, Lan, the dog) chia động từ giống <b>he / she / it</b>: <b>My mom cooks dinner.</b>",
+                "Danh từ số nhiều và hai chủ ngữ nối bằng <b>and</b> chia giống <b>they</b>: <b>Lan and Hoa walk to school.</b>",
+                "Câu đã có động từ thường thì không dùng thêm am / is / are: <b>I work here.</b> (không nói <b>I am work here.</b>)",
+                "Hiện tại đơn thường đi với cụm từ chỉ thời gian và tần suất như <b>every day, on Mondays, usually</b>."
+              ]
+            }
+          ],
+          "example": "",
+          "content": ""
+        },
+        {
+          "type": "lesson",
+          "title": "Câu phủ định với don't / doesn't",
+          "intro": "Câu phủ định ở thì Hiện tại đơn được tạo bằng trợ động từ <b>do not (don't)</b> hoặc <b>does not (doesn't)</b> đặt trước động từ chính. Sau don't / doesn't, động từ luôn ở <b>dạng nguyên mẫu</b>.",
+          "sections": [
+            {
+              "kind": "formula",
+              "heading": "Công thức",
+              "rows": [
+                {
+                  "label": "I / you / we / they",
+                  "formula": "S + don't (do not) + V nguyên mẫu + ...",
+                  "example": {
+                    "en": "They don't eat meat.",
+                    "vi": "Họ không ăn thịt."
+                  }
+                },
+                {
+                  "label": "he / she / it",
+                  "formula": "S + doesn't (does not) + V nguyên mẫu + ...",
+                  "example": {
+                    "en": "He doesn't eat meat.",
+                    "vi": "Anh ấy không ăn thịt."
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "table",
+              "heading": "Từ khẳng định sang phủ định",
+              "head": [
+                "Khẳng định",
+                "Phủ định"
+              ],
+              "rows": [
+                [
+                  "I play the guitar.",
+                  "I <b>don't play</b> the guitar."
+                ],
+                [
+                  "She plays the guitar.",
+                  "She <b>doesn't play</b> the guitar."
+                ],
+                [
+                  "He has a bike.",
+                  "He <b>doesn't have</b> a bike."
+                ],
+                [
+                  "Tom goes to the gym.",
+                  "Tom <b>doesn't go</b> to the gym."
+                ]
+              ]
+            },
+            {
+              "kind": "usage",
+              "heading": "Cách dùng",
+              "items": [
+                {
+                  "use": "Nói một việc không phải là thói quen",
+                  "examples": [
+                    {
+                      "en": "I don't eat breakfast on weekdays.",
+                      "vi": "Tôi không ăn sáng vào các ngày trong tuần."
+                    },
+                    {
+                      "en": "My grandma doesn't use a smartphone.",
+                      "vi": "Bà tôi không dùng điện thoại thông minh."
+                    }
+                  ]
+                },
+                {
+                  "use": "Nói điều không đúng sự thật",
+                  "examples": [
+                    {
+                      "en": "Penguins don't fly.",
+                      "vi": "Chim cánh cụt không bay được."
+                    }
+                  ]
+                },
+                {
+                  "use": "Nói điều mình không thích hoặc không có",
+                  "examples": [
+                    {
+                      "en": "My brother doesn't like spicy food.",
+                      "vi": "Anh trai tôi không thích đồ cay."
+                    },
+                    {
+                      "en": "We don't have a garden.",
+                      "vi": "Chúng tôi không có vườn."
+                    }
+                  ]
+                },
+                {
+                  "use": "Nói lịch trình không diễn ra",
+                  "examples": [
+                    {
+                      "en": "The museum doesn't open on Mondays.",
+                      "vi": "Bảo tàng không mở cửa vào thứ Hai."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "explain",
+              "heading": "Lưu ý",
+              "bullets": [
+                "Sau <b>doesn't</b>, động từ không thêm -s: <b>She doesn't like tea.</b> (không nói <b>doesn't likes</b>)",
+                "He / she / it và danh từ số ít dùng <b>doesn't</b>, không dùng don't: <b>He doesn't work here.</b>",
+                "<b>Not</b> không đứng một mình trước động từ thường; luôn cần do / does: <b>I don't eat fish.</b>",
+                "<b>isn't / aren't</b> chỉ dùng với to be. Động từ thường dùng don't / doesn't: <b>They don't play soccer.</b>",
+                "Dạng đầy đủ <b>do not / does not</b> thường dùng trong văn viết trang trọng."
+              ]
+            }
+          ],
+          "example": "",
+          "content": ""
+        },
+        {
+          "type": "lesson",
+          "title": "Cách thêm -s / -es cho động từ",
+          "intro": "Với chủ ngữ he / she / it, động từ ở câu khẳng định thì Hiện tại đơn được thêm <b>-s</b> hoặc <b>-es</b>. Cách thêm phụ thuộc vào chữ cái cuối của động từ, và có một số động từ bất quy tắc như <b>have → has</b>.",
+          "sections": [
+            {
+              "kind": "table",
+              "heading": "Quy tắc chính tả",
+              "head": [
+                "Quy tắc",
+                "Động từ",
+                "Với he / she / it"
+              ],
+              "rows": [
+                [
+                  "Đa số động từ: thêm <b>-s</b>",
+                  "work, read, cook, live",
+                  "work<b>s</b>, read<b>s</b>, cook<b>s</b>, live<b>s</b>"
+                ],
+                [
+                  "Tận cùng -o, -s, -sh, -ch, -x: thêm <b>-es</b>",
+                  "go, do, miss, wash, watch, fix",
+                  "go<b>es</b>, do<b>es</b>, miss<b>es</b>, wash<b>es</b>, watch<b>es</b>, fix<b>es</b>"
+                ],
+                [
+                  "Phụ âm + y: đổi y thành <b>-ies</b>",
+                  "study, carry, try",
+                  "stud<b>ies</b>, carr<b>ies</b>, tr<b>ies</b>"
+                ],
+                [
+                  "Nguyên âm + y: chỉ thêm <b>-s</b>",
+                  "play, buy, stay",
+                  "play<b>s</b>, buy<b>s</b>, stay<b>s</b>"
+                ],
+                [
+                  "Bất quy tắc",
+                  "have",
+                  "<b>has</b>"
+                ]
+              ]
+            },
+            {
+              "kind": "table",
+              "heading": "Cách đọc đuôi -s / -es",
+              "head": [
+                "Âm cuối của động từ",
+                "Đọc là",
+                "Ví dụ"
+              ],
+              "rows": [
+                [
+                  "/p/, /t/, /k/, /f/",
+                  "<b>/s/</b>",
+                  "stops, gets, works, laughs"
+                ],
+                [
+                  "/s/, /z/, /ʃ/, /tʃ/, /dʒ/, /ks/",
+                  "<b>/ɪz/</b>",
+                  "misses, uses, washes, watches, fixes"
+                ],
+                [
+                  "Các âm còn lại (nguyên âm, /b/, /d/, /g/, /l/, /m/, /n/, /v/…)",
+                  "<b>/z/</b>",
+                  "plays, reads, lives, calls"
+                ]
+              ]
+            },
+            {
+              "kind": "usage",
+              "heading": "Cụm sinh hoạt thường gặp",
+              "items": [
+                {
+                  "use": "<b>have</b> + bữa ăn (breakfast, lunch, dinner); have còn có nghĩa là “có” → <b>has</b>",
+                  "examples": [
+                    {
+                      "en": "She has lunch at noon.",
+                      "vi": "Cô ấy ăn trưa lúc 12 giờ."
+                    },
+                    {
+                      "en": "My grandpa has a big garden.",
+                      "vi": "Ông tôi có một khu vườn lớn."
+                    }
+                  ]
+                },
+                {
+                  "use": "<b>go</b> + to work / to school / to bed / shopping → <b>goes</b>",
+                  "examples": [
+                    {
+                      "en": "He goes to bed at ten.",
+                      "vi": "Anh ấy đi ngủ lúc 10 giờ."
+                    }
+                  ]
+                },
+                {
+                  "use": "<b>do</b> + homework / the dishes / the laundry → <b>does</b>",
+                  "examples": [
+                    {
+                      "en": "My sister does the dishes after dinner.",
+                      "vi": "Chị tôi rửa bát sau bữa tối."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "explain",
+              "heading": "Lưu ý",
+              "bullets": [
+                "<b>have</b> là động từ bất quy tắc, không có dạng “haves”: <b>She has two cats.</b>",
+                "y đứng sau phụ âm thì đổi thành <b>ies</b>: <b>study → studies</b>; y đứng sau nguyên âm thì giữ nguyên: <b>play → plays</b>.",
+                "<b>goes</b> đọc là /ɡoʊz/, <b>does</b> đọc là /dʌz/, <b>says</b> đọc là /sez/.",
+                "Đuôi -s/-es chỉ có trong câu khẳng định. Câu phủ định và câu hỏi dùng does + nguyên mẫu: <b>Does she have a car?</b>"
+              ]
+            }
+          ],
+          "example": "",
+          "content": ""
+        },
+        {
+          "type": "lesson",
+          "title": "Cụm từ chỉ thời gian và tần suất",
+          "intro": "Thì Hiện tại đơn thường đi kèm <b>cụm từ chỉ thời gian</b> (at 7 o'clock, in the morning, on Mondays, every day) và <b>trạng từ tần suất</b> (always, usually, often, sometimes, never). Chúng cho biết việc xảy ra lúc nào và thường xuyên đến mức nào.",
+          "sections": [
+            {
+              "kind": "usage",
+              "heading": "Giới từ chỉ thời gian",
+              "items": [
+                {
+                  "use": "<b>at</b> + giờ cụ thể; các cụm <b>at noon</b>, <b>at night</b>",
+                  "examples": [
+                    {
+                      "en": "The meeting starts at 9:30.",
+                      "vi": "Cuộc họp bắt đầu lúc 9 giờ 30."
+                    },
+                    {
+                      "en": "I turn off my phone at night.",
+                      "vi": "Tôi tắt điện thoại vào ban đêm."
+                    }
+                  ]
+                },
+                {
+                  "use": "<b>in the</b> + buổi trong ngày (morning, afternoon, evening)",
+                  "examples": [
+                    {
+                      "en": "My grandma takes a walk in the afternoon.",
+                      "vi": "Bà tôi đi dạo vào buổi chiều."
+                    }
+                  ]
+                },
+                {
+                  "use": "<b>on</b> + thứ trong tuần; thứ + buổi",
+                  "examples": [
+                    {
+                      "en": "We visit our grandparents on Sundays.",
+                      "vi": "Chúng tôi đến thăm ông bà vào các ngày Chủ nhật."
+                    },
+                    {
+                      "en": "He has piano lessons on Tuesday evenings.",
+                      "vi": "Cậu ấy học đàn piano vào tối thứ Ba."
+                    }
+                  ]
+                },
+                {
+                  "use": "<b>every</b> + day / week / morning / Monday… (không dùng giới từ)",
+                  "examples": [
+                    {
+                      "en": "She cleans the house every Saturday.",
+                      "vi": "Cô ấy dọn nhà vào mỗi thứ Bảy."
+                    }
+                  ]
+                },
+                {
+                  "use": "<b>from … to …</b>: khoảng thời gian",
+                  "examples": [
+                    {
+                      "en": "The store is open from Monday to Friday.",
+                      "vi": "Cửa hàng mở cửa từ thứ Hai đến thứ Sáu."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "table",
+              "heading": "Trạng từ tần suất",
+              "head": [
+                "Trạng từ",
+                "Nghĩa",
+                "Ví dụ"
+              ],
+              "rows": [
+                [
+                  "<b>always</b>",
+                  "luôn luôn",
+                  "She always walks to work."
+                ],
+                [
+                  "<b>usually</b>",
+                  "thường thường",
+                  "I usually cook dinner."
+                ],
+                [
+                  "<b>often</b>",
+                  "thường, hay",
+                  "We often eat out on Fridays."
+                ],
+                [
+                  "<b>sometimes</b>",
+                  "thỉnh thoảng",
+                  "He sometimes plays tennis."
+                ],
+                [
+                  "<b>never</b>",
+                  "không bao giờ",
+                  "They never drink soda."
+                ]
+              ]
+            },
+            {
+              "kind": "formula",
+              "heading": "Vị trí trong câu",
+              "rows": [
+                {
+                  "label": "Trạng từ tần suất + động từ thường",
+                  "formula": "S + always/usually/often/sometimes/never + V",
+                  "example": {
+                    "en": "He usually takes the bus.",
+                    "vi": "Anh ấy thường đi xe buýt."
+                  }
+                },
+                {
+                  "label": "To be + trạng từ tần suất",
+                  "formula": "S + am/is/are + always/usually/often/sometimes/never",
+                  "example": {
+                    "en": "She is always on time.",
+                    "vi": "Cô ấy luôn đúng giờ."
+                  }
+                },
+                {
+                  "label": "Cụm thời gian",
+                  "formula": "S + V + ... + every day / on Mondays / in the morning",
+                  "example": {
+                    "en": "I call my mom every Sunday.",
+                    "vi": "Tôi gọi cho mẹ vào mỗi Chủ nhật."
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "explain",
+              "heading": "Lưu ý",
+              "bullets": [
+                "Không dùng giới từ trước <b>every</b>: <b>every Sunday</b> (không nói on every Sunday).",
+                "<b>o'clock</b> chỉ dùng với giờ chẵn: <b>at 9 o'clock</b>, nhưng <b>at 9:30</b>.",
+                "<b>a.m.</b> chỉ thời gian từ nửa đêm đến trước 12 giờ trưa, <b>p.m.</b> từ 12 giờ trưa đến trước nửa đêm: <b>at 7 p.m.</b>",
+                "Thứ thêm <b>-s</b> chỉ việc lặp lại hằng tuần: <b>on Mondays</b> = vào mọi thứ Hai.",
+                "<b>never</b> đã mang nghĩa phủ định nên động từ ở dạng khẳng định: <b>He never eats meat.</b>",
+                "Phương tiện đi lại dùng <b>by</b> + phương tiện, không có a/the: <b>by bus, by car, by bike</b>. Đi bộ là <b>on foot</b>.",
+                "Tiếng Anh Mỹ nói <b>on weekends</b>; tiếng Anh Anh nói <b>at weekends</b>."
+              ]
+            }
+          ],
+          "example": "",
+          "content": ""
+        }
+      ]
+    },
+    {
+      "moduleId": "a1-m2",
+      "unitId": "u2.6",
+      "points": [
+        {
+          "type": "lesson",
+          "title": "Mẫu câu giao tiếp nơi làm việc",
+          "intro": "Bài hội thoại là cuộc trò chuyện giữa hai đồng nghiệp gặp nhau lần đầu. Các mẫu câu chính gồm chào hỏi theo buổi, câu hỏi với to be và do, trạng từ <b>usually</b> để kể thói quen, câu hỏi lại <b>How about you?</b> và câu đồng tình ngắn.",
+          "sections": [
+            {
+              "kind": "formula",
+              "heading": "Cấu trúc",
+              "rows": [
+                {
+                  "label": "Hỏi về vai trò",
+                  "formula": "Are you + a/an/the + danh từ?",
+                  "example": {
+                    "en": "Are you the new manager?",
+                    "vi": "Anh có phải là quản lý mới không?"
+                  }
+                },
+                {
+                  "label": "Which + giới từ cuối câu",
+                  "formula": "Which + N + do/does + S + V + giới từ?",
+                  "example": {
+                    "en": "Which team does she work with?",
+                    "vi": "Cô ấy làm việc với nhóm nào?"
+                  }
+                },
+                {
+                  "label": "usually + động từ thường",
+                  "formula": "S + usually + V",
+                  "example": {
+                    "en": "I usually walk to work.",
+                    "vi": "Tôi thường đi bộ đi làm."
+                  }
+                },
+                {
+                  "label": "to be + usually",
+                  "formula": "S + am/is/are + usually + ...",
+                  "example": {
+                    "en": "She is usually early.",
+                    "vi": "Cô ấy thường đến sớm."
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "usage",
+              "heading": "Cách dùng",
+              "items": [
+                {
+                  "use": "Chào hỏi theo buổi: <b>Good morning / Good afternoon / Good evening</b>",
+                  "examples": [
+                    {
+                      "en": "Good afternoon. Nice to meet you.",
+                      "vi": "Chào buổi chiều. Rất vui được gặp bạn."
+                    }
+                  ]
+                },
+                {
+                  "use": "Hỏi để chọn trong một nhóm có sẵn: <b>Which</b>",
+                  "examples": [
+                    {
+                      "en": "Which floor do you work on?",
+                      "vi": "Bạn làm việc ở tầng nào?"
+                    }
+                  ]
+                },
+                {
+                  "use": "Kể thói quen: <b>usually</b>",
+                  "examples": [
+                    {
+                      "en": "I usually have lunch at noon.",
+                      "vi": "Tôi thường ăn trưa lúc 12 giờ."
+                    }
+                  ]
+                },
+                {
+                  "use": "Hỏi lại người kia cùng một câu hỏi: <b>How about you?</b> / <b>What about you?</b>",
+                  "examples": [
+                    {
+                      "en": "I live downtown. How about you?",
+                      "vi": "Tôi sống ở trung tâm thành phố. Còn bạn thì sao?"
+                    }
+                  ]
+                },
+                {
+                  "use": "Trả lời rồi nói thêm thông tin đúng",
+                  "examples": [
+                    {
+                      "en": "No, I don't drink milk. I drink juice.",
+                      "vi": "Không, tôi không uống sữa. Tôi uống nước ép."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "explain",
+              "heading": "Lưu ý",
+              "bullets": [
+                "<b>usually</b> đứng trước động từ thường nhưng đứng sau to be: <b>I usually start at 9.</b> / <b>I am usually late.</b>",
+                "Câu hỏi với <b>Which</b> cũng cần do / does: <b>Which room do you work in?</b>",
+                "Trả lời ngắn dùng lại do, không lặp lại động từ chính: <b>Do you like tea? Yes, I do.</b>",
+                "Chủ ngữ I không thêm -s, kể cả khi có usually ở giữa: <b>I usually take the train.</b>"
+              ]
+            }
+          ],
+          "example": "",
+          "content": ""
+        },
+        {
+          "type": "lesson",
+          "title": "Kể về một người bằng Hiện tại đơn",
+          "intro": "Khi kể về công việc và thói quen của một người khác, ta dùng thì Hiện tại đơn với chủ ngữ <b>he / she</b>. Mọi động từ thường trong câu khẳng định đều thêm <b>-s/-es</b>, và câu phủ định dùng <b>doesn't</b>.",
+          "sections": [
+            {
+              "kind": "formula",
+              "heading": "Công thức",
+              "rows": [
+                {
+                  "label": "Khẳng định",
+                  "formula": "He/She + V-s/es + ...",
+                  "example": {
+                    "en": "She works at an elementary school.",
+                    "vi": "Cô ấy làm việc ở một trường tiểu học."
+                  }
+                },
+                {
+                  "label": "Phủ định",
+                  "formula": "He/She + doesn't + V nguyên mẫu + ...",
+                  "example": {
+                    "en": "She doesn't drive.",
+                    "vi": "Cô ấy không lái xe."
+                  }
+                },
+                {
+                  "label": "Hai việc nối tiếp",
+                  "formula": "He/She + V-s ... and + V-s ...",
+                  "example": {
+                    "en": "She gets up at 5:30 and makes breakfast.",
+                    "vi": "Cô ấy dậy lúc 5 giờ 30 và làm bữa sáng."
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "usage",
+              "heading": "Các ý thường gặp khi kể về một người",
+              "items": [
+                {
+                  "use": "Nghề nghiệp và nơi làm việc",
+                  "examples": [
+                    {
+                      "en": "My aunt is a teacher. She works at an elementary school.",
+                      "vi": "Dì tôi là giáo viên. Dì ấy làm việc ở một trường tiểu học."
+                    }
+                  ]
+                },
+                {
+                  "use": "Giờ giấc và thói quen hằng ngày",
+                  "examples": [
+                    {
+                      "en": "She gets up at 5:30 and makes breakfast for the family.",
+                      "vi": "Dì ấy dậy lúc 5 giờ 30 và làm bữa sáng cho cả nhà."
+                    }
+                  ]
+                },
+                {
+                  "use": "Phương tiện và việc không làm",
+                  "examples": [
+                    {
+                      "en": "She doesn't drive. She goes to work by bike.",
+                      "vi": "Dì ấy không lái xe. Dì ấy đạp xe đi làm."
+                    }
+                  ]
+                },
+                {
+                  "use": "Cảm nhận, sở thích",
+                  "examples": [
+                    {
+                      "en": "She is busy, but she likes her students very much.",
+                      "vi": "Dì ấy bận rộn nhưng rất quý học sinh của mình."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "explain",
+              "heading": "Lưu ý",
+              "bullets": [
+                "Mỗi câu tiếng Anh đều cần chủ ngữ: <b>He gets up early. He makes coffee.</b>",
+                "Mọi động từ thường đi với he / she đều thêm -s/-es: <b>She gets up at five and makes tea.</b>",
+                "<b>very much</b> đứng cuối câu, sau tân ngữ: <b>She likes her job very much.</b> (không nói <b>likes very much her job</b>)",
+                "<b>a lot of</b> dùng được trong câu khẳng định và phủ định: <b>She has a lot of friends.</b> / <b>He doesn't have a lot of money.</b>",
+                "“Ở nhà” là <b>at home</b>, không có the: <b>He eats lunch at home.</b>"
+              ]
+            }
+          ],
+          "example": "",
+          "content": ""
+        }
+      ]
+    },
+    {
+      "moduleId": "a2-m10",
+      "unitId": "u10.1",
+      "points": [
+        {
+          "type": "lesson",
+          "title": "Câu bị động ở Hiện tại đơn: am / is / are + V3",
+          "intro": "<b>Câu bị động</b> (passive voice) đưa người hoặc vật <b>chịu tác động</b> của hành động lên làm chủ ngữ. Câu bị động ở Hiện tại đơn dùng <b>am / is / are + V3</b> để nói về những việc thường xuyên được làm, các quy trình hoặc sự thật chung.",
+          "sections": [
+            {
+              "kind": "table",
+              "heading": "Dạng bị động ở Hiện tại đơn",
+              "head": [
+                "Chủ ngữ",
+                "To be",
+                "Ví dụ"
+              ],
+              "rows": [
+                [
+                  "I",
+                  "<b>am</b> + V3",
+                  "I am paid every two weeks."
+                ],
+                [
+                  "he / she / it, danh từ số ít, danh từ không đếm được",
+                  "<b>is</b> + V3",
+                  "The office is cleaned at night."
+                ],
+                [
+                  "you / we / they, danh từ số nhiều",
+                  "<b>are</b> + V3",
+                  "These bags are made by hand."
+                ]
+              ]
+            },
+            {
+              "kind": "formula",
+              "heading": "Công thức",
+              "rows": [
+                {
+                  "label": "Khẳng định (+)",
+                  "formula": "S + am/is/are + V3",
+                  "example": {
+                    "en": "Rice is grown in the Mekong Delta.",
+                    "vi": "Lúa được trồng ở Đồng bằng sông Cửu Long."
+                  }
+                },
+                {
+                  "label": "Phủ định (−)",
+                  "formula": "S + am/is/are + not + V3",
+                  "example": {
+                    "en": "Credit cards aren't accepted here.",
+                    "vi": "Ở đây không nhận thẻ tín dụng."
+                  }
+                },
+                {
+                  "label": "Câu hỏi (?)",
+                  "formula": "Am/Is/Are + S + V3?",
+                  "example": {
+                    "en": "Is breakfast included in the price?",
+                    "vi": "Giá phòng có bao gồm bữa sáng không?"
+                  }
+                },
+                {
+                  "label": "Câu hỏi Wh-",
+                  "formula": "Wh- + am/is/are + S + V3?",
+                  "example": {
+                    "en": "How is this dish cooked?",
+                    "vi": "Món này được nấu như thế nào?"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "usage",
+              "heading": "Cách dùng",
+              "items": [
+                {
+                  "use": "Người thực hiện hành động không quan trọng, không rõ hoặc ai cũng biết",
+                  "examples": [
+                    {
+                      "en": "The mail is delivered every morning.",
+                      "vi": "Thư được giao mỗi buổi sáng."
+                    }
+                  ]
+                },
+                {
+                  "use": "Muốn nhấn mạnh vật hoặc người chịu tác động",
+                  "examples": [
+                    {
+                      "en": "Our milk is produced on local farms.",
+                      "vi": "Sữa của chúng tôi được sản xuất tại các trang trại địa phương."
+                    }
+                  ]
+                },
+                {
+                  "use": "Mô tả quy trình, cách làm, sự thật chung",
+                  "examples": [
+                    {
+                      "en": "The tea leaves are picked by hand and dried in the sun.",
+                      "vi": "Lá trà được hái bằng tay và phơi khô dưới nắng."
+                    }
+                  ]
+                },
+                {
+                  "use": "Biển báo, thông báo, quy định",
+                  "examples": [
+                    {
+                      "en": "Smoking is not allowed in this building.",
+                      "vi": "Không được phép hút thuốc trong tòa nhà này."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "explain",
+              "heading": "Lưu ý",
+              "bullets": [
+                "To be phải hợp với chủ ngữ của câu bị động: <b>The rooms are cleaned daily.</b>",
+                "Danh từ không đếm được (coffee, money, information) đi với <b>is</b>: <b>Coffee is served after the meal.</b>",
+                "Động từ không có tân ngữ (arrive, happen, sleep) không có dạng bị động: <b>The bus arrives at 6.</b> (không nói The bus is arrived.)",
+                "<b>open</b> và <b>closed</b> thường dùng như tính từ: <b>The pharmacy is open until 10 p.m.</b> Để nói giờ mở cửa, dùng câu chủ động: <b>The pharmacy opens at 7 a.m.</b>"
+              ]
+            }
+          ],
+          "example": "",
+          "content": ""
+        },
+        {
+          "type": "lesson",
+          "title": "Chủ động và bị động: cách dùng by",
+          "intro": "Câu chủ động và câu bị động có thể diễn đạt cùng một sự việc. Khi chuyển sang bị động, <b>tân ngữ</b> của câu chủ động trở thành chủ ngữ. Người thực hiện hành động được nêu sau <b>by</b> khi thông tin đó quan trọng.",
+          "sections": [
+            {
+              "kind": "table",
+              "heading": "Chuyển câu chủ động sang bị động",
+              "head": [
+                "Câu chủ động",
+                "Câu bị động"
+              ],
+              "rows": [
+                [
+                  "A chef <b>cooks</b> the meals.",
+                  "The meals <b>are cooked</b> by a chef."
+                ],
+                [
+                  "Volunteers <b>clean</b> the beach.",
+                  "The beach <b>is cleaned</b> by volunteers."
+                ],
+                [
+                  "They <b>don't sell</b> tickets online.",
+                  "Tickets <b>aren't sold</b> online."
+                ]
+              ]
+            },
+            {
+              "kind": "formula",
+              "heading": "Các bước chuyển",
+              "rows": [
+                {
+                  "label": "Bước 1",
+                  "formula": "Tân ngữ của câu chủ động → chủ ngữ của câu bị động"
+                },
+                {
+                  "label": "Bước 2",
+                  "formula": "am/is/are (hợp với chủ ngữ mới) + V3"
+                },
+                {
+                  "label": "Bước 3",
+                  "formula": "by + người thực hiện (chỉ khi cần)",
+                  "example": {
+                    "en": "The songs are written by a young singer.",
+                    "vi": "Những bài hát này do một ca sĩ trẻ sáng tác."
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "usage",
+              "heading": "Cách dùng",
+              "items": [
+                {
+                  "use": "Dùng <b>by</b> khi người thực hiện là thông tin mới hoặc quan trọng",
+                  "examples": [
+                    {
+                      "en": "This app is used by over a million students.",
+                      "vi": "Ứng dụng này được hơn một triệu học sinh sử dụng."
+                    }
+                  ]
+                },
+                {
+                  "use": "Bỏ <b>by</b> khi người thực hiện là người nói chung (people, they, someone) hoặc đã rõ",
+                  "examples": [
+                    {
+                      "en": "Spanish is taught at our school.",
+                      "vi": "Tiếng Tây Ban Nha được dạy ở trường chúng tôi."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "explain",
+              "heading": "Lưu ý",
+              "bullets": [
+                "Sau by dùng đại từ tân ngữ (me, him, her, us, them): <b>The cake is made by her.</b>",
+                "Không nói <b>by people</b> hoặc <b>by someone</b> vì không thêm thông tin: <b>Paper is recycled here.</b>",
+                "Chỉ động từ có tân ngữ mới chuyển sang bị động được: <b>They grow tea here.</b> → <b>Tea is grown here.</b>",
+                "Câu bị động phủ định đặt not sau to be, không dùng don't / doesn't: <b>It isn't used.</b> (không nói It doesn't used.)"
+              ]
+            }
+          ],
+          "example": "",
+          "content": ""
+        }
+      ]
+    },
+    {
+      "moduleId": "b1-m1",
+      "unitId": "b1-u01",
+      "points": [
+        {
+          "type": "lesson",
+          "title": "Hiện tại đơn",
+          "intro": "Thì <b>hiện tại đơn</b> (present simple) dùng để nói về thói quen, sự thật, tình huống lâu dài và lịch trình cố định. Động từ giữ nguyên mẫu, riêng chủ ngữ ngôi thứ ba số ít (he / she / it) thì thêm <b>-s/-es</b>. Câu phủ định và câu hỏi dùng trợ động từ <b>do / does</b>.",
+          "sections": [
+            {
+              "kind": "formula",
+              "heading": "Công thức",
+              "rows": [
+                {
+                  "label": "Khẳng định (+)",
+                  "formula": "S + V nguyên mẫu / V-s/es",
+                  "example": {
+                    "en": "My brother works for a bank.",
+                    "vi": "Anh trai tôi làm việc cho một ngân hàng."
+                  }
+                },
+                {
+                  "label": "Phủ định (−)",
+                  "formula": "S + don't / doesn't + V nguyên mẫu",
+                  "example": {
+                    "en": "She doesn't eat seafood.",
+                    "vi": "Cô ấy không ăn hải sản."
+                  }
+                },
+                {
+                  "label": "Câu hỏi (?)",
+                  "formula": "Do / Does + S + V nguyên mẫu?",
+                  "example": {
+                    "en": "Does your office close on Saturdays?",
+                    "vi": "Văn phòng của bạn có đóng cửa vào thứ Bảy không?"
+                  }
+                },
+                {
+                  "label": "Câu hỏi Wh-",
+                  "formula": "Wh- + do / does + S + V nguyên mẫu?",
+                  "example": {
+                    "en": "How often do you check your email?",
+                    "vi": "Bạn kiểm tra email bao lâu một lần?"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "usage",
+              "heading": "Cách dùng",
+              "items": [
+                {
+                  "use": "Thói quen, hành động lặp lại",
+                  "examples": [
+                    {
+                      "en": "I check my phone as soon as I wake up.",
+                      "vi": "Tôi xem điện thoại ngay khi thức dậy."
+                    },
+                    {
+                      "en": "We usually order pizza on Friday nights.",
+                      "vi": "Chúng tôi thường gọi pizza vào tối thứ Sáu."
+                    }
+                  ]
+                },
+                {
+                  "use": "Sự thật hiển nhiên, quy luật tự nhiên",
+                  "examples": [
+                    {
+                      "en": "Plants need sunlight to grow.",
+                      "vi": "Cây cần ánh nắng để phát triển."
+                    },
+                    {
+                      "en": "Light travels faster than sound.",
+                      "vi": "Ánh sáng truyền đi nhanh hơn âm thanh."
+                    }
+                  ]
+                },
+                {
+                  "use": "Tình huống lâu dài: công việc, nơi sống, sở hữu",
+                  "examples": [
+                    {
+                      "en": "My parents own a small restaurant downtown.",
+                      "vi": "Bố mẹ tôi có một nhà hàng nhỏ ở trung tâm thành phố."
+                    },
+                    {
+                      "en": "Linh works as a nurse at a children's hospital.",
+                      "vi": "Linh làm y tá ở một bệnh viện nhi."
+                    }
+                  ]
+                },
+                {
+                  "use": "Lịch trình, thời gian biểu cố định",
+                  "examples": [
+                    {
+                      "en": "The last bus leaves at 11:30 p.m.",
+                      "vi": "Chuyến xe buýt cuối cùng rời bến lúc 11 giờ 30 tối."
+                    },
+                    {
+                      "en": "The course starts on September 5.",
+                      "vi": "Khóa học bắt đầu vào ngày 5 tháng Chín."
+                    }
+                  ]
+                },
+                {
+                  "use": "Hướng dẫn, chỉ đường",
+                  "examples": [
+                    {
+                      "en": "You go straight for two blocks and then turn left.",
+                      "vi": "Bạn đi thẳng hai dãy nhà rồi rẽ trái."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "table",
+              "heading": "Trạng từ và cụm từ thời gian thường gặp",
+              "head": [
+                "Loại",
+                "Ví dụ",
+                "Vị trí"
+              ],
+              "rows": [
+                [
+                  "Trạng từ tần suất",
+                  "always, usually, often, sometimes, rarely, hardly ever, never",
+                  "Trước động từ thường, sau to be: <b>She rarely drives.</b> / <b>He is never late.</b>"
+                ],
+                [
+                  "Cụm chỉ tần suất",
+                  "every day, once a week, twice a month, three times a year",
+                  "Thường ở cuối câu: <b>I go swimming twice a week.</b>"
+                ],
+                [
+                  "Cụm chỉ thời gian",
+                  "on Mondays, in the evening, at night, on weekends",
+                  "Cuối câu hoặc đầu câu: <b>On weekends, we sleep late.</b>"
+                ]
+              ]
+            },
+            {
+              "kind": "explain",
+              "heading": "Lưu ý",
+              "bullets": [
+                "Chủ ngữ ngôi thứ ba số ít thêm -s/-es: <b>watch → watches</b>, <b>study → studies</b>, <b>have → has</b>.",
+                "Sau <b>does / doesn't</b>, động từ trở về nguyên mẫu: <b>Does he live here?</b> (không nói Does he lives here?)",
+                "<b>Sometimes, usually, often</b> có thể đứng đầu câu để nhấn mạnh: <b>Sometimes I work from home.</b> <b>Always</b> và <b>never</b> thường không đứng đầu câu khẳng định.",
+                "Khi có trợ động từ hoặc động từ khuyết thiếu, trạng từ tần suất đứng sau chúng: <b>I can never remember his name.</b>",
+                "<b>Never, rarely, hardly ever</b> đã mang nghĩa phủ định nên không dùng cùng not: <b>She hardly ever complains.</b>"
+              ]
+            }
+          ],
+          "example": "",
+          "content": ""
+        },
+        {
+          "type": "lesson",
+          "title": "Hiện tại tiếp diễn",
+          "intro": "Thì <b>hiện tại tiếp diễn</b> (present continuous) dùng để nói về việc đang diễn ra ngay lúc nói hoặc trong giai đoạn hiện tại, những tình huống tạm thời và những thay đổi đang diễn ra. Thì này cũng dùng cho kế hoạch đã sắp xếp trong tương lai gần. Cấu trúc gồm <b>am / is / are + V-ing</b>.",
+          "sections": [
+            {
+              "kind": "formula",
+              "heading": "Công thức",
+              "rows": [
+                {
+                  "label": "Khẳng định (+)",
+                  "formula": "S + am / is / are + V-ing",
+                  "example": {
+                    "en": "I'm waiting for a taxi.",
+                    "vi": "Tôi đang đợi taxi."
+                  }
+                },
+                {
+                  "label": "Phủ định (−)",
+                  "formula": "S + am not / isn't / aren't + V-ing",
+                  "example": {
+                    "en": "They aren't listening to the teacher.",
+                    "vi": "Họ không nghe giáo viên giảng."
+                  }
+                },
+                {
+                  "label": "Câu hỏi (?)",
+                  "formula": "Am / Is / Are + S + V-ing?",
+                  "example": {
+                    "en": "Are you using this charger?",
+                    "vi": "Bạn có đang dùng cái sạc này không?"
+                  }
+                },
+                {
+                  "label": "Câu hỏi Wh-",
+                  "formula": "Wh- + am / is / are + S + V-ing?",
+                  "example": {
+                    "en": "Why are you laughing?",
+                    "vi": "Sao bạn lại cười?"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "table",
+              "heading": "Cách thêm -ing",
+              "head": [
+                "Quy tắc",
+                "Ví dụ"
+              ],
+              "rows": [
+                [
+                  "Đa số động từ: thêm <b>-ing</b>",
+                  "read → read<b>ing</b>, play → play<b>ing</b>"
+                ],
+                [
+                  "Tận cùng là -e câm: bỏ e, thêm <b>-ing</b>",
+                  "make → mak<b>ing</b>, write → writ<b>ing</b>"
+                ],
+                [
+                  "Tận cùng là -ie: đổi thành <b>-ying</b>",
+                  "lie → l<b>ying</b>, die → d<b>ying</b>"
+                ],
+                [
+                  "Một nguyên âm + một phụ âm, trọng âm ở âm tiết cuối: gấp đôi phụ âm",
+                  "run → ru<b>nning</b>, sit → si<b>tting</b>, begin → begi<b>nning</b>"
+                ]
+              ]
+            },
+            {
+              "kind": "usage",
+              "heading": "Cách dùng",
+              "items": [
+                {
+                  "use": "Việc đang diễn ra ngay lúc nói",
+                  "examples": [
+                    {
+                      "en": "Can you call me back? I'm driving right now.",
+                      "vi": "Bạn gọi lại cho tôi được không? Tôi đang lái xe."
+                    }
+                  ]
+                },
+                {
+                  "use": "Việc diễn ra trong giai đoạn hiện tại, không nhất thiết ngay lúc nói",
+                  "examples": [
+                    {
+                      "en": "I'm reading a great book about the history of coffee.",
+                      "vi": "Tôi đang đọc một cuốn sách rất hay về lịch sử cà phê."
+                    },
+                    {
+                      "en": "My sister is preparing for her final exams these days.",
+                      "vi": "Dạo này em gái tôi đang ôn thi cuối kỳ."
+                    }
+                  ]
+                },
+                {
+                  "use": "Tình huống tạm thời",
+                  "examples": [
+                    {
+                      "en": "I'm staying at a friend's place until I find an apartment.",
+                      "vi": "Tôi đang ở nhờ nhà một người bạn cho đến khi tìm được căn hộ."
+                    }
+                  ]
+                },
+                {
+                  "use": "Sự thay đổi, xu hướng đang diễn ra",
+                  "examples": [
+                    {
+                      "en": "Rents are going up every year.",
+                      "vi": "Giá thuê nhà đang tăng lên mỗi năm."
+                    },
+                    {
+                      "en": "Your pronunciation is getting better.",
+                      "vi": "Phát âm của bạn đang tiến bộ dần."
+                    }
+                  ]
+                },
+                {
+                  "use": "Kế hoạch đã sắp xếp trong tương lai gần",
+                  "examples": [
+                    {
+                      "en": "I'm having lunch with my boss on Thursday.",
+                      "vi": "Tôi sẽ ăn trưa với sếp vào thứ Năm."
+                    }
+                  ]
+                },
+                {
+                  "use": "Thói quen gây khó chịu, đi với <b>always</b>",
+                  "examples": [
+                    {
+                      "en": "He's always leaving his dirty socks on the floor.",
+                      "vi": "Anh ấy cứ để tất bẩn trên sàn nhà suốt."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "table",
+              "heading": "So sánh hiện tại đơn và hiện tại tiếp diễn",
+              "head": [
+                "Hiện tại đơn",
+                "Hiện tại tiếp diễn"
+              ],
+              "rows": [
+                [
+                  "Thói quen, việc lặp lại: <b>I walk to work.</b>",
+                  "Việc đang diễn ra lúc nói: <b>I'm walking to work now.</b>"
+                ],
+                [
+                  "Tình huống lâu dài: <b>She lives in Hanoi.</b>",
+                  "Tình huống tạm thời: <b>She's renting a room near campus this semester.</b>"
+                ],
+                [
+                  "Sự thật, điều luôn đúng: <b>Rice grows in warm climates.</b>",
+                  "Thay đổi đang diễn ra: <b>The weather is getting warmer.</b>"
+                ],
+                [
+                  "Lịch trình cố định: <b>The concert starts at 8.</b>",
+                  "Kế hoạch cá nhân đã sắp xếp: <b>We're going to a concert on Saturday.</b>"
+                ]
+              ]
+            },
+            {
+              "kind": "table",
+              "heading": "Cụm từ thời gian thường gặp",
+              "head": [
+                "Hiện tại đơn",
+                "Hiện tại tiếp diễn"
+              ],
+              "rows": [
+                [
+                  "always, usually, often, sometimes, never",
+                  "now, right now, at the moment"
+                ],
+                [
+                  "every day, every week, every year",
+                  "today, this week, this month, these days"
+                ],
+                [
+                  "on Mondays, in the morning, at night",
+                  "currently, still, Look! / Listen!"
+                ]
+              ]
+            },
+            {
+              "kind": "explain",
+              "heading": "Lưu ý",
+              "bullets": [
+                "Không được bỏ to be: <b>She is working.</b> (không nói She working.)",
+                "Động từ trạng thái thường không dùng ở thì tiếp diễn: <b>I need a break.</b> (không nói I'm needing a break.)",
+                "Trong tiếng Anh Mỹ, động từ hai âm tiết có trọng âm ở âm tiết đầu không gấp đôi phụ âm: <b>travel → traveling</b>, <b>cancel → canceling</b>.",
+                "<b>Always</b> đi với hiện tại tiếp diễn thường thể hiện sự phàn nàn: <b>You're always interrupting me.</b>",
+                "Khi nói về tương lai, câu cần có cụm thời gian hoặc ngữ cảnh rõ ràng: <b>I'm flying to Seoul next Monday.</b>"
+              ]
+            }
+          ],
+          "example": "",
+          "content": ""
+        },
+        {
+          "type": "lesson",
+          "title": "Động từ trạng thái",
+          "intro": "<b>Động từ trạng thái</b> (stative verbs) diễn tả trạng thái, cảm xúc, suy nghĩ, giác quan hoặc sự sở hữu, chứ không diễn tả hành động. Vì vậy chúng thường không dùng ở các thì tiếp diễn, kể cả khi nói về lúc hiện tại. Một số động từ vừa có nghĩa trạng thái vừa có nghĩa hành động.",
+          "sections": [
+            {
+              "kind": "table",
+              "heading": "Nhóm động từ trạng thái thường gặp",
+              "head": [
+                "Nhóm",
+                "Động từ",
+                "Ví dụ"
+              ],
+              "rows": [
+                [
+                  "Cảm xúc, sở thích, mong muốn",
+                  "like, love, hate, prefer, want, need, wish",
+                  "<b>I prefer tea to coffee.</b>"
+                ],
+                [
+                  "Suy nghĩ, nhận thức",
+                  "know, believe, understand, remember, forget, mean, realize, recognize",
+                  "<b>Do you remember her name?</b>"
+                ],
+                [
+                  "Giác quan, vẻ bề ngoài",
+                  "see, hear, smell, taste, seem, look (trông có vẻ), sound",
+                  "<b>This soup tastes amazing.</b>"
+                ],
+                [
+                  "Sở hữu, đo lường",
+                  "have (có), own, belong, contain, cost, weigh",
+                  "<b>This bag belongs to Mai.</b>"
+                ],
+                [
+                  "Trạng thái khác",
+                  "be, exist, depend, matter, include",
+                  "<b>It depends on the weather.</b>"
+                ]
+              ]
+            },
+            {
+              "kind": "usage",
+              "heading": "Cách dùng",
+              "items": [
+                {
+                  "use": "Dùng ở thì đơn, kể cả khi nói về lúc hiện tại",
+                  "examples": [
+                    {
+                      "en": "I don't recognize that man. Who is he?",
+                      "vi": "Tôi không nhận ra người đàn ông đó. Anh ta là ai vậy?"
+                    },
+                    {
+                      "en": "This jacket costs 60 dollars.",
+                      "vi": "Chiếc áo khoác này giá 60 đô la."
+                    }
+                  ]
+                },
+                {
+                  "use": "Một số động từ được dùng ở thì tiếp diễn khi mang nghĩa hành động",
+                  "examples": [
+                    {
+                      "en": "We're having dinner right now. Can I call you later?",
+                      "vi": "Chúng tôi đang ăn tối. Tôi gọi lại cho bạn sau nhé?"
+                    },
+                    {
+                      "en": "I'm thinking about changing jobs.",
+                      "vi": "Tôi đang suy nghĩ về việc đổi việc."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "table",
+              "heading": "Nghĩa trạng thái và nghĩa hành động",
+              "head": [
+                "Động từ",
+                "Nghĩa trạng thái (thì đơn)",
+                "Nghĩa hành động (thì tiếp diễn)"
+              ],
+              "rows": [
+                [
+                  "think",
+                  "<b>I think</b> it's a good idea. (cho rằng)",
+                  "<b>I'm thinking</b> about the offer. (đang cân nhắc)"
+                ],
+                [
+                  "have",
+                  "<b>She has</b> two brothers. (có)",
+                  "<b>She's having</b> a bath. (đang tắm)"
+                ],
+                [
+                  "see",
+                  "<b>I see</b> what you mean. (hiểu)",
+                  "<b>I'm seeing</b> a friend tonight. (gặp)"
+                ],
+                [
+                  "taste",
+                  "The cake <b>tastes</b> sweet. (có vị)",
+                  "The chef <b>is tasting</b> the sauce. (nếm)"
+                ],
+                [
+                  "look",
+                  "You <b>look</b> happy. (trông có vẻ)",
+                  "<b>She's looking</b> at the photos. (nhìn)"
+                ],
+                [
+                  "be",
+                  "He <b>is</b> polite. (tính cách)",
+                  "He<b>'s being</b> rude today. (cách cư xử nhất thời)"
+                ]
+              ]
+            },
+            {
+              "kind": "explain",
+              "heading": "Lưu ý",
+              "bullets": [
+                "<b>Want, need, know, believe, understand, belong, own</b> gần như luôn dùng ở thì đơn: <b>I need your help.</b>",
+                "Với động từ giác quan, khi muốn nói đang nghe hoặc nhìn thấy ngay lúc này, thường dùng <b>can</b>: <b>I can hear music next door.</b>",
+                "<b>Feel</b> chỉ cảm giác cơ thể có thể dùng ở cả hai thì mà nghĩa gần như không đổi: <b>I feel tired.</b> / <b>I'm feeling tired.</b>",
+                "<b>Love</b> và <b>like</b> đôi khi dùng ở thì tiếp diễn trong văn nói thân mật để nhấn mạnh cảm xúc lúc đó: <b>I'm loving this weather!</b>",
+                "<b>Look, seem, sound, taste</b> theo nghĩa trạng thái đi với tính từ, không đi với trạng từ: <b>You look great.</b>"
+              ]
+            }
+          ],
+          "example": "",
+          "content": ""
+        },
+        {
+          "type": "content",
+          "title": "Lưu ý: be và have ở hiện tại đơn",
+          "intro": "",
+          "sections": [],
+          "example": "My boss is usually busy, but she always has time for a quick chat.",
+          "content": "Hai động từ be và have không theo quy tắc thêm -s thông thường.\n• be: I am / you, we, they are / he, she, it is. Câu phủ định và câu hỏi với be không dùng do / does: Is she at home? / I'm not ready.\n• have: với he, she, it dùng has (không nói haves). Câu phủ định và câu hỏi vẫn dùng do / does + have: Does he have a car? / She doesn't have time.\n• Trạng từ tần suất đứng SAU be nhưng đứng TRƯỚC have và các động từ thường: She is always busy. / She always has lunch at noon."
+        }
+      ]
+    },
+    {
+      "moduleId": "b1-m3",
+      "unitId": "b1-u07",
+      "points": [
+        {
+          "type": "lesson",
+          "title": "Will",
+          "intro": "<b>Will</b> + động từ nguyên mẫu dùng để nói về tương lai trong nhiều tình huống: quyết định ngay lúc nói, dự đoán dựa trên ý kiến, lời hứa, lời đề nghị và sự việc chắc chắn sẽ xảy ra. Will có cùng một dạng cho mọi chủ ngữ. Dạng viết tắt là <b>'ll</b> và <b>won't</b>.",
+          "sections": [
+            {
+              "kind": "formula",
+              "heading": "Công thức",
+              "rows": [
+                {
+                  "label": "Khẳng định (+)",
+                  "formula": "S + will ('ll) + V nguyên mẫu",
+                  "example": {
+                    "en": "Prices will probably rise next year.",
+                    "vi": "Giá cả có lẽ sẽ tăng vào năm sau."
+                  }
+                },
+                {
+                  "label": "Phủ định (−)",
+                  "formula": "S + will not (won't) + V nguyên mẫu",
+                  "example": {
+                    "en": "Don't worry, I won't tell anyone.",
+                    "vi": "Đừng lo, tôi sẽ không nói với ai đâu."
+                  }
+                },
+                {
+                  "label": "Câu hỏi (?)",
+                  "formula": "Will + S + V nguyên mẫu?",
+                  "example": {
+                    "en": "Will you be home for dinner?",
+                    "vi": "Bạn có về nhà ăn tối không?"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "usage",
+              "heading": "Cách dùng",
+              "items": [
+                {
+                  "use": "Quyết định ngay lúc nói",
+                  "examples": [
+                    {
+                      "en": "It's cold in here. I'll close the window.",
+                      "vi": "Trong này lạnh quá. Để tôi đóng cửa sổ."
+                    },
+                    {
+                      "en": "I'll have the chicken salad, please.",
+                      "vi": "Cho tôi món salad gà."
+                    }
+                  ]
+                },
+                {
+                  "use": "Dự đoán dựa trên ý kiến, niềm tin (I think, I'm sure, probably)",
+                  "examples": [
+                    {
+                      "en": "I'm sure you'll enjoy the trip.",
+                      "vi": "Tôi chắc là bạn sẽ thích chuyến đi."
+                    },
+                    {
+                      "en": "I don't think it'll be crowded on a weekday.",
+                      "vi": "Tôi nghĩ ngày thường sẽ không đông lắm."
+                    }
+                  ]
+                },
+                {
+                  "use": "Lời hứa",
+                  "examples": [
+                    {
+                      "en": "I'll pay you back on Friday.",
+                      "vi": "Tôi sẽ trả lại tiền cho bạn vào thứ Sáu."
+                    }
+                  ]
+                },
+                {
+                  "use": "Lời đề nghị giúp đỡ và lời nhờ vả",
+                  "examples": [
+                    {
+                      "en": "I'll drive you to the airport if you like.",
+                      "vi": "Nếu bạn muốn, tôi sẽ chở bạn ra sân bay."
+                    },
+                    {
+                      "en": "Will you hold the door for me?",
+                      "vi": "Bạn giữ cửa giúp tôi được không?"
+                    }
+                  ]
+                },
+                {
+                  "use": "Sự việc chắc chắn xảy ra trong tương lai",
+                  "examples": [
+                    {
+                      "en": "My daughter will be ten next month.",
+                      "vi": "Tháng sau con gái tôi sẽ tròn mười tuổi."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "table",
+              "heading": "Từ thường đi với will",
+              "head": [
+                "Từ",
+                "Vị trí",
+                "Ví dụ"
+              ],
+              "rows": [
+                [
+                  "probably, definitely, certainly",
+                  "Sau will, nhưng trước won't",
+                  "She'll <b>probably</b> be late. / She <b>probably</b> won't come."
+                ],
+                [
+                  "I think / I don't think",
+                  "Đầu câu",
+                  "<b>I don't think</b> he'll mind."
+                ],
+                [
+                  "maybe, perhaps",
+                  "Đầu câu",
+                  "<b>Maybe</b> we'll see them there."
+                ],
+                [
+                  "I'm sure / I hope / I expect",
+                  "Đầu câu",
+                  "<b>I hope</b> you'll feel better soon."
+                ]
+              ]
+            },
+            {
+              "kind": "explain",
+              "heading": "Lưu ý",
+              "bullets": [
+                "Sau will luôn là động từ nguyên mẫu không có to: <b>She will call you.</b> (không nói will to call hay will calls.)",
+                "Khi đưa ra ý kiến phủ định, thường dùng <b>I don't think ... will</b> hơn là I think ... won't: <b>I don't think they'll come.</b>",
+                "Kế hoạch đã quyết định từ trước không dùng will mà dùng be going to: <b>I'm going to visit my cousin on Sunday.</b>",
+                "<b>Shall I / Shall we</b> dùng để đề nghị hoặc gợi ý, phổ biến hơn trong tiếng Anh Anh. Tiếng Anh Mỹ thường nói <b>Should I ...?</b> hoặc <b>Do you want me to ...?</b>"
+              ]
+            }
+          ],
+          "example": "",
+          "content": ""
+        },
+        {
+          "type": "lesson",
+          "title": "Be going to",
+          "intro": "<b>Be going to</b> + động từ nguyên mẫu dùng để nói về dự định hoặc kế hoạch đã quyết định từ trước thời điểm nói. Cấu trúc này cũng dùng để dự đoán khi có dấu hiệu, bằng chứng ở hiện tại. Phần <b>be</b> chia theo chủ ngữ: am / is / are.",
+          "sections": [
+            {
+              "kind": "formula",
+              "heading": "Công thức",
+              "rows": [
+                {
+                  "label": "Khẳng định (+)",
+                  "formula": "S + am / is / are + going to + V nguyên mẫu",
+                  "example": {
+                    "en": "We're going to repaint the kitchen this summer.",
+                    "vi": "Mùa hè này chúng tôi định sơn lại nhà bếp."
+                  }
+                },
+                {
+                  "label": "Phủ định (−)",
+                  "formula": "S + am not / isn't / aren't + going to + V nguyên mẫu",
+                  "example": {
+                    "en": "I'm not going to apply for that job.",
+                    "vi": "Tôi sẽ không nộp đơn vào công việc đó."
+                  }
+                },
+                {
+                  "label": "Câu hỏi (?)",
+                  "formula": "Am / Is / Are + S + going to + V nguyên mẫu?",
+                  "example": {
+                    "en": "Are you going to tell her the truth?",
+                    "vi": "Bạn có định nói sự thật với cô ấy không?"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "usage",
+              "heading": "Cách dùng",
+              "items": [
+                {
+                  "use": "Dự định, kế hoạch đã quyết định từ trước",
+                  "examples": [
+                    {
+                      "en": "My brother is going to sell his car and buy a bike.",
+                      "vi": "Anh trai tôi định bán ô tô và mua xe đạp."
+                    },
+                    {
+                      "en": "I've saved enough money. I'm going to take a trip to Japan.",
+                      "vi": "Tôi đã tiết kiệm đủ tiền. Tôi sẽ đi du lịch Nhật Bản."
+                    }
+                  ]
+                },
+                {
+                  "use": "Dự đoán dựa trên dấu hiệu ở hiện tại",
+                  "examples": [
+                    {
+                      "en": "Hurry up! We're going to miss the train.",
+                      "vi": "Nhanh lên! Chúng ta sắp lỡ tàu rồi."
+                    },
+                    {
+                      "en": "The sky is clearing. It's going to be a beautiful day.",
+                      "vi": "Trời đang quang dần. Hôm nay sẽ là một ngày đẹp."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "table",
+              "heading": "Will hay be going to?",
+              "head": [
+                "Will",
+                "Be going to"
+              ],
+              "rows": [
+                [
+                  "Quyết định ngay lúc nói: <b>Oh, we're out of milk. I'll get some.</b>",
+                  "Quyết định từ trước: <b>I'm going to get milk on my way home.</b>"
+                ],
+                [
+                  "Dự đoán dựa trên ý kiến: <b>I think our team will win.</b>",
+                  "Dự đoán dựa trên dấu hiệu: <b>They're two goals ahead. They're going to win.</b>"
+                ],
+                [
+                  "Lời hứa, lời đề nghị: <b>I'll help you move on Saturday.</b>",
+                  "Không dùng cho lời hứa hoặc lời đề nghị đưa ra ngay lúc nói"
+                ]
+              ]
+            },
+            {
+              "kind": "explain",
+              "heading": "Lưu ý",
+              "bullets": [
+                "Không được bỏ to be: <b>She is going to start a new course.</b> (không nói She going to start.)",
+                "Với động từ <b>go</b>, có thể nói going to go, nhưng hiện tại tiếp diễn tự nhiên hơn: <b>We're going to the beach tomorrow.</b>",
+                "Trong văn nói thân mật, going to thường được phát âm là <b>gonna</b>, nhưng không viết như vậy trong văn viết trang trọng.",
+                "<b>Was / were going to</b> diễn tả dự định trong quá khứ nhưng đã không thực hiện: <b>I was going to call you, but I forgot.</b>"
+              ]
+            }
+          ],
+          "example": "",
+          "content": ""
+        },
+        {
+          "type": "lesson",
+          "title": "Hiện tại tiếp diễn chỉ tương lai",
+          "intro": "<b>Hiện tại tiếp diễn</b> có thể dùng để nói về kế hoạch cá nhân trong tương lai đã được sắp xếp cụ thể, thường đã có thời gian, địa điểm hoặc đã hẹn với người khác. Câu thường cần một cụm từ chỉ thời gian tương lai hoặc ngữ cảnh rõ ràng.",
+          "sections": [
+            {
+              "kind": "formula",
+              "heading": "Công thức",
+              "rows": [
+                {
+                  "label": "Khẳng định (+)",
+                  "formula": "S + am / is / are + V-ing + thời gian tương lai",
+                  "example": {
+                    "en": "I'm getting my hair cut on Saturday morning.",
+                    "vi": "Sáng thứ Bảy tôi đi cắt tóc."
+                  }
+                },
+                {
+                  "label": "Câu hỏi về kế hoạch",
+                  "formula": "What + am / is / are + S + doing + thời gian tương lai?",
+                  "example": {
+                    "en": "What are you doing after work?",
+                    "vi": "Tan làm bạn định làm gì?"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "usage",
+              "heading": "Cách dùng",
+              "items": [
+                {
+                  "use": "Cuộc hẹn, lịch gặp đã xếp",
+                  "examples": [
+                    {
+                      "en": "I'm seeing the doctor at 4:30 this afternoon.",
+                      "vi": "Chiều nay tôi có hẹn khám bác sĩ lúc 4 giờ 30."
+                    }
+                  ]
+                },
+                {
+                  "use": "Kế hoạch đã sắp xếp xong (đã mua vé, đã đặt chỗ)",
+                  "examples": [
+                    {
+                      "en": "We're taking the night train to Sapa next Tuesday.",
+                      "vi": "Thứ Ba tới chúng tôi đi chuyến tàu đêm lên Sa Pa."
+                    }
+                  ]
+                },
+                {
+                  "use": "Sự kiện đã sắp xếp cùng người khác",
+                  "examples": [
+                    {
+                      "en": "My cousins are coming to stay with us over the holidays.",
+                      "vi": "Các anh chị họ của tôi sẽ đến ở với chúng tôi trong kỳ nghỉ lễ."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "table",
+              "heading": "Hiện tại tiếp diễn và be going to",
+              "head": [
+                "Hiện tại tiếp diễn",
+                "Be going to"
+              ],
+              "rows": [
+                [
+                  "Kế hoạch đã sắp xếp cụ thể: <b>I'm meeting the landlord at 6.</b> (đã hẹn)",
+                  "Dự định, có thể chưa sắp xếp: <b>I'm going to look for a new apartment.</b>"
+                ],
+                [
+                  "Không dùng để dự đoán",
+                  "Dùng để dự đoán: <b>It's going to be hot today.</b>"
+                ],
+                [
+                  "Thường không dùng với động từ trạng thái",
+                  "Dùng được với động từ trạng thái: <b>You're going to love this place.</b>"
+                ]
+              ]
+            },
+            {
+              "kind": "explain",
+              "heading": "Lưu ý",
+              "bullets": [
+                "Thiếu cụm từ thời gian, câu sẽ được hiểu là việc đang diễn ra: <b>I'm playing tennis.</b> (bây giờ) / <b>I'm playing tennis tomorrow.</b> (tương lai).",
+                "Không dùng hiện tại tiếp diễn cho sự việc không do con người sắp xếp, như thời tiết: <b>It's going to snow tonight.</b>",
+                "Khi nói về kế hoạch, hai cách thường thay thế được cho nhau: <b>We're having a party on Friday.</b> / <b>We're going to have a party on Friday.</b>"
+              ]
+            }
+          ],
+          "example": "",
+          "content": ""
+        },
+        {
+          "type": "lesson",
+          "title": "Hiện tại đơn chỉ tương lai",
+          "intro": "<b>Hiện tại đơn</b> được dùng cho sự kiện tương lai theo lịch trình hoặc thời gian biểu cố định, như giờ tàu xe, giờ chiếu phim, lịch học. Hiện tại đơn cũng được dùng trong mệnh đề thời gian và mệnh đề điều kiện nói về tương lai, sau các từ như <b>when, after, as soon as, until, if</b>.",
+          "sections": [
+            {
+              "kind": "formula",
+              "heading": "Công thức",
+              "rows": [
+                {
+                  "label": "Lịch trình",
+                  "formula": "S + V(s/es) + thời gian tương lai",
+                  "example": {
+                    "en": "The museum tour begins at 10 a.m. tomorrow.",
+                    "vi": "Chuyến tham quan bảo tàng bắt đầu lúc 10 giờ sáng mai."
+                  }
+                },
+                {
+                  "label": "Mệnh đề thời gian",
+                  "formula": "S + will + V + when / after / as soon as / until + S + V(s/es)",
+                  "example": {
+                    "en": "I'll text you as soon as I land.",
+                    "vi": "Tôi sẽ nhắn tin cho bạn ngay khi máy bay hạ cánh."
+                  }
+                },
+                {
+                  "label": "Mệnh đề điều kiện",
+                  "formula": "S + will + V + if + S + V(s/es)",
+                  "example": {
+                    "en": "We'll eat outside if the weather is nice.",
+                    "vi": "Chúng ta sẽ ăn ở ngoài trời nếu thời tiết đẹp."
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "usage",
+              "heading": "Cách dùng",
+              "items": [
+                {
+                  "use": "Lịch trình giao thông",
+                  "examples": [
+                    {
+                      "en": "Our flight boards at 6:40, so we need to leave early.",
+                      "vi": "Chuyến bay của chúng ta bắt đầu cho lên máy bay lúc 6 giờ 40, nên chúng ta cần đi sớm."
+                    }
+                  ]
+                },
+                {
+                  "use": "Giờ mở cửa, giờ chiếu phim, lịch học, lịch sự kiện",
+                  "examples": [
+                    {
+                      "en": "The new semester starts on January 8.",
+                      "vi": "Học kỳ mới bắt đầu vào ngày 8 tháng Một."
+                    },
+                    {
+                      "en": "What time does the movie finish?",
+                      "vi": "Mấy giờ thì phim kết thúc?"
+                    }
+                  ]
+                },
+                {
+                  "use": "Sau when, before, after, as soon as, until, if khi nói về tương lai",
+                  "examples": [
+                    {
+                      "en": "Please wait here until I come back.",
+                      "vi": "Bạn hãy đợi ở đây cho đến khi tôi quay lại."
+                    },
+                    {
+                      "en": "When you get to the hotel, give me a call.",
+                      "vi": "Khi nào đến khách sạn thì gọi cho tôi nhé."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "table",
+              "heading": "Tóm tắt các cách nói về tương lai",
+              "head": [
+                "Cấu trúc",
+                "Cách dùng chính",
+                "Ví dụ"
+              ],
+              "rows": [
+                [
+                  "will",
+                  "Quyết định lúc nói, dự đoán theo ý kiến, lời hứa, lời đề nghị",
+                  "<b>I'll get the door.</b>"
+                ],
+                [
+                  "be going to",
+                  "Dự định đã có từ trước, dự đoán dựa trên dấu hiệu",
+                  "<b>She's going to start a business.</b>"
+                ],
+                [
+                  "hiện tại tiếp diễn",
+                  "Kế hoạch cá nhân đã sắp xếp",
+                  "<b>We're visiting my in-laws on Sunday.</b>"
+                ],
+                [
+                  "hiện tại đơn",
+                  "Lịch trình, thời gian biểu cố định",
+                  "<b>The ferry leaves at 7:00.</b>"
+                ]
+              ]
+            },
+            {
+              "kind": "explain",
+              "heading": "Lưu ý",
+              "bullets": [
+                "Không dùng will sau when, as soon as, until, before, after, if khi nói về tương lai: <b>I'll call you when I arrive.</b> (không nói when I will arrive.)",
+                "Hiện tại đơn chỉ tương lai dùng cho lịch trình chung, không dùng cho kế hoạch cá nhân: <b>I'm meeting Hoa tomorrow.</b> (không nói I meet Hoa tomorrow.)",
+                "Các động từ thường gặp: <b>start, begin, finish, end, open, close, leave, arrive, depart</b>."
+              ]
+            }
+          ],
+          "example": "",
+          "content": ""
+        },
+        {
+          "type": "content",
+          "title": "Sự thật trong tương lai: will hoặc be going to",
+          "intro": "",
+          "sections": [],
+          "example": "The new bridge will be / is going to be ready by the end of the year.",
+          "content": "Khi nói về một điều chắc chắn sẽ xảy ra trong tương lai (tuổi tác, công trình sắp hoàn thành, sự việc ai cũng biết), có thể dùng cả <b>will</b> lẫn <b>be going to</b>. Nghĩa gần như không đổi.\nVí dụ: tuổi sắp tròn, thông tin về một tòa nhà, ngôi trường, bệnh viện đang xây."
+        },
+        {
+          "type": "content",
+          "title": "Lưu ý: hiện tại tiếp diễn không dùng cho dự định chưa sắp xếp và dự đoán",
+          "intro": "",
+          "sections": [],
+          "example": "I'm going to open my own café one day.",
+          "content": "Hiện tại tiếp diễn chỉ dùng cho việc <b>đã sắp xếp cụ thể</b> (đã hẹn, đã đặt vé...).\n• Dự định, mong muốn chưa sắp xếp → dùng <b>be going to</b>: I'm going to learn to drive one day. (không nói I'm learning to drive one day.)\n• Dự đoán → dùng <b>will</b> hoặc <b>be going to</b>: I think you'll enjoy the show. (không nói you're enjoying the show next week.)"
+        },
+        {
+          "type": "content",
+          "title": "Shall I / Shall we khi đề nghị, gợi ý",
+          "intro": "",
+          "sections": [],
+          "example": "Shall I open the window? It's really hot in here.",
+          "content": "Khi lời đề nghị giúp đỡ hoặc lời gợi ý ở dạng <b>câu hỏi</b> với chủ ngữ <b>I</b> hoặc <b>we</b>, dùng <b>Shall</b> thay cho will.\n• Shall I ...? = Để tôi ... nhé?\n• Shall we ...? = Chúng ta ... nhé?\nLưu ý thêm: will không dùng cho lịch hẹn đã sắp xếp; khi đã hẹn trước, dùng hiện tại tiếp diễn: We're visiting Grandma on Sunday. (không nói We'll visit Grandma on Sunday.)"
+        }
+      ]
+    },
+    {
+      "moduleId": "b2-m1",
+      "unitId": "b2-u01",
+      "points": [
+        {
+          "type": "lesson",
+          "title": "Thì Hiện tại đơn",
+          "intro": "Thì <b>Hiện tại đơn</b> (Present Simple) diễn tả những điều được xem là cố định hoặc lặp lại: thói quen, sự thật, tình huống lâu dài và lịch trình. Thì này còn dùng để tóm tắt nội dung phim, sách và đưa ra chỉ dẫn.",
+          "sections": [
+            {
+              "kind": "formula",
+              "heading": "Công thức",
+              "rows": [
+                {
+                  "label": "Khẳng định (+)",
+                  "formula": "S + V(s/es) + ...",
+                  "example": {
+                    "en": "She works from home on Fridays.",
+                    "vi": "Cô ấy làm việc ở nhà vào các ngày thứ Sáu."
+                  }
+                },
+                {
+                  "label": "Phủ định (−)",
+                  "formula": "S + don't/doesn't + V nguyên mẫu + ...",
+                  "example": {
+                    "en": "He doesn't drink coffee after lunch.",
+                    "vi": "Anh ấy không uống cà phê sau bữa trưa."
+                  }
+                },
+                {
+                  "label": "Câu hỏi (?)",
+                  "formula": "Do/Does + S + V nguyên mẫu + ...?",
+                  "example": {
+                    "en": "Does this bus stop near the library?",
+                    "vi": "Xe buýt này có dừng gần thư viện không?"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "usage",
+              "heading": "Cách dùng",
+              "items": [
+                {
+                  "use": "Thói quen, hành động lặp lại, thường đi với trạng từ tần suất",
+                  "examples": [
+                    {
+                      "en": "I usually check my email before breakfast.",
+                      "vi": "Tôi thường kiểm tra email trước bữa sáng."
+                    },
+                    {
+                      "en": "We eat out about twice a month.",
+                      "vi": "Chúng tôi đi ăn ngoài khoảng hai lần một tháng."
+                    }
+                  ]
+                },
+                {
+                  "use": "Sự thật hiển nhiên, quy luật tự nhiên",
+                  "examples": [
+                    {
+                      "en": "Light travels faster than sound.",
+                      "vi": "Ánh sáng truyền nhanh hơn âm thanh."
+                    }
+                  ]
+                },
+                {
+                  "use": "Tình huống lâu dài: công việc, nơi sống, sở thích",
+                  "examples": [
+                    {
+                      "en": "My brother works for a software company in Austin.",
+                      "vi": "Anh trai tôi làm việc cho một công ty phần mềm ở Austin."
+                    }
+                  ]
+                },
+                {
+                  "use": "Lịch trình, thời gian biểu cố định, kể cả trong tương lai",
+                  "examples": [
+                    {
+                      "en": "Our flight departs at 11:20 tomorrow night.",
+                      "vi": "Chuyến bay của chúng tôi cất cánh lúc 11 giờ 20 tối mai."
+                    }
+                  ]
+                },
+                {
+                  "use": "Tóm tắt nội dung phim, sách; đưa ra chỉ dẫn từng bước",
+                  "examples": [
+                    {
+                      "en": "In the film, a young doctor moves to a small town and opens a clinic.",
+                      "vi": "Trong phim, một bác sĩ trẻ chuyển đến một thị trấn nhỏ và mở một phòng khám."
+                    },
+                    {
+                      "en": "You turn left at the gas station, then take the second exit.",
+                      "vi": "Bạn rẽ trái ở cây xăng, rồi đi theo lối ra thứ hai."
+                    }
+                  ]
+                },
+                {
+                  "use": "Hành động được thực hiện ngay khi nói ra, với các động từ như <b>promise, agree, apologize, suggest</b>",
+                  "examples": [
+                    {
+                      "en": "I promise I'll be more careful next time.",
+                      "vi": "Tôi hứa lần sau sẽ cẩn thận hơn."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "explain",
+              "heading": "Lưu ý",
+              "bullets": [
+                "Trạng từ tần suất đứng trước động từ thường nhưng sau to be: <b>She rarely complains.</b> / <b>He is always polite.</b>",
+                "Cụm thời gian thường gặp: <b>every week, on weekdays, once a month, twice a year, most mornings</b>.",
+                "Câu hỏi có từ để hỏi làm chủ ngữ không dùng do/does: <b>Who lives next door?</b>",
+                "Sau <b>when, as soon as, until, if</b>, hiện tại đơn được dùng để nói về tương lai: <b>Call me when you get home.</b>"
+              ]
+            }
+          ],
+          "example": "",
+          "content": ""
+        },
+        {
+          "type": "lesson",
+          "title": "Thì Hiện tại tiếp diễn",
+          "intro": "Thì <b>Hiện tại tiếp diễn</b> (Present Continuous) diễn tả hành động đang diễn ra, mang tính tạm thời hoặc đang thay đổi. Thì này cũng dùng cho kế hoạch đã sắp xếp trong tương lai gần.",
+          "sections": [
+            {
+              "kind": "formula",
+              "heading": "Công thức",
+              "rows": [
+                {
+                  "label": "Khẳng định (+)",
+                  "formula": "S + am/is/are + V-ing + ...",
+                  "example": {
+                    "en": "They are renovating their kitchen.",
+                    "vi": "Họ đang sửa sang lại nhà bếp."
+                  }
+                },
+                {
+                  "label": "Phủ định (−)",
+                  "formula": "S + am/is/are + not + V-ing + ...",
+                  "example": {
+                    "en": "I'm not working this weekend.",
+                    "vi": "Cuối tuần này tôi không làm việc."
+                  }
+                },
+                {
+                  "label": "Câu hỏi (?)",
+                  "formula": "Am/Is/Are + S + V-ing + ...?",
+                  "example": {
+                    "en": "Are you using this chair?",
+                    "vi": "Bạn có đang dùng cái ghế này không?"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "usage",
+              "heading": "Cách dùng",
+              "items": [
+                {
+                  "use": "Hành động đang xảy ra ngay lúc nói",
+                  "examples": [
+                    {
+                      "en": "Hold on, I'm parking the car.",
+                      "vi": "Chờ chút, tôi đang đỗ xe."
+                    }
+                  ]
+                },
+                {
+                  "use": "Hành động đang diễn ra trong giai đoạn hiện tại, không nhất thiết ngay lúc nói",
+                  "examples": [
+                    {
+                      "en": "I'm reading a great novel about the Civil War.",
+                      "vi": "Tôi đang đọc một cuốn tiểu thuyết rất hay về cuộc Nội chiến Mỹ."
+                    },
+                    {
+                      "en": "She's taking an evening course in accounting this semester.",
+                      "vi": "Học kỳ này cô ấy đang theo học một khóa kế toán buổi tối."
+                    }
+                  ]
+                },
+                {
+                  "use": "Tình huống tạm thời",
+                  "examples": [
+                    {
+                      "en": "My parents are living in a rented apartment while their house is being repaired.",
+                      "vi": "Bố mẹ tôi đang sống trong một căn hộ thuê trong lúc nhà đang được sửa."
+                    }
+                  ]
+                },
+                {
+                  "use": "Xu hướng, sự thay đổi đang diễn ra dần dần",
+                  "examples": [
+                    {
+                      "en": "Rents in this city are rising quickly.",
+                      "vi": "Giá thuê nhà ở thành phố này đang tăng nhanh."
+                    },
+                    {
+                      "en": "More and more people are working remotely.",
+                      "vi": "Ngày càng nhiều người làm việc từ xa."
+                    }
+                  ]
+                },
+                {
+                  "use": "Kế hoạch cá nhân đã sắp xếp cho tương lai gần",
+                  "examples": [
+                    {
+                      "en": "We're having dinner with my in-laws on Saturday.",
+                      "vi": "Thứ Bảy này chúng tôi ăn tối với bố mẹ vợ."
+                    }
+                  ]
+                },
+                {
+                  "use": "<b>always / constantly / forever + V-ing</b>: thói quen gây khó chịu hoặc gây ngạc nhiên",
+                  "examples": [
+                    {
+                      "en": "He's always leaving his dirty dishes in the sink.",
+                      "vi": "Anh ta lúc nào cũng để bát đĩa bẩn trong bồn rửa."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "table",
+              "heading": "So sánh Hiện tại đơn và Hiện tại tiếp diễn",
+              "head": [
+                "Hiện tại đơn",
+                "Hiện tại tiếp diễn"
+              ],
+              "rows": [
+                [
+                  "Việc lâu dài: I <b>work</b> at a bank.",
+                  "Việc tạm thời: I<b>'m working</b> at our Chicago office this month."
+                ],
+                [
+                  "Sự thật chung: Prices <b>go</b> up every year.",
+                  "Xu hướng đang diễn ra: Prices <b>are going</b> up fast this year."
+                ],
+                [
+                  "Lịch trình cố định: The show <b>starts</b> at 8.",
+                  "Kế hoạch cá nhân: We<b>'re seeing</b> the show on Friday."
+                ],
+                [
+                  "Thói quen trung tính: She sometimes <b>forgets</b> her keys.",
+                  "Thói quen gây khó chịu: She<b>'s always forgetting</b> her keys."
+                ]
+              ]
+            },
+            {
+              "kind": "explain",
+              "heading": "Lưu ý",
+              "bullets": [
+                "Cụm thời gian thường gặp: <b>now, right now, at the moment, currently, these days, this week, nowadays</b>.",
+                "Chính tả V-ing: bỏ e câm (<b>make → making</b>), gấp đôi phụ âm cuối khi trước nó là một nguyên âm mang trọng âm (<b>stop → stopping, begin → beginning</b>), đổi ie thành y (<b>lie → lying</b>).",
+                "Động từ trạng thái thường không dùng ở dạng tiếp diễn: <b>I understand now.</b> (không nói I'm understanding now)",
+                "<b>Look!</b> và <b>Listen!</b> ở đầu câu thường báo hiệu hành động đang diễn ra: <b>Look! The baby is walking.</b>"
+              ]
+            }
+          ],
+          "example": "",
+          "content": ""
+        },
+        {
+          "type": "lesson",
+          "title": "Động từ trạng thái",
+          "intro": "<b>Động từ trạng thái</b> (stative verbs) diễn tả trạng thái, suy nghĩ, cảm xúc, sở hữu hoặc nhận thức của giác quan, không phải hành động. Chúng thường không dùng ở các thì tiếp diễn. Một số động từ vừa có nghĩa trạng thái vừa có nghĩa hành động.",
+          "sections": [
+            {
+              "kind": "table",
+              "heading": "Các nhóm động từ trạng thái",
+              "head": [
+                "Nhóm",
+                "Động từ"
+              ],
+              "rows": [
+                [
+                  "Suy nghĩ, quan điểm",
+                  "know, believe, understand, realize, recognize, remember, forget, mean, suppose, doubt"
+                ],
+                [
+                  "Cảm xúc, mong muốn",
+                  "like, love, hate, prefer, want, need, wish, mind"
+                ],
+                [
+                  "Sở hữu",
+                  "own, have (sở hữu), belong, possess, include, contain"
+                ],
+                [
+                  "Giác quan, vẻ bề ngoài",
+                  "see, hear, smell, taste, feel, seem, appear, look (trông có vẻ), sound"
+                ],
+                [
+                  "Khác",
+                  "be, cost, weigh, matter, depend, consist, deserve, fit"
+                ]
+              ]
+            },
+            {
+              "kind": "usage",
+              "heading": "Cách dùng",
+              "items": [
+                {
+                  "use": "Diễn tả trạng thái ở hiện tại bằng hiện tại đơn, kể cả khi trạng thái đó đang đúng ngay lúc nói",
+                  "examples": [
+                    {
+                      "en": "I don't recognize that man.",
+                      "vi": "Tôi không nhận ra người đàn ông đó."
+                    },
+                    {
+                      "en": "Do you remember her last name?",
+                      "vi": "Bạn có nhớ họ của cô ấy không?"
+                    }
+                  ]
+                },
+                {
+                  "use": "Với khoảng thời gian kéo dài đến nay, dùng hiện tại hoàn thành đơn thay cho hoàn thành tiếp diễn",
+                  "examples": [
+                    {
+                      "en": "We've known each other since college.",
+                      "vi": "Chúng tôi quen nhau từ hồi đại học."
+                    }
+                  ]
+                },
+                {
+                  "use": "Diễn tả cảm nhận của giác quan đang xảy ra với <b>can / could</b>",
+                  "examples": [
+                    {
+                      "en": "I can smell smoke. Is something burning?",
+                      "vi": "Tôi ngửi thấy mùi khói. Có cái gì đang cháy à?"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "table",
+              "heading": "Động từ có hai nghĩa",
+              "head": [
+                "Động từ",
+                "Nghĩa trạng thái (thì đơn)",
+                "Nghĩa hành động (thì tiếp diễn)"
+              ],
+              "rows": [
+                [
+                  "think",
+                  "I <b>think</b> the plan will work. (cho rằng)",
+                  "I<b>'m thinking</b> about changing jobs. (đang cân nhắc)"
+                ],
+                [
+                  "have",
+                  "They <b>have</b> two cars. (sở hữu)",
+                  "They<b>'re having</b> lunch. (đang ăn)"
+                ],
+                [
+                  "see",
+                  "I <b>see</b> what you mean. (hiểu)",
+                  "She<b>'s seeing</b> a specialist tomorrow. (gặp)"
+                ],
+                [
+                  "taste",
+                  "This sauce <b>tastes</b> too salty. (có vị)",
+                  "The chef <b>is tasting</b> the sauce. (nếm)"
+                ],
+                [
+                  "look",
+                  "You <b>look</b> tired. (trông có vẻ)",
+                  "Why <b>are</b> you <b>looking</b> at me? (nhìn)"
+                ],
+                [
+                  "weigh",
+                  "My suitcase <b>weighs</b> 50 pounds. (nặng)",
+                  "The agent <b>is weighing</b> my suitcase. (cân)"
+                ],
+                [
+                  "be",
+                  "He <b>is</b> careful. (tính cách)",
+                  "He<b>'s being</b> careful today. (cách cư xử tạm thời)"
+                ]
+              ]
+            },
+            {
+              "kind": "explain",
+              "heading": "Lưu ý",
+              "bullets": [
+                "<b>feel</b> (cảm thấy) có thể dùng ở thì đơn hoặc tiếp diễn mà nghĩa gần như không đổi: <b>I feel / I'm feeling much better.</b>",
+                "<b>be</b> ở dạng tiếp diễn đi với tính từ chỉ hành vi (rude, silly, patient, unfair) để nói cách cư xử nhất thời: <b>You're being unfair.</b>",
+                "<b>hope, wonder</b> ở dạng tiếp diễn làm lời nói mềm mỏng, lịch sự hơn: <b>We're hoping you can join us.</b>",
+                "Trong văn nói thân mật, <b>love</b> đôi khi dùng tiếp diễn để nhấn mạnh sự thích thú lúc đó: <b>I'm loving this weather.</b>",
+                "Quy tắc này áp dụng cho mọi thì tiếp diễn: <b>I didn't know.</b> (không nói I wasn't knowing)"
+              ]
+            }
+          ],
+          "example": "",
+          "content": ""
+        },
+        {
+          "type": "lesson",
+          "title": "Thì Hiện tại hoàn thành",
+          "intro": "Thì <b>Hiện tại hoàn thành</b> (Present Perfect) nối quá khứ với hiện tại. Thì này dùng khi một việc trong quá khứ có kết quả hoặc liên quan đến hiện tại, khi nói về kinh nghiệm, hoặc khi một tình huống kéo dài từ quá khứ đến nay.",
+          "sections": [
+            {
+              "kind": "formula",
+              "heading": "Công thức",
+              "rows": [
+                {
+                  "label": "Khẳng định (+)",
+                  "formula": "S + have/has + V3 + ...",
+                  "example": {
+                    "en": "She has lost her wallet.",
+                    "vi": "Cô ấy bị mất ví rồi."
+                  }
+                },
+                {
+                  "label": "Phủ định (−)",
+                  "formula": "S + haven't/hasn't + V3 + ...",
+                  "example": {
+                    "en": "We haven't decided yet.",
+                    "vi": "Chúng tôi vẫn chưa quyết định."
+                  }
+                },
+                {
+                  "label": "Câu hỏi (?)",
+                  "formula": "Have/Has + S + V3 + ...?",
+                  "example": {
+                    "en": "Have you ever tried surfing?",
+                    "vi": "Bạn đã bao giờ thử lướt sóng chưa?"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "usage",
+              "heading": "Cách dùng",
+              "items": [
+                {
+                  "use": "Việc vừa xảy ra hoặc có kết quả rõ ràng ở hiện tại",
+                  "examples": [
+                    {
+                      "en": "Someone has taken my umbrella.",
+                      "vi": "Ai đó đã lấy mất cái ô của tôi."
+                    },
+                    {
+                      "en": "I've cut my finger.",
+                      "vi": "Tôi bị đứt tay rồi."
+                    }
+                  ]
+                },
+                {
+                  "use": "Kinh nghiệm trong đời, không nêu thời điểm, thường với <b>ever, never, before</b>",
+                  "examples": [
+                    {
+                      "en": "Have you ever been to Alaska?",
+                      "vi": "Bạn đã bao giờ đến Alaska chưa?"
+                    },
+                    {
+                      "en": "I've never seen such a beautiful sunset.",
+                      "vi": "Tôi chưa bao giờ thấy cảnh hoàng hôn đẹp như vậy."
+                    }
+                  ]
+                },
+                {
+                  "use": "Tình huống bắt đầu trong quá khứ và kéo dài đến hiện tại, với <b>for / since</b>",
+                  "examples": [
+                    {
+                      "en": "They've lived in this neighborhood since 2015.",
+                      "vi": "Họ sống ở khu này từ năm 2015."
+                    }
+                  ]
+                },
+                {
+                  "use": "Khoảng thời gian chưa kết thúc: <b>today, this week, this year</b>",
+                  "examples": [
+                    {
+                      "en": "I've had three cups of coffee this morning.",
+                      "vi": "Sáng nay tôi đã uống ba cốc cà phê."
+                    }
+                  ]
+                },
+                {
+                  "use": "Sau so sánh nhất và <b>It's the first / second time</b>",
+                  "examples": [
+                    {
+                      "en": "That's the best meal I've ever eaten.",
+                      "vi": "Đó là bữa ăn ngon nhất tôi từng ăn."
+                    }
+                  ]
+                },
+                {
+                  "use": "Thông báo tin mới",
+                  "examples": [
+                    {
+                      "en": "The city has announced new parking rules.",
+                      "vi": "Thành phố vừa công bố quy định đỗ xe mới."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "table",
+              "heading": "Từ chỉ thời gian thường gặp",
+              "head": [
+                "Từ",
+                "Vị trí",
+                "Ví dụ"
+              ],
+              "rows": [
+                [
+                  "<b>just</b>",
+                  "giữa have/has và V3",
+                  "I've just sent the file."
+                ],
+                [
+                  "<b>already</b>",
+                  "giữa have/has và V3, hoặc cuối câu",
+                  "They've already left."
+                ],
+                [
+                  "<b>yet</b>",
+                  "cuối câu phủ định và câu hỏi",
+                  "Has the package arrived yet?"
+                ],
+                [
+                  "<b>still</b>",
+                  "trước haven't/hasn't",
+                  "He still hasn't replied."
+                ],
+                [
+                  "<b>for</b> + khoảng thời gian",
+                  "sau động từ",
+                  "for six months, for ages"
+                ],
+                [
+                  "<b>since</b> + mốc thời gian",
+                  "sau động từ",
+                  "since March, since I was a kid"
+                ],
+                [
+                  "<b>recently, lately, so far</b>",
+                  "thường ở cuối câu",
+                  "We've had a lot of rain lately."
+                ]
+              ]
+            },
+            {
+              "kind": "table",
+              "heading": "So sánh Hiện tại hoàn thành và Quá khứ đơn",
+              "head": [
+                "Hiện tại hoàn thành",
+                "Quá khứ đơn"
+              ],
+              "rows": [
+                [
+                  "Không nêu thời điểm: I<b>'ve visited</b> Hanoi twice.",
+                  "Có thời điểm xác định: I <b>visited</b> Hanoi last spring."
+                ],
+                [
+                  "Khoảng thời gian chưa kết thúc: She<b>'s called</b> me twice today.",
+                  "Khoảng thời gian đã kết thúc: She <b>called</b> me twice yesterday."
+                ],
+                [
+                  "Còn đúng đến nay: He<b>'s worked</b> here for ten years. (vẫn đang làm)",
+                  "Đã chấm dứt: He <b>worked</b> here for ten years. (giờ không làm nữa)"
+                ]
+              ]
+            },
+            {
+              "kind": "explain",
+              "heading": "Lưu ý",
+              "bullets": [
+                "<b>been</b> và <b>gone</b>: <b>She has been to Paris.</b> (đã đến và đã trở về) / <b>She has gone to Paris.</b> (đã đi và hiện chưa về).",
+                "Không dùng với mốc thời gian đã kết thúc như <b>yesterday, last week, in 2020, ago</b>: <b>I saw him yesterday.</b> (không nói I've seen him yesterday)",
+                "Câu hỏi với <b>When</b> dùng quá khứ đơn: <b>When did you arrive?</b>",
+                "<b>since</b> có thể đi với một mệnh đề ở quá khứ đơn: <b>I've known her since we were in high school.</b>",
+                "Trong văn nói thân mật của tiếng Anh Mỹ, <b>just, already, yet</b> đôi khi đi với quá khứ đơn: <b>Did you eat yet?</b> Văn viết chuẩn vẫn ưu tiên hiện tại hoàn thành."
+              ]
+            }
+          ],
+          "example": "",
+          "content": ""
+        },
+        {
+          "type": "lesson",
+          "title": "Thì Hiện tại hoàn thành tiếp diễn",
+          "intro": "Thì <b>Hiện tại hoàn thành tiếp diễn</b> (Present Perfect Continuous) nhấn mạnh <b>quá trình</b> hoặc <b>khoảng thời gian</b> của một hoạt động. Hoạt động đó bắt đầu trong quá khứ và vẫn đang tiếp diễn, hoặc vừa dừng lại và còn để lại dấu hiệu ở hiện tại.",
+          "sections": [
+            {
+              "kind": "formula",
+              "heading": "Công thức",
+              "rows": [
+                {
+                  "label": "Khẳng định (+)",
+                  "formula": "S + have/has been + V-ing + ...",
+                  "example": {
+                    "en": "I've been learning the piano for two years.",
+                    "vi": "Tôi học piano được hai năm rồi."
+                  }
+                },
+                {
+                  "label": "Phủ định (−)",
+                  "formula": "S + haven't/hasn't been + V-ing + ...",
+                  "example": {
+                    "en": "She hasn't been sleeping well lately.",
+                    "vi": "Dạo này cô ấy ngủ không ngon."
+                  }
+                },
+                {
+                  "label": "Câu hỏi (?)",
+                  "formula": "Have/Has + S + been + V-ing + ...?",
+                  "example": {
+                    "en": "Have you been waiting long?",
+                    "vi": "Bạn chờ lâu chưa?"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "usage",
+              "heading": "Cách dùng",
+              "items": [
+                {
+                  "use": "Hoạt động bắt đầu trong quá khứ và vẫn đang tiếp diễn, nhấn mạnh độ dài thời gian (<b>for, since, how long, all day</b>)",
+                  "examples": [
+                    {
+                      "en": "We've been looking for an apartment since June.",
+                      "vi": "Chúng tôi tìm căn hộ từ tháng Sáu đến giờ."
+                    },
+                    {
+                      "en": "They've been arguing about money all week.",
+                      "vi": "Họ cãi nhau về tiền suốt cả tuần nay."
+                    }
+                  ]
+                },
+                {
+                  "use": "Hoạt động vừa dừng lại, kết quả hoặc dấu hiệu vẫn còn thấy rõ",
+                  "examples": [
+                    {
+                      "en": "Your hands are dirty. Have you been working in the garden?",
+                      "vi": "Tay bạn bẩn quá. Bạn vừa làm vườn à?"
+                    },
+                    {
+                      "en": "It's been snowing, so the roads are slippery.",
+                      "vi": "Trời vừa có tuyết nên đường trơn."
+                    }
+                  ]
+                },
+                {
+                  "use": "Hoạt động lặp đi lặp lại trong một giai đoạn gần đây",
+                  "examples": [
+                    {
+                      "en": "I've been going to the gym three times a week.",
+                      "vi": "Dạo này tuần nào tôi cũng đi tập gym ba lần."
+                    }
+                  ]
+                },
+                {
+                  "use": "Giải thích hoặc phàn nàn về một việc vừa xảy ra",
+                  "examples": [
+                    {
+                      "en": "Who's been using my laptop? The battery is dead.",
+                      "vi": "Ai đã dùng máy tính xách tay của tôi vậy? Pin hết sạch rồi."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "table",
+              "heading": "So sánh Hoàn thành đơn và Hoàn thành tiếp diễn",
+              "head": [
+                "Hiện tại hoàn thành",
+                "Hiện tại hoàn thành tiếp diễn"
+              ],
+              "rows": [
+                [
+                  "Nhấn mạnh kết quả, việc đã xong: I<b>'ve written</b> the report.",
+                  "Nhấn mạnh quá trình, có thể chưa xong: I<b>'ve been writing</b> the report all morning."
+                ],
+                [
+                  "Trả lời How many / How much: She<b>'s sent</b> forty emails today.",
+                  "Trả lời How long: She<b>'s been sending</b> emails for hours."
+                ],
+                [
+                  "Tình huống lâu dài: He<b>'s lived</b> in Boston all his life.",
+                  "Tình huống tạm thời: He<b>'s been staying</b> with friends for a few weeks."
+                ],
+                [
+                  "Dùng được với động từ trạng thái: We<b>'ve known</b> them for years.",
+                  "Không dùng với động từ trạng thái (không nói We've been knowing them)."
+                ]
+              ]
+            },
+            {
+              "kind": "explain",
+              "heading": "Lưu ý",
+              "bullets": [
+                "Với <b>live, work, study, teach</b> đi kèm for/since, hai thì thường mang nghĩa gần như nhau: <b>I've worked / I've been working here since 2019.</b>",
+                "Không dùng thì tiếp diễn khi nói số lượng hoặc số lần cụ thể: <b>I've read three chapters.</b> (không nói I've been reading three chapters)",
+                "<b>How long</b> với động từ hành động thường dùng thì này: <b>How long has she been teaching?</b>",
+                "<b>been</b> luôn đứng ngay trước V-ing và không đổi dạng: <b>She has been waiting.</b> (không nói has being waiting)"
+              ]
+            }
+          ],
+          "example": "",
+          "content": ""
+        },
+        {
+          "type": "content",
+          "title": "Nhấn mạnh với do / does",
+          "intro": "",
+          "sections": [],
+          "example": "The flat is small, but it does have a lovely balcony.",
+          "content": "Trong câu khẳng định ở hiện tại đơn, ta có thể thêm <b>do / does</b> (đọc nhấn giọng) trước động từ nguyên mẫu để nhấn mạnh.\nCách này hay dùng khi muốn phản bác điều người khác vừa nói, hoặc khi muốn nêu một điểm tích cực bên cạnh một điểm tiêu cực.\nSau do/does, động từ luôn ở dạng nguyên mẫu: <b>it does include</b> (không nói it does includes)."
+        },
+        {
+          "type": "content",
+          "title": "Anh Mỹ và Anh Anh: quá khứ đơn và gotten",
+          "intro": "",
+          "sections": [],
+          "example": "Our neighbours have gotten a new puppy. (US)",
+          "content": "Người Mỹ thường dùng <b>quá khứ đơn</b> ở những chỗ người Anh dùng hiện tại hoàn thành, nhất là với <b>already, just, yet</b>: <b>I already ate.</b> (Mỹ) = <b>I've already eaten.</b> (Anh).\nTiếng Anh Mỹ dùng <b>gotten</b> làm quá khứ phân từ của <b>get</b> (nhận được, mua, trở nên), trừ khi get mang nghĩa <b>có, sở hữu</b>: <b>Have you gotten the results?</b> nhưng <b>I've got two sisters.</b>\nTiếng Anh Anh chỉ dùng <b>got</b>. Cả hai cách đều đúng."
+        },
+        {
+          "type": "content",
+          "title": "Không dùng hoàn thành tiếp diễn với ever / never",
+          "intro": "",
+          "sections": [],
+          "example": "I've never ridden a horse, but I'd love to try.",
+          "content": "Khi hỏi hoặc nói về <b>kinh nghiệm</b> với <b>ever / never</b>, ta dùng <b>hiện tại hoàn thành đơn</b>, không dùng hoàn thành tiếp diễn.\nĐúng: <b>Have you ever lived abroad?</b>\nSai: <b>Have you ever been living abroad?</b>\nThì hoàn thành tiếp diễn hợp với <b>for, since, all day/week, just</b> vì nó nhấn mạnh quá trình, không phải số lần trải nghiệm."
+        },
+        {
+          "type": "content",
+          "title": "Thêm động từ trạng thái: resemble, involve, exist, imagine, smell",
+          "intro": "",
+          "sections": [],
+          "example": "This job involves a lot of paperwork.",
+          "content": "Ngoài các nhóm đã học, những động từ sau cũng là động từ trạng thái và thường chỉ dùng ở thì đơn:\n• Vẻ bề ngoài: <b>resemble</b> (giống), <b>appear</b> (có vẻ)\n• Tồn tại: <b>exist</b>\n• Quan hệ giữa các sự vật: <b>involve</b> (bao gồm, đòi hỏi), <b>consist of</b>, <b>belong to</b>\n• Cảm xúc: <b>satisfy</b> (làm hài lòng)\nMột số động từ có nghĩa hành động nên dùng được ở thì tiếp diễn: <b>I imagine he's busy.</b> (đoán là) / <b>You're imagining things.</b> (tưởng tượng ra); <b>This milk smells off.</b> (có mùi) / <b>Why are you smelling the milk?</b> (ngửi)."
+        },
+        {
+          "type": "content",
+          "title": "Hiện tại hoàn thành: chuỗi hành động lặp lại đến nay",
+          "intro": "",
+          "sections": [],
+          "example": "We've visited three different countries so far this year.",
+          "content": "Hiện tại hoàn thành đơn còn dùng để nói về <b>một loạt hành động lặp lại</b> từ quá khứ đến hiện tại, và có thể còn tiếp diễn.\nCâu thường cho biết <b>số lần</b> hoặc <b>danh sách</b> việc đã làm: <b>three times, twice, by bus, train and plane</b>.\nVì nhấn mạnh số lượng, ta dùng thì đơn chứ không dùng tiếp diễn: <b>I've called him four times.</b> (không nói I've been calling him four times)."
+        }
+      ]
+    },
+    {
+      "moduleId": "c1-m1",
+      "unitId": "c1-u01",
+      "points": [
+        {
+          "type": "lesson",
+          "title": "Thì Hiện tại đơn: mọi cách dùng",
+          "intro": "Ở trình độ C1, <b>Hiện tại đơn</b> (Present Simple) không chỉ dùng cho thói quen và sự thật. Người bản xứ còn dùng nó để kể chuyện cười, bình luận thể thao trực tiếp, viết tiêu đề báo, tóm tắt phim/sách, chỉ đường, trích tục ngữ, nói về lịch trình tương lai và trong mệnh đề thời gian.",
+          "sections": [
+            {
+              "kind": "formula",
+              "heading": "Công thức",
+              "rows": [
+                {
+                  "label": "Khẳng định (+)",
+                  "formula": "S + V(s/es) + ...",
+                  "example": {
+                    "en": "She reviews every contract before it goes out.",
+                    "vi": "Cô ấy xem lại mọi hợp đồng trước khi gửi đi."
+                  }
+                },
+                {
+                  "label": "Phủ định (−)",
+                  "formula": "S + don't/doesn't + V nguyên mẫu",
+                  "example": {
+                    "en": "He doesn't take criticism very well.",
+                    "vi": "Anh ấy không tiếp nhận lời phê bình tốt lắm."
+                  }
+                },
+                {
+                  "label": "Nhấn mạnh",
+                  "formula": "S + do/does + V nguyên mẫu",
+                  "example": {
+                    "en": "I do understand your concerns.",
+                    "vi": "Tôi thực sự hiểu những lo ngại của bạn."
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "usage",
+              "heading": "Cách dùng",
+              "items": [
+                {
+                  "use": "Sự thật hiển nhiên, quy luật tự nhiên",
+                  "examples": [
+                    {
+                      "en": "The heart pumps blood around the body.",
+                      "vi": "Tim bơm máu đi khắp cơ thể."
+                    }
+                  ]
+                },
+                {
+                  "use": "Thói quen hiện tại; tình huống, trạng thái lâu dài",
+                  "examples": [
+                    {
+                      "en": "My uncle runs a small bookshop in the old town.",
+                      "vi": "Chú tôi mở một hiệu sách nhỏ ở phố cổ."
+                    }
+                  ]
+                },
+                {
+                  "use": "Kể chuyện cười, chuyện thân mật (cho sinh động như đang xảy ra)",
+                  "examples": [
+                    {
+                      "en": "So this guy walks into a bank and asks for a loan...",
+                      "vi": "Thế này nhé, có anh chàng bước vào ngân hàng xin vay tiền..."
+                    }
+                  ]
+                },
+                {
+                  "use": "Bình luận thể thao trực tiếp",
+                  "examples": [
+                    {
+                      "en": "He shoots... and scores!",
+                      "vi": "Anh ấy sút... và ghi bàn!"
+                    }
+                  ]
+                },
+                {
+                  "use": "Tiêu đề báo (sự việc vừa xảy ra, thường bỏ mạo từ)",
+                  "examples": [
+                    {
+                      "en": "Local girl wins national spelling contest",
+                      "vi": "Cô bé địa phương thắng cuộc thi đánh vần toàn quốc"
+                    }
+                  ]
+                },
+                {
+                  "use": "Tóm tắt, bình luận phim, sách, vở kịch",
+                  "examples": [
+                    {
+                      "en": "In the final scene, the detective finally reveals the truth.",
+                      "vi": "Ở cảnh cuối, thám tử cuối cùng tiết lộ sự thật."
+                    }
+                  ]
+                },
+                {
+                  "use": "Hướng dẫn, chỉ đường",
+                  "examples": [
+                    {
+                      "en": "You take the second left and the station is on your right.",
+                      "vi": "Bạn rẽ trái ở ngã thứ hai và nhà ga ở bên phải."
+                    }
+                  ]
+                },
+                {
+                  "use": "Tục ngữ, châm ngôn",
+                  "examples": [
+                    {
+                      "en": "Practice makes perfect.",
+                      "vi": "Có công mài sắt có ngày nên kim."
+                    }
+                  ]
+                },
+                {
+                  "use": "Tương lai theo lịch cố định; tương lai trong mệnh đề thời gian (when, as soon as, until...)",
+                  "examples": [
+                    {
+                      "en": "The exhibition opens on Friday.",
+                      "vi": "Triển lãm khai mạc vào thứ Sáu."
+                    },
+                    {
+                      "en": "I'll call you when I land.",
+                      "vi": "Tôi sẽ gọi cho bạn khi máy bay hạ cánh."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "explain",
+              "heading": "Từ và cụm từ hay đi với Hiện tại đơn",
+              "bullets": [
+                "Tần suất: <b>always, usually, generally, often, sometimes, rarely, seldom, never</b>.",
+                "Cụm tần suất: <b>whenever, from time to time, every now and then, most of the time, much of the time</b>.",
+                "Thời đại hiện nay: <b>nowadays, these days</b>.",
+                "<b>It's / That's the last time</b> + hiện tại đơn (hoặc tiếp diễn) để thề không làm lại: <b>That's the last time I lend him money!</b>"
+              ]
+            }
+          ],
+          "example": "",
+          "content": ""
+        },
+        {
+          "type": "content",
+          "title": "Hiện tại đơn nhấn mạnh: do / does + V",
+          "intro": "",
+          "sections": [],
+          "example": "I don't speak French, but I do understand quite a lot.",
+          "content": "Thêm <b>do / does</b> (đọc nhấn giọng) trước động từ nguyên mẫu để:\n• <b>nhấn mạnh sự tương phản</b>: phủ nhận một ý rồi khẳng định ý khác: <b>He doesn't say much, but he does listen.</b>\n• <b>nhấn mạnh cảm xúc mạnh</b>: <b>I do love this song!</b> / <b>I do hope you can come.</b>\nSau do/does luôn là động từ nguyên mẫu: không nói <i>she does knows</i>."
+        },
+        {
+          "type": "content",
+          "title": "Lưu ý: tiêu đề báo và lời bình thể thao",
+          "intro": "",
+          "sections": [],
+          "example": "Storm hits coastal towns",
+          "content": "Tiêu đề báo dùng hiện tại đơn cho sự việc <b>đã</b> xảy ra và thường bỏ <b>a / the</b> và động từ to be: <b>Minister resigns over scandal</b>.\nBình luận thể thao dùng hiện tại đơn cho các hành động nhanh, kết thúc ngay (passes, shoots, scores); hành động kéo dài dùng tiếp diễn: <b>He's running down the wing...</b>"
+        },
+        {
+          "type": "content",
+          "title": "Lưu ý: tương lai trong mệnh đề thời gian",
+          "intro": "",
+          "sections": [],
+          "example": "We won't start until everyone arrives.",
+          "content": "Sau <b>when, as soon as, until, before, after, once</b> nói về tương lai, dùng hiện tại đơn, không dùng will: <b>I'll tell her when she arrives.</b> (không nói <i>when she will arrive</i>).\nLịch trình cố định (tàu xe, học kỳ, sự kiện chính thức) cũng dùng hiện tại đơn: <b>The term ends on 21st December.</b>"
+        }
+      ]
+    },
+    {
+      "moduleId": "c1-m1",
+      "unitId": "c1-u01b",
+      "points": [
+        {
+          "type": "lesson",
+          "title": "Thì Hiện tại tiếp diễn: mọi cách dùng",
+          "intro": "Thì <b>Hiện tại tiếp diễn</b> (Present Continuous) diễn tả điều đang diễn ra, tạm thời hoặc đang thay đổi. Ở trình độ C1, cần nắm thêm cách dùng để phàn nàn về thói quen khó chịu, tạo bối cảnh khi kể chuyện, nói về kế hoạch đã sắp xếp và dùng trong mệnh đề thời gian chỉ tương lai.",
+          "sections": [
+            {
+              "kind": "formula",
+              "heading": "Công thức",
+              "rows": [
+                {
+                  "label": "Khẳng định (+)",
+                  "formula": "S + am/is/are + V-ing",
+                  "example": {
+                    "en": "We're redesigning the company website.",
+                    "vi": "Chúng tôi đang thiết kế lại trang web công ty."
+                  }
+                },
+                {
+                  "label": "Phủ định (−)",
+                  "formula": "S + am/is/are + not + V-ing",
+                  "example": {
+                    "en": "She isn't taking any calls today.",
+                    "vi": "Hôm nay cô ấy không nhận cuộc gọi nào."
+                  }
+                },
+                {
+                  "label": "Câu hỏi (?)",
+                  "formula": "Am/Is/Are + S + V-ing?",
+                  "example": {
+                    "en": "Are you still working on that report?",
+                    "vi": "Bạn vẫn đang làm bản báo cáo đó à?"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "usage",
+              "heading": "Cách dùng",
+              "items": [
+                {
+                  "use": "Hành động đang xảy ra ngay lúc nói, hoặc trong giai đoạn hiện tại",
+                  "examples": [
+                    {
+                      "en": "I'm reading a book on negotiation at the moment.",
+                      "vi": "Dạo này tôi đang đọc một cuốn sách về đàm phán."
+                    }
+                  ]
+                },
+                {
+                  "use": "Tình huống tạm thời; chuỗi hành động lặp lại quanh thời điểm hiện tại",
+                  "examples": [
+                    {
+                      "en": "I'm staying with my cousin while my flat is being painted.",
+                      "vi": "Tôi đang ở nhờ nhà anh họ trong lúc căn hộ được sơn lại."
+                    }
+                  ]
+                },
+                {
+                  "use": "Tình huống đang thay đổi, phát triển",
+                  "examples": [
+                    {
+                      "en": "House prices are rising again.",
+                      "vi": "Giá nhà lại đang tăng."
+                    }
+                  ]
+                },
+                {
+                  "use": "<b>always / constantly / forever + V-ing</b>: thói quen gây khó chịu hoặc buồn cười",
+                  "examples": [
+                    {
+                      "en": "She's always losing her keys.",
+                      "vi": "Cô ấy lúc nào cũng làm mất chìa khóa."
+                    }
+                  ]
+                },
+                {
+                  "use": "Bối cảnh trong truyện cười, chuyện kể thân mật",
+                  "examples": [
+                    {
+                      "en": "So I'm walking home and it's raining...",
+                      "vi": "Thế là tôi đang đi bộ về nhà và trời đang mưa..."
+                    }
+                  ]
+                },
+                {
+                  "use": "Kế hoạch tương lai đã sắp xếp; tương lai trong mệnh đề thời gian",
+                  "examples": [
+                    {
+                      "en": "We're flying to Hanoi on Monday.",
+                      "vi": "Thứ Hai chúng tôi bay ra Hà Nội."
+                    },
+                    {
+                      "en": "I'll be thinking of you while you're doing the exam.",
+                      "vi": "Tôi sẽ nghĩ đến bạn trong lúc bạn làm bài thi."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "explain",
+              "heading": "Từ và cụm từ hay đi với Hiện tại tiếp diễn",
+              "bullets": [
+                "<b>now, right now, at the moment, at present, currently</b>",
+                "<b>for now, for the time being</b> (tạm thời): <b>I'm living with my parents for the time being.</b>",
+                "<b>today, this week, this term...</b>",
+                "<b>It's / That's the last time</b> + tiếp diễn: <b>That's the last time we're inviting him!</b>"
+              ]
+            }
+          ],
+          "example": "",
+          "content": ""
+        },
+        {
+          "type": "lesson",
+          "title": "Động từ trạng thái (stative verbs)",
+          "intro": "Khi một động từ mô tả <b>trạng thái</b> (suy nghĩ, cảm xúc, sở hữu, tri giác, tồn tại) chứ không phải hành động, ta thường dùng <b>thì đơn</b>, kể cả khi nói về lúc này.",
+          "sections": [
+            {
+              "kind": "table",
+              "heading": "Các nhóm động từ trạng thái",
+              "head": [
+                "Nhóm",
+                "Động từ"
+              ],
+              "rows": [
+                [
+                  "Giao tiếp",
+                  "agree, deny, disagree"
+                ],
+                [
+                  "Suy nghĩ",
+                  "believe, consider, doubt, expect, imagine, know, mean, realise, suppose, suspect, think, understand"
+                ],
+                [
+                  "Tồn tại",
+                  "be, exist"
+                ],
+                [
+                  "Cảm xúc",
+                  "adore, appeal, appreciate, despise, detest, dislike, envy, fear, forgive, hate, like, love, mind, need, prefer, trust, want, wish"
+                ],
+                [
+                  "Tri giác",
+                  "appear, hear, look, notice, recognise, resemble, see, seem, smell, sound, taste"
+                ],
+                [
+                  "Sở hữu, quan hệ",
+                  "belong, concern, consist, contain, cost, depend, fit, have, include, involve, lack, matter, own, possess, suit, weigh"
+                ]
+              ]
+            },
+            {
+              "kind": "table",
+              "heading": "Một động từ, hai nghĩa",
+              "head": [
+                "Trạng thái (thì đơn)",
+                "Hành động (dùng được tiếp diễn)"
+              ],
+              "rows": [
+                [
+                  "I <b>think</b> it's a good idea. (= tin rằng)",
+                  "I<b>'m thinking</b> about changing jobs. (= cân nhắc)"
+                ],
+                [
+                  "This soup <b>smells</b> great. (= có mùi)",
+                  "Why <b>are</b> you <b>smelling</b> the milk? (= ngửi)"
+                ],
+                [
+                  "They <b>have</b> a big garden. (= sở hữu)",
+                  "We<b>'re having</b> a barbecue. (= tổ chức)"
+                ],
+                [
+                  "It <b>depends</b> on the weather. (= tùy thuộc)",
+                  "I<b>'m depending</b> on you. (= trông cậy)"
+                ],
+                [
+                  "You <b>look</b> tired. (= trông có vẻ)",
+                  "Police <b>are looking</b> for witnesses. (= tìm kiếm)"
+                ],
+                [
+                  "He <b>is</b> rude. (= tính cách)",
+                  "He<b>'s being</b> rude. (= hành xử lúc này)"
+                ]
+              ]
+            }
+          ],
+          "example": "",
+          "content": ""
+        },
+        {
+          "type": "content",
+          "title": "Lưu ý: động từ có cả nghĩa trạng thái lẫn hành động",
+          "intro": "",
+          "sections": [],
+          "example": "I think it's important, so I'm thinking about doing a course.",
+          "content": "Các động từ <b>appeal, be, consider, depend, feel, have, include, look, mean, mind, see, smell, taste, think, weigh</b> dùng được ở thì tiếp diễn khi chúng chỉ <b>hành động</b>.\n<b>see</b> = gặp gỡ, hẹn hò: <b>Doug is seeing Katy.</b>\n<b>be</b> + tiếp diễn = cư xử tạm thời: <b>You're being very noisy.</b>\n<b>appeal</b> = kêu gọi: <b>Police are appealing for information.</b>"
+        },
+        {
+          "type": "content",
+          "title": "Lưu ý: always + tiếp diễn",
+          "intro": "",
+          "sections": [],
+          "example": "You're always leaving the lights on!",
+          "content": "<b>always / constantly / forever + V-ing</b> diễn tả thói quen gây khó chịu (hoặc buồn cười) mà người nói muốn bình phẩm.\nSo sánh: <b>He always tells jokes.</b> (trung tính) / <b>He's always telling jokes!</b> (phàn nàn, cảm thán)."
+        }
+      ]
+    },
+    {
+      "moduleId": "c1-m3",
+      "unitId": "c1-u05b",
+      "points": [
+        {
+          "type": "lesson",
+          "title": "Hiện tại đơn cho sự kiện cố định",
+          "intro": "Khi sự việc tương lai được xem là <b>cố định, không thay đổi được</b> — lịch tàu xe, thời khóa biểu, giờ mở cửa, lịch sự kiện — ta dùng <b>hiện tại đơn</b>.",
+          "sections": [
+            {
+              "kind": "usage",
+              "heading": "Cách dùng",
+              "items": [
+                {
+                  "use": "Lịch trình, thời gian biểu",
+                  "examples": [
+                    {
+                      "en": "The last train leaves at midnight.",
+                      "vi": "Chuyến tàu cuối rời ga lúc nửa đêm."
+                    },
+                    {
+                      "en": "The new term starts next Monday.",
+                      "vi": "Học kỳ mới bắt đầu thứ Hai tuần sau."
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "example": "",
+          "content": ""
+        },
+        {
+          "type": "lesson",
+          "title": "Tương lai hoàn thành đơn và tiếp diễn",
+          "intro": "<b>Tương lai hoàn thành</b> nhìn từ một mốc trong tương lai về phía trước: việc gì <b>đã xong</b> hoặc <b>đã kéo dài bao lâu</b> tính đến mốc đó. Thường đi với <b>by + mốc</b>, <b>by the time + mệnh đề</b>, <b>this time next…</b>.",
+          "sections": [
+            {
+              "kind": "formula",
+              "heading": "Công thức",
+              "rows": [
+                {
+                  "label": "Hoàn thành đơn",
+                  "formula": "S + will have + V3",
+                  "example": {
+                    "en": "We'll have sold out by the end of the week.",
+                    "vi": "Đến cuối tuần chúng tôi sẽ bán hết."
+                  }
+                },
+                {
+                  "label": "Hoàn thành tiếp diễn",
+                  "formula": "S + will have been + V-ing",
+                  "example": {
+                    "en": "By June, I'll have been working here for ten years.",
+                    "vi": "Đến tháng Sáu tôi đã làm ở đây mười năm."
+                  }
+                },
+                {
+                  "label": "Câu hỏi",
+                  "formula": "Will + S + have + V3 …?",
+                  "example": {
+                    "en": "Will you have finished by then?",
+                    "vi": "Đến lúc đó bạn đã xong chưa?"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "usage",
+              "heading": "Cách dùng",
+              "items": [
+                {
+                  "use": "Hoàn thành đơn: việc <b>đã hoàn tất</b> trước một mốc tương lai",
+                  "examples": [
+                    {
+                      "en": "The meeting will have finished by the time you get there.",
+                      "vi": "Lúc bạn đến thì cuộc họp đã xong."
+                    }
+                  ]
+                },
+                {
+                  "use": "Hoàn thành đơn: tình huống <b>kéo dài đến</b> một mốc (nhất là với động từ trạng thái)",
+                  "examples": [
+                    {
+                      "en": "Next week, I'll have known her for a year.",
+                      "vi": "Tuần sau là tôi quen cô ấy được một năm."
+                    }
+                  ]
+                },
+                {
+                  "use": "Hoàn thành tiếp diễn: <b>nhấn mạnh độ dài</b> của quá trình đến một mốc",
+                  "examples": [
+                    {
+                      "en": "By nine, we'll have been waiting for ten hours.",
+                      "vi": "Đến chín giờ là chúng tôi đã chờ mười tiếng."
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "example": "",
+          "content": ""
+        },
+        {
+          "type": "lesson",
+          "title": "Tương lai tiếp diễn",
+          "intro": "<b>Will be + V-ing</b> mô tả việc <b>đang diễn ra</b> tại một thời điểm tương lai, việc sẽ xảy ra <b>theo lẽ thường</b> (không phải ý định hay lời đề nghị), và <b>thói quen</b> của con người trong tương lai.",
+          "sections": [
+            {
+              "kind": "formula",
+              "heading": "Công thức",
+              "rows": [
+                {
+                  "label": "Khẳng định",
+                  "formula": "S + will be + V-ing",
+                  "example": {
+                    "en": "This time next week, I'll be lying on a beach.",
+                    "vi": "Giờ này tuần sau tôi đang nằm trên bãi biển."
+                  }
+                },
+                {
+                  "label": "Câu hỏi lịch sự",
+                  "formula": "Will + S + be + V-ing …?",
+                  "example": {
+                    "en": "Will you be using the car tonight?",
+                    "vi": "Tối nay anh có dùng xe không?"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "usage",
+              "heading": "Cách dùng",
+              "items": [
+                {
+                  "use": "Việc <b>đang diễn ra</b> tại một thời điểm tương lai",
+                  "examples": [
+                    {
+                      "en": "Don't call at three. I'll be interviewing candidates then.",
+                      "vi": "Đừng gọi lúc ba giờ, lúc đó tôi đang phỏng vấn."
+                    }
+                  ]
+                },
+                {
+                  "use": "Việc sẽ xảy ra <b>theo lẽ thường</b>, không cố ý",
+                  "examples": [
+                    {
+                      "en": "I'll be passing the post office anyway.",
+                      "vi": "Đằng nào tôi cũng đi ngang bưu điện."
+                    }
+                  ]
+                },
+                {
+                  "use": "<b>Thói quen, xu hướng</b> trong tương lai",
+                  "examples": [
+                    {
+                      "en": "In the future, more people will be working remotely.",
+                      "vi": "Trong tương lai, nhiều người sẽ làm việc từ xa hơn."
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "example": "",
+          "content": ""
+        },
+        {
+          "type": "lesson",
+          "title": "Mệnh đề thời gian chỉ tương lai",
+          "intro": "Sau <b>when, while, once, as soon as, until, before, after, by the time</b>…, ta <b>không dùng will hay be going to</b> dù đang nói về tương lai. Mệnh đề thời gian dùng thì hiện tại; mệnh đề chính vẫn dùng will.",
+          "sections": [
+            {
+              "kind": "table",
+              "heading": "Thì dùng trong mệnh đề thời gian",
+              "head": [
+                "Thì",
+                "Ví dụ"
+              ],
+              "rows": [
+                [
+                  "Hiện tại đơn",
+                  "I'll call you back <b>as soon as the meeting finishes</b>."
+                ],
+                [
+                  "Hiện tại tiếp diễn",
+                  "I'll read the contract <b>while you're driving</b>."
+                ],
+                [
+                  "Hiện tại hoàn thành",
+                  "I'll send it <b>as soon as I've finished</b> it."
+                ],
+                [
+                  "Hiện tại hoàn thành tiếp diễn",
+                  "I won't promote you <b>until you've been working here</b> for two years."
+                ]
+              ]
+            },
+            {
+              "kind": "explain",
+              "heading": "Lưu ý",
+              "bullets": [
+                "Sai: <b>when you will graduate</b> → Đúng: <b>when you graduate</b>.",
+                "Hiện tại hoàn thành trong mệnh đề thời gian nhấn mạnh việc đó phải <b>xong trước</b> việc ở mệnh đề chính."
+              ]
+            }
+          ],
+          "example": "",
+          "content": ""
+        },
+        {
+          "type": "content",
+          "title": "By the time + hiện tại đơn",
+          "intro": "",
+          "sections": [],
+          "example": "By the time we arrive, you'll have been driving for five hours.",
+          "content": "<b>By the time</b> (vào lúc, trước khi) hay đi với tương lai hoàn thành ở mệnh đề chính. Mệnh đề sau by the time dùng <b>hiện tại đơn</b>, không dùng will.\n<b>By the time you get there, the meeting will have finished.</b>"
+        },
+        {
+          "type": "content",
+          "title": "Động từ trạng thái không dùng hoàn thành tiếp diễn",
+          "intro": "",
+          "sections": [],
+          "example": "Next week, I'll have known her for exactly a year.",
+          "content": "Với động từ trạng thái (<b>be, know, have</b> = sở hữu, <b>own</b>…), ta dùng <b>tương lai hoàn thành đơn</b> dù muốn nói về thời gian kéo dài.\nĐúng: <b>They'll have been married for twenty-five years.</b>\nSai: <b>They'll have been being married…</b>"
+        }
+      ]
+    }
+  ]
+}

@@ -16,7 +16,7 @@ export function LessonCardSkeleton() {
 
 export function LessonGridSkeleton({ count = 9 }: { count?: number }) {
   return (
-    <ul className="m-0 grid list-none grid-cols-1 gap-2 p-0 md:grid-cols-2 min-[1100px]:grid-cols-3">
+    <ul className="m-0 grid list-none grid-cols-1 gap-2 p-0 md:grid-cols-3">
       {Array.from({ length: count }, (_, index) => (
         <LessonCardSkeleton key={index} />
       ))}

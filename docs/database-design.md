@@ -24,36 +24,32 @@
 - `skills`: `dictation` | `vocabulary` | `writing` (enum/table)
 - `language_skills`: bật/tắt skill theo ngôn ngữ, mô tả marketing
 
-### 3. Dictation — danh mục (Short Stories, TOEIC, …)
+### 3–5. Listen (nghe / dictation) — EN · ZH · JP
 
-- `dictation_collections`: `language_id`, slug, title, description, icon_key, `level_min`, `level_max` (A1–C2), `lesson_count` (denormalized/cache)
-- Breadcrumb: Language → Dictation → Collection
+**Chi tiết + map API:** `docs/design/2026-11-04-learning-content-schema-en-zh-jp.md` §1.
 
-### 4. Dictation — sections + danh sách bài
+| Tier | Bảng | Ghi chú |
+|------|------|--------|
+| Catalog | `listening_categories` | List topic: slug, name, `levels[]`, `lesson_count` |
+| Section | `listening_sections` | `section-en-short-stories-1`, Section 1… |
+| Lesson | `listening_lessons` | uuid, slug, level, audio R2 key, `template_type`, `path` |
+| Câu | `listening_sentences` | position, start/end ms, transcript, metadata jsonb (ipa, properNames) |
 
-- `dictation_sections`: `collection_id`, `order_index`, title (Section 1…)
-- `dictation_lessons`: `section_id`, slug, title, `cefr_level`, `sentence_count`, `sort_order`, optional `difficulty_stars`
-- Progress: `user_dictation_lesson_progress` (completed sentences, last_position, completed_at)
+Progress (phase 2): `user_listen_lesson_progress`, `user_listen_sentence_attempts`.
 
-### 5. Dictation — bài học (First Snow Fall, 21 câu)
+### 6–8. Vocabulary — EN · ZH · JP
 
-- `dictation_sentences`: `lesson_id`, `order_index`, `audio_url`, `transcript`, `start_ms`, `end_ms`, `proper_nouns` (jsonb string[])
-- `user_dictation_sentence_attempts`: user, sentence, input, is_correct, created_at (analytics + resume)
-- Chế độ “toàn bộ transcript”: derive từ aggregate sentences hoặc `dictation_lessons.full_transcript`
+**Chi tiết:** `docs/design/2026-11-04-learning-content-schema-en-zh-jp.md` §2.
 
-### 6. Vocabulary — chọn CEFR (A1–C2)
+| Tier | Bảng |
+|------|------|
+| Level | `vocab_curricula` — `(language_id, level_code)` e.g. A1, HSK1, N5 |
+| Topic | `vocab_topics` — slug `communication-and-everyday-language` |
+| Lesson | `vocab_lessons` — `lesson-01`, title, description |
+| Từ | `vocab_words` — term, ipa, meaning_vi, examples, collocations |
+| Quiz | `vocab_word_distractors` hoặc `distractors text[]` trên word |
 
-- `cefr_levels`: code A1…C2, sort
-- `vocabulary_curricula`: `language_id` + level (unique)
-
-### 7. Vocabulary — chủ đề + bài (Everyday Communication…)
-
-- `vocabulary_topics`: `curriculum_id`, slug, title, `lesson_count`
-- `vocabulary_lessons`: `topic_id`, slug, title, `word_count`, `estimated_minutes`, description
-- `vocabulary_batches`: `lesson_id`, `order_index` (batch preview 10 từ)
-- `vocabulary_items`: `batch_id`, lemma, translation_vi, `audio_url`, `sort_order`, optional context_sentence
-
-### 8. Vocabulary — luồng bài (overview + 5 bước)
+### 8b. Vocab — luồng bài & progress (phase 2)
 
 - `lesson_activity_types`: familiarize | flashcard | matching | quiz | quick_review
 - `vocabulary_lesson_activities`: `lesson_id`, activity_type, `order_index`, config jsonb
@@ -67,17 +63,41 @@
   - Unique partial index gợi ý: `(user_id, vocabulary_item_id, lesson_id)` where `status = 'active'`
   - **Thứ tự ôn nhanh (UI):** lấy mọi row active ( + carry vào `lesson_id` hiện tại) → sort ổn định → **lượt 1:** flashcard cho `review_flashcard_required = true` → **lượt 2:** một câu quiz / item (full queue). Chi tiết hành vi: `docs/design/2026-11-04-vocab-lesson-story-json.md`.
 
-### 9. Writing — A1 → topic → lesson (Cooking Breakfast, 12 câu)
+### 9. Handbook (Cẩm nang) — blog / bài viết
 
-- `writing_topics`: `language_id`, `cefr_level`, slug, title
-- `writing_lessons`: `topic_id`, slug, title, `question_count`
-- `writing_prompts`: `lesson_id`, `order_index`, prompt_vi, answer_en, `word_lengths` (jsonb cho UI mask `* ****`)
+- `handbook_collections`: `language_id`, slug, overline, title, description, `sort_order`, `is_published`
+- `handbook_posts`: `collection_id`, slug, `sort_order`, category, `reading_time_minutes`, title, excerpt, summary, `published_at`, featured, `body jsonb` (`blocks[]`: `text` \| `numberedList`), `is_published`
+- Shape: `docs/design/2026-11-04-handbook-blog-content-json.md`, seed `docs/design/fixtures/handbook-posts-en.sample.json`
+- Views (later): `user_handbook_post_views`
 
-### 10. Chung — auth, gamification, thông báo
+### 10. Grammar — tab ngữ pháp (EN, mock JSON)
+
+- `grammar_modules`: `language_id`, slug (`moduleId`), title, `cefr_level`, `sort_order`
+- `grammar_units`: `module_id`, slug (`unitId`), title, `sort_order`
+- `grammar_points`: `unit_id`, `type` (`lesson` | `content`), title, `intro`, `example`, `content_plain`, `body jsonb` (full point + `sections[]`), `sort_order`
+- Payload shape: `docs/design/2026-11-04-grammar-tab-content-json.md`, seed `docs/design/fixtures/grammar-units-en.sample.json`
+- Progress (phase sau): `user_grammar_point_progress` — user, point, `completed_at`
+
+### 11. Writing — EN · ZH · JP
+
+**Chi tiết:** `docs/design/2026-11-04-learning-content-schema-en-zh-jp.md` §3.
+
+| Tier | Bảng |
+|------|------|
+| Level | `writing_curricula` |
+| Topic | `writing_topics` — e.g. `daily-life` |
+| Lesson | `writing_lessons` — `script_modes` jsonb (Han/Pinyin, Standard/Kana) |
+| Câu | `writing_sentences` — `prompt_vi`, `target_default`, `targets_by_mode`, `pronunciation` jsonb (ipa / pinyin / romaji) |
+
+Progress (phase 2): `user_writing_lesson_progress` (drafts, done sentence indexes).
+
+### 12. Chung — auth, gamification, thông báo
 
 - **Better Auth** (Drizzle): `user`, `session`, `account`, `verification` — theo schema plugin
 - `user_profiles`: display_name, avatar_url, `ui_locale`, `preferred_language_id`
-- `user_stats`: total_xp, streak_days, updated_at
+- `user_daily_activity`: `(user_id, activity_date)`, `active_seconds` — thời gian học/ngày (TZ profile)
+- `user_streaks`: `current_streak`, `longest_streak`, `last_qualified_date` (ngày ≥ **15 phút** = 1 ngày streak)
+- `user_stats`: total_xp, updated_at (streak đọc từ daily activity hoặc `user_streaks`)
 - `leaderboard_entries`: materialized view hoặc bảng snapshot theo period (weekly/all)
 - `notifications`: user_id, type, payload jsonb, read_at
 
@@ -89,21 +109,23 @@
 erDiagram
   languages ||--o{ language_skills : has
   skills ||--o{ language_skills : enables
-  languages ||--o{ dictation_collections : has
-  dictation_collections ||--o{ dictation_sections : has
-  dictation_sections ||--o{ dictation_lessons : has
-  dictation_lessons ||--o{ dictation_sentences : has
-  languages ||--o{ vocabulary_curricula : has
-  vocabulary_curricula ||--o{ vocabulary_topics : has
-  vocabulary_topics ||--o{ vocabulary_lessons : has
-  vocabulary_lessons ||--o{ vocabulary_batches : has
-  vocabulary_batches ||--o{ vocabulary_items : has
-  languages ||--o{ writing_topics : has
+  languages ||--o{ listening_categories : has
+  listening_categories ||--o{ listening_sections : has
+  listening_sections ||--o{ listening_lessons : has
+  listening_lessons ||--o{ listening_sentences : has
+  languages ||--o{ vocab_curricula : has
+  vocab_curricula ||--o{ vocab_topics : has
+  vocab_topics ||--o{ vocab_lessons : has
+  vocab_lessons ||--o{ vocab_words : has
+  languages ||--o{ writing_curricula : has
+  writing_curricula ||--o{ writing_topics : has
   writing_topics ||--o{ writing_lessons : has
-  writing_lessons ||--o{ writing_prompts : has
-  user ||--o{ user_dictation_lesson_progress : tracks
-  user ||--o{ user_vocabulary_item_states : srs
+  writing_lessons ||--o{ writing_sentences : has
+  user ||--o{ user_listen_lesson_progress : tracks
+  user ||--o{ user_vocab_word_states : srs
 ```
+
+**ER đầy đủ (content):** `docs/design/2026-11-04-learning-content-schema-en-zh-jp.md` §6.
 
 ---
 
@@ -123,3 +145,8 @@ erDiagram
 2. **Migration-first**: mọi thay đổi schema qua Drizzle migrate, không sửa tay production.
 3. **Content CMS** (phase sau): admin CRUD collections/lessons; MVP seed SQL/JSON.
 4. UI theo `design/*.design.md` (bạn bổ sung); implement với shadcn/ui + Animate UI — agent **không** tự thiết kế ngoài spec.
+5. **Listen / Vocab / Write (EN·ZH·JP):** spec cột + API mapping → `docs/design/2026-11-04-learning-content-schema-en-zh-jp.md`. Phase 2 user/streak/settings: cùng file §8.
+
+## Phase 2 (outline — chưa implement)
+
+User, từ sai, thời gian học, streak, settings — bảng stub trong `2026-11-04-learning-content-schema-en-zh-jp.md` §8; mở rộng SRS/weak items vocab giữ nguyên mục §8 doc cũ (`user_vocabulary_weak_items`).

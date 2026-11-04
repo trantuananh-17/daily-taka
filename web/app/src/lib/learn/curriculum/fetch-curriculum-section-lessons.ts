@@ -5,6 +5,7 @@ import {
 } from "@/lib/learn/curriculum/build-level-sections"
 import { getLevelTopicSeeds } from "@/lib/learn/curriculum/level-topic-seeds"
 import type { CurriculumLesson, CurriculumModule } from "@/lib/learn/curriculum/types"
+import { applyWritingLessonCatalogOverrides } from "@/lib/learn/writing/writing-lesson-catalog"
 
 type FetchCurriculumSectionLessonsParams = {
   language: LanguageHubCode
@@ -28,5 +29,14 @@ export async function fetchCurriculumSectionLessons({
     level: normalizedLevel,
     topics,
   })
-  return buildLevelSectionLessons(sections, sectionId, normalizedLevel, module)
+  const section = sections.find((row) => row.id === sectionId)
+  const lessons = buildLevelSectionLessons(sections, sectionId, normalizedLevel, module)
+  if (module !== "writing" || !section) return lessons
+
+  return applyWritingLessonCatalogOverrides(
+    language,
+    normalizedLevel,
+    section.title,
+    lessons,
+  )
 }

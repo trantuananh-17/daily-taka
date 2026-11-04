@@ -1,0 +1,160 @@
+{
+  "collections": [
+    {
+      "language": "en",
+      "slug": "handbook",
+      "overline": "CẨM NANG DAILY TAKA",
+      "title": "Cẩm nang học tiếng Anh",
+      "description": "Những bài viết chuyên sâu về phương pháp Daily Taka, tài liệu IELTS và phát âm tiếng Anh để bạn học có chiến lược hơn.",
+      "posts": [
+        {
+          "slug": "nghe-doc-go-daily-taka",
+          "sortOrder": 1,
+          "featured": true,
+          "category": "PHƯƠNG PHÁP DAILY TAKA",
+          "readingTimeMinutes": 8,
+          "title": "Học tiếng Anh bằng Nghe – Đọc – Gõ: Phương pháp Daily Taka",
+          "excerpt": "Khám phá cách vòng lặp nghe–đọc–gõ biến bài chép chính tả tiếng Anh thành luyện tập có chủ đích để nghe sắc hơn, nhớ từ lâu hơn và giao tiếp tự tin hơn.",
+          "publishedAt": "2026-08-27",
+          "summary": "Daily Taka gom nghe chép, từ vựng theo ngữ cảnh và luyện viết thành một vòng lặp ngắn. Bạn nghe trước, đối chiếu khi gõ, rồi củng cố bằng từ và câu — thay vì chỉ “nghe nền” mà không biết mình sai ở đâu.",
+          "blocks": [
+            {
+              "kind": "text",
+              "heading": "Vì sao nghe thật nhiều vẫn có thể bận rộn mà chưa tiến bộ",
+              "paragraphs": [
+                "Nghe podcast, xem video tiếng Anh hàng giờ vẫn có thể khiến bạn “quen tai” mà chưa nghe được từng âm tiết khi người bản xứ nói nhanh. Thiếu bước kiểm tra — gõ lại hoặc nhắc lại — não không buộc phải phân biệt âm gần giống nhau.",
+                "Daily Taka đặt gõ chính xác ngay sau nghe có transcript: bạn biết chỗ sai là do nghe, chính tả hay ngữ pháp, thay vì đoán mò."
+              ]
+            },
+            {
+              "kind": "text",
+              "heading": "Đọc và từ vựng: hiểu câu, không chỉ dịch từ",
+              "paragraphs": [
+                "Sau khi nghe–gõ xong một đoạn, đọc lại cùng transcript giúp bạn nắm cấu trúc câu. Từ vựng trong app gắn với câu ví dụ bạn vừa gặp — dễ nhớ hơn list từ rời.",
+                "Mục tiêu không phải thuộc lòng mọi nghĩa từ điển, mà nhận ra lại từ đó lần sau khi nghe hoặc viết."
+              ]
+            },
+            {
+              "kind": "numberedList",
+              "heading": "Một phiên Daily Taka tập trung trong sáu bước",
+              "intro": "Khoảng 15–25 phút, một bài nghe ngắn hoặc vài câu dictation:",
+              "items": [
+                "Nghe một lần không gõ; xác định người nói, tình huống và ý chính.",
+                "Phát lại câu và chỉ gõ những từ bạn có căn cứ từ audio.",
+                "Nộp đáp án rồi đối chiếu âm thanh, transcript và phần đã gõ.",
+                "Đánh dấu từ/cụm hay sai; thêm vào ôn từ vựng nếu bài có liên kết.",
+                "Luyện viết 1–2 câu cùng chủ đề (nếu có trong lộ trình level).",
+                "Ghi lại một câu mẫu bạn muốn nhớ — đọc to một lần trước khi kết thúc."
+              ]
+            }
+          ]
+        },
+        {
+          "slug": "cambridge-ielts-smart-practice",
+          "sortOrder": 2,
+          "category": "LUYỆN THI IELTS",
+          "readingTimeMinutes": 9,
+          "title": "Bộ Cambridge IELTS: Cách thông minh hơn để dùng đề thi thật",
+          "excerpt": "Biến bộ sách Cambridge IELTS từ chồng đáp án thành hệ thống chẩn đoán cho Listening, Reading, Writing và Speaking.",
+          "publishedAt": "2026-08-27",
+          "summary": "Biến bộ sách Cambridge IELTS từ chồng đáp án thành hệ thống chẩn đoán giúp cải thiện Listening, Reading, Writing và Speaking.",
+          "blocks": [
+            {
+              "kind": "text",
+              "heading": "Hãy xem Cambridge IELTS như buồng lái mô phỏng, không phải cầu thang giáo trình",
+              "paragraphs": [
+                "Nhiều bạn mua cả dãy sách rồi làm lần lượt từ cuốn 1 — coi đó như sách giáo khoa. Thực tế, đề thi thật dùng để **mô phỏng áp lực thời gian** và **đo lỗ hổng**, không phải để “học từ vựng từng trang”.",
+                "Mỗi test nên kết thúc bằng bảng lỗi: sai vì thiếu từ, sai vì paraphrase, hay sai vì không kịp đọc câu hỏi — mỗi loại có cách luyện khác nhau trên Daily Taka."
+              ]
+            },
+            {
+              "kind": "text",
+              "heading": "Chu kỳ làm đề: mô phỏng → sửa → lặp lại có chủ đích",
+              "paragraphs": [
+                "Làm full test một lần trong khung giờ thi. Ngày hôm sau, chỉ sửa phần yếu nhất (ví dụ Listening section 3) bằng nghe chép câu bạn đã nghe sai.",
+                "Tránh làm liên tục nhiều đề mà không phân tích — số điểm dao động nhưng kỹ năng không đổi."
+              ]
+            }
+          ]
+        },
+        {
+          "slug": "american-accent-daily-taka-me2talk",
+          "sortOrder": 3,
+          "category": "PHÁT ÂM TIẾNG ANH MỸ",
+          "readingTimeMinutes": 9,
+          "title": "Mastering the American Accent: Kim chỉ nam phát âm của Daily Taka và Me2talk",
+          "excerpt": "Kết hợp nghe chép có transcript, shadowing ngắn và checklist âm vị để giảm “accent nặng” trong hội thoại hằng ngày.",
+          "publishedAt": "2026-08-20",
+          "summary": "Phát âm Mỹ không chỉ là một bài học IPA — bạn cần nghe đủ, bắt chước có phản hồi, rồi ghi âm so với bản gốc.",
+          "blocks": []
+        },
+        {
+          "slug": "tu-vung-ngu-canh",
+          "sortOrder": 4,
+          "category": "TỪ VỰNG",
+          "readingTimeMinutes": 7,
+          "title": "Học từ theo câu: flashcard + quiz có ngữ cảnh",
+          "excerpt": "Cách dùng bài từ vựng trên Daily Taka để không quên từ sau ba ngày.",
+          "publishedAt": "2026-08-05",
+          "summary": "",
+          "blocks": []
+        },
+        {
+          "slug": "luyen-viet-co-ban",
+          "sortOrder": 5,
+          "category": "LUYỆN VIẾT",
+          "readingTimeMinutes": 9,
+          "title": "Luyện viết từ câu ngắn: gõ đúng chính tả trước, văn phong sau",
+          "excerpt": "Thứ tự ưu tiên A1–B1: câu đúng → cụm từ → đoạn ngắn.",
+          "publishedAt": "2026-07-28",
+          "summary": "",
+          "blocks": []
+        },
+        {
+          "slug": "thoi-quen-hoc-sang",
+          "sortOrder": 6,
+          "category": "THÓI QUEN",
+          "readingTimeMinutes": 5,
+          "title": "15 phút buổi sáng: một bài nghe + five từ mới",
+          "excerpt": "Routine tối giản cho người đi làm; không cần block hai giờ.",
+          "publishedAt": "2026-07-15",
+          "summary": "",
+          "blocks": []
+        },
+        {
+          "slug": "loi-khi-dich-nguoc",
+          "sortOrder": 7,
+          "category": "PHƯƠNG PHÁP DAILY TAKA",
+          "readingTimeMinutes": 6,
+          "title": "Dịch ngược tiếng Việt → Anh: khi nào hữu ích, khi nào nên tránh",
+          "excerpt": "Luyện viết không phải lúc nào cũng bắt chước cấu trúc tiếng Việt.",
+          "publishedAt": "2026-07-01",
+          "summary": "",
+          "blocks": []
+        },
+        {
+          "slug": "on-tap-spaced",
+          "sortOrder": 8,
+          "category": "ÔN TẬP",
+          "readingTimeMinutes": 8,
+          "title": "Ôn tập rải rác: tận dụng tiến độ trên app",
+          "excerpt": "Streak, bài dở và từ yếu — ghép lại thành lịch ôn nhẹ.",
+          "publishedAt": "2026-06-20",
+          "summary": "",
+          "blocks": []
+        },
+        {
+          "slug": "chon-level-cefr",
+          "sortOrder": 9,
+          "category": "BẮT ĐẦU",
+          "readingTimeMinutes": 4,
+          "title": "Chọn A1, B1 hay “nhảy cóc”: gợi ý theo mục tiêu của bạn",
+          "excerpt": "Không có một level duy nhất cho mọi người; điều chỉnh theo nghe và từ.",
+          "publishedAt": "2026-06-01",
+          "summary": "",
+          "blocks": []
+        }
+      ]
+    }
+  ]
+}

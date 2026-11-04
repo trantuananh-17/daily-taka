@@ -52,10 +52,15 @@ const JP_N5_VOCAB_TOPICS: LevelTopicSeed[] = [
   { title: "総復習", lessonCount: 6 },
 ]
 
-const JP_N5_WRITING_TOPICS: LevelTopicSeed[] = EN_A1_WRITING_TOPICS.slice(0, 12).map((topic) => ({
-  ...topic,
-  lessonCount: 8,
-}))
+/** Mock writing — một section / một bài để test player ZH. */
+const ZH_HSK1_WRITING_TOPICS: LevelTopicSeed[] = [
+  { title: "日常生活：入门初探", lessonCount: 1 },
+]
+
+/** Mock writing — một section / một bài để test player JP. */
+const JP_N5_WRITING_TOPICS: LevelTopicSeed[] = [
+  { title: "日常生活：基本の学び", lessonCount: 1 },
+]
 
 function genericTopics(level: string): LevelTopicSeed[] {
   return [
@@ -73,10 +78,7 @@ const SEEDS: Partial<Record<SeedKey, LevelTopicSeed[]>> = {
   "en:vocab:A1": EN_A1_VOCAB_TOPICS,
   "jp:vocab:N5": JP_N5_VOCAB_TOPICS,
   "en:writing:A1": EN_A1_WRITING_TOPICS,
-  "zh:writing:HSK1": ZH_HSK1_TOPICS.map((topic) => ({
-    title: topic.title,
-    lessonCount: Math.max(2, Math.min(topic.lessonCount, 8)),
-  })),
+  "zh:writing:HSK1": ZH_HSK1_WRITING_TOPICS,
   "jp:writing:N5": JP_N5_WRITING_TOPICS,
 }
 

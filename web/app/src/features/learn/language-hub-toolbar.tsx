@@ -54,10 +54,15 @@ function HubToolbarActions({ language }: { language: LanguageHubCode }) {
         <BookOpen className="size-4 shrink-0 sm:size-[17px]" strokeWidth={2} aria-hidden />
         <span className="hidden sm:inline">Kiến thức</span>
       </button>
-      <button type="button" aria-label="Cẩm nang" title="Cẩm nang" className={utilityPill}>
+      <Link
+        href={`/${language}/handbook`}
+        aria-label="Cẩm nang"
+        title="Cẩm nang"
+        className={cn(utilityPill, "no-underline")}
+      >
         <Library className="size-4 shrink-0 sm:size-[17px]" strokeWidth={2} aria-hidden />
         <span className="hidden sm:inline">Cẩm nang</span>
-      </button>
+      </Link>
     </div>
   )
 }

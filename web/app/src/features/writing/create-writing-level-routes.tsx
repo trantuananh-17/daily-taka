@@ -4,8 +4,8 @@ import {
   createCurriculumLevelPageMetadata,
   createCurriculumLevelStaticParams,
 } from "@/features/learn/create-curriculum-level-routes"
-import { CurriculumLessonPlaceholderPage } from "@/features/learn/curriculum-lesson-placeholder-page"
 import { WritingLevelPage } from "@/features/writing/writing-level-page"
+import { WritingLessonPage } from "@/features/writing/writing-lesson-page"
 import type { LanguageHubCode } from "@/lib/learn/hub"
 
 type LevelRouteProps = {
@@ -27,9 +27,8 @@ export function createWritingLessonPage(language: LanguageHubCode) {
   return async function WritingLessonRoute({ params }: LessonRouteProps) {
     const { level, sectionId, lessonSlug } = await params
     return (
-      <CurriculumLessonPlaceholderPage
+      <WritingLessonPage
         language={language}
-        module="writing"
         level={level}
         sectionId={sectionId}
         lessonSlug={lessonSlug}

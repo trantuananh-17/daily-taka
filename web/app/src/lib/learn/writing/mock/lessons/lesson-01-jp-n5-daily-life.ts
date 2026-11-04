@@ -1,0 +1,86 @@
+import type { WritingLesson } from "@/lib/learn/writing/types/lesson"
+
+export const LESSON_01_JP_N5_DAILY_LIFE: WritingLesson = {
+  id: "lesson-01-jp-n5",
+  title: "日常生活：基本の学び",
+  level: "N5",
+  scriptModes: [
+    { id: "standard", label: "Viết chuẩn", inputKind: "cjk" },
+    { id: "kana", label: "Luyện kana", inputKind: "cjk" },
+  ],
+  progress: {
+    currentSentenceIndex: 0,
+    doneSentenceIndexes: [],
+    drafts: {},
+  },
+  sentences: [
+    {
+      vi: "Hôm nay chúng ta cùng học về Cuộc sống hằng ngày.",
+      target: "今日、私たちは日常生活について楽しく勉強します。",
+      targetsByMode: {
+        kana: "きょう、わたしたちはにちじょうせいかつについてたのしくべんきょうします。",
+      },
+      pronunciationKind: "romaji",
+      pronunciation: [
+        { word: "今日", romaji: "kyou" },
+        { word: "私", romaji: "watashi" },
+        { word: "たち", romaji: "tachi" },
+        { word: "は", romaji: "wa" },
+        { word: "日常", romaji: "nichijou" },
+        { word: "生活", romaji: "seikatsu" },
+        { word: "について", romaji: "nitsuite" },
+        { word: "楽しく", romaji: "tanoshiku" },
+        { word: "勉強", romaji: "benkyou" },
+        { word: "し", romaji: "shi" },
+        { word: "ます", romaji: "masu" },
+      ],
+    },
+    {
+      vi: "Mỗi buổi sáng thức dậy, tôi đều cảm thấy rất vui vẻ.",
+      target: "毎朝起きた時、私はとても清々しい気持ちになります。",
+      targetsByMode: {
+        kana: "まいあさおきたとき、わたしはとてもすがすがしいきもちになります。",
+      },
+      pronunciationKind: "romaji",
+      pronunciation: [
+        { word: "毎朝", romaji: "maiasa" },
+        { word: "起き", romaji: "oki" },
+        { word: "た", romaji: "ta" },
+        { word: "時", romaji: "toki" },
+        { word: "私", romaji: "watashi" },
+        { word: "は", romaji: "wa" },
+        { word: "とても", romaji: "totemo" },
+        { word: "清々しい", romaji: "sugasugashii" },
+        { word: "気持ち", romaji: "kimochi" },
+        { word: "に", romaji: "ni" },
+        { word: "なり", romaji: "nari" },
+        { word: "ます", romaji: "masu" },
+      ],
+    },
+    {
+      vi: "Hôm nay là thời điểm thích hợp để tìm hiểu những kiến thức nền tảng nhất.",
+      target: "今日は最も基本的な事柄を学ぶのにとても良い日です。",
+      targetsByMode: {
+        kana: "きょうはもっともきほんてきなことがらをまなぶのにとてもよいひです。",
+      },
+      pronunciationKind: "romaji",
+      pronunciation: [
+        { word: "今日", romaji: "kyou" },
+        { word: "は", romaji: "wa" },
+        { word: "最も", romaji: "mottomo" },
+        { word: "基本", romaji: "kihon" },
+        { word: "的", romaji: "teki" },
+        { word: "な", romaji: "na" },
+        { word: "事柄", romaji: "kotogara" },
+        { word: "を", romaji: "o" },
+        { word: "学ぶ", romaji: "manabu" },
+        { word: "の", romaji: "no" },
+        { word: "に", romaji: "ni" },
+        { word: "とても", romaji: "totemo" },
+        { word: "良い", romaji: "yoi" },
+        { word: "日", romaji: "hi" },
+        { word: "です", romaji: "desu" },
+      ],
+    },
+  ],
+}
