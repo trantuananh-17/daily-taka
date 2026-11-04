@@ -1,0 +1,46 @@
+---
+description: UI từ design/*.design.md — shadcn/ui + Animate UI, component tái sử dụng
+globs: "**/*.{tsx,css}"
+alwaysApply: false
+---
+
+# UI implementation
+
+## 1. Nguồn spec — `design/*.design.md`
+
+- Mỗi page một file: `design/<page-slug>.design.md` (vd. `landing.design.md`).
+- Index: `design/README.md`, template: `design/PAGE-DESIGN-TEMPLATE.md`.
+- User ra lệnh (vd. *code page landing theo landing.design.md*) → **đọc đúng file đó** trước khi sửa code.
+- File thiếu / thiếu route hoặc component tree → **dừng**, báo user; không tự thiết kế UI.
+- Token chung (nếu có): `design/tokens.design.md`.
+
+## 2. shadcn/ui — component sẵn (bắt buộc ưu tiên)
+
+- Cài qua CLI shadcn vào `components/ui/` — **không** tự viết lại Button, Card, Input, Dialog, Accordion, Dropdown, Tabs, Badge, Skeleton, v.v. nếu shadcn đã có.
+- Page/feature **compose** từ `components/ui/*` + wrapper domain trong `components/layout/`, `components/features/`.
+- Style: `tailwind` + CSS variables shadcn (`globals.css`); màu/radius theo spec/tokens, không palette gradient mặc định AI.
+- Thêm component shadcn khi spec cần: `pnpm dlx shadcn@latest add <name>` (trong app Next).
+
+## 3. Animation — [Animate UI](https://animate-ui.com/)
+
+- Animate UI **animate primitives** (Radix/Base UI) — giữ nguyên component shadcn, đổi import primitive sang `@animate-ui/react/primitives/...` khi cần motion.
+- Sau khi có shadcn components: `pnpm dlx @animate-ui/cli@latest animate all` (hoặc animate từng primitive theo doc).
+- Chỉ thêm animation khi **spec** (`*.design.md`) ghi rõ (vd. accordion mở section, dialog, list enter/exit) — motion gọn, không trang trí.
+- Không dùng thư viện animation thứ ba song song (framer trực tiếp trong feature) trừ khi spec + skill cho phép.
+
+## 4. Composition — không code cứng
+
+- `app/**/page.tsx` **mỏng**: import layout + feature components; không khối JSX dài lặp lại.
+- Tách `components/features/<domain>/` khi spec ghi shared hoặc block có tên (LessonCard, AudioPlayer).
+- Bảng **Component tree** trong `*.design.md` map 1:1 sang file path.
+- `components/ui/` = shadcn only; **không sửa CSS trong file ui** — xem `shadcn-immutable.mdc`.
+- Brand user-facing: **Daily Taka** — `brand-naming.mdc`.
+
+## 5. Anti slop
+
+- Một bộ icon (theo spec, mặc định lucide-react như shadcn).
+- Loading/empty/error theo spec; dùng `Skeleton`, `Alert` shadcn khi phù hợp.
+
+## 6. Backend-only task
+
+Không tạo `.tsx` nếu user không gọi page + không có `*.design.md` tương ứng.

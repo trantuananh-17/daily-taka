@@ -1,0 +1,35 @@
+---
+description: Dependency injection — container, interfaces, test doubles
+globs: "**/*.{ts,tsx}"
+alwaysApply: false
+---
+
+# Dependency injection
+
+## Nguyên tắc
+
+1. **Use case** phụ thuộc **interface** repository/service, không phụ thuộc Drizzle/HTTP.
+2. **Composition root** duy nhất: `createAppContainer(env)` (hoặc `apps/api/src/container.ts`).
+3. Route Hono chỉ resolve use case từ container (hoặc middleware `c.get('container')`).
+
+## Pattern
+
+```typescript
+// packages/core/dictation/complete-sentence.use-case.ts
+export function createCompleteDictationSentenceUseCase(deps: {
+  progressRepo: IDictationProgressRepository;
+  clock: () => Date;
+}) {
+  return async (input: CompleteSentenceInput) => { /* ... */ };
+}
+```
+
+## Test
+
+- Unit test use case với **in-memory fake** implement interface.
+- Integration test repository với DB test (transaction rollback).
+
+## Cấm
+
+- `import { db } from '@dailytaka/db'` trực tiếp trong use case.
+- Singleton global mutable thay container.

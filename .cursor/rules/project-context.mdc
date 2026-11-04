@@ -1,0 +1,15 @@
+---
+description: Daily Lexis stack, DB choice, và nguồn sự thật tài liệu
+alwaysApply: true
+---
+
+# Daily Lexis — Project context
+
+- **App:** **Daily Taka** — học đa ngôn ngữ (dictation, vocabulary, writing).
+- **Monorepo:** Hono API ở **repo root** (`src/`, Ragenta-style); Next learner `web/app/`; admin `web/admin/` (later). Xem `docs/repo-structure.md`.
+- **Stack:** Next.js, Hono, Better Auth, **PostgreSQL + Drizzle**.
+- **DB:** `docs/database-design.md`.
+- **Kiến trúc:** `docs/architecture.md` — use case + repository + DI.
+- **UI spec:** `design/<slug>.design.md` — user chỉ định file khi ra lệnh code page.
+- **UI stack:** shadcn/ui + Animate UI — `ui-implementation.mdc`, skill `ui-shadcn-animate-ui`.
+- **Agents:** `AGENTS.md`, `.cursorrules` — `dailytaka-backend` | `dailytaka-frontend` (không tự đọc design) | `dailytaka-ui` (một `*.design.md`). Skill `lean-context`.

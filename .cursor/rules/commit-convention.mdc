@@ -1,0 +1,55 @@
+---
+description: Conventional Commits format cho Daily Lexis
+alwaysApply: true
+---
+
+# Commit message format
+
+**Không** thêm `Co-authored-by: Cursor` hay attribution agent — xem `git-commit-author.mdc`.
+
+Dùng [Conventional Commits](https://www.conventionalcommits.org/):
+
+```
+<type>(<scope>): <subject>
+
+[optional body]
+
+[optional footer]
+```
+
+## Types
+
+| Type | Khi nào |
+|------|---------|
+| `feat` | Tính năng mới |
+| `fix` | Sửa lỗi |
+| `docs` | Chỉ tài liệu |
+| `test` | Thêm/sửa test |
+| `refactor` | Đổi code, không đổi hành vi |
+| `chore` | Tooling, deps |
+| `db` | Migration / schema Drizzle |
+
+## Scope (gợi ý)
+
+`auth`, `api`, `db`, `dictation`, `vocabulary`, `writing`, `web`, `deps`
+
+## Subject
+
+- Imperative, tiếng Anh hoặc tiếng Việt nhất quán trong repo (ưu tiên **tiếng Anh** cho subject).
+- ≤ 72 ký tự, không chấm cuối dòng.
+
+## Ví dụ
+
+```
+feat(dictation): add sentence progress endpoint
+
+Persist user position and correctness per dictation sentence.
+```
+
+```
+db: add vocabulary_batches and vocabulary_items tables
+```
+
+## Breaking change
+
+Footer: `BREAKING CHANGE: mô tả ngắn`

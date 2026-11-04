@@ -1,0 +1,373 @@
+.language-card {
+  --home-rotate-x: 0deg;
+  --home-rotate-y: 0deg;
+  --home-lift: 0px;
+  --home-glow-x: 0.5;
+  --home-glow-y: 0.38;
+  --language-color: var(--dlx-accent-1, #df7059);
+  --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: 18px;
+  border: 1px solid var(--dlx-hairline);
+  padding: 1.25rem 1.25rem 0;
+  text-decoration: none;
+  color: inherit;
+  background: var(--card-bg, #fdf3f1);
+  box-shadow: var(--dlx-shadow-sm);
+  transform: perspective(1200px) rotateX(var(--home-rotate-x)) rotateY(var(--home-rotate-y))
+    translateY(var(--home-lift)) translateZ(0);
+  transition: box-shadow 0.32s var(--motion-ease);
+  backface-visibility: hidden;
+  animation: language-card-enter 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--delay, 0ms);
+}
+
+.language-card::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: calc(var(--home-glow-x) * 100%);
+  top: calc(var(--home-glow-y) * 100%);
+  width: 280px;
+  height: 280px;
+  transform: translate3d(-50%, -50%, 0);
+  background: radial-gradient(
+    circle closest-side,
+    color-mix(in srgb, var(--language-color) 28%, white) 0%,
+    color-mix(in srgb, var(--language-color) 12%, transparent) 38%,
+    transparent 68%
+  );
+  opacity: 0;
+  transition: opacity 0.32s var(--motion-ease);
+  pointer-events: none;
+}
+
+.language-card.language-card--tracking::after {
+  will-change: left, top, transform;
+}
+
+.language-card:not(.language-card--tracking) {
+  transition:
+    transform 0.45s var(--motion-ease),
+    box-shadow 0.32s var(--motion-ease);
+}
+
+.language-card.language-card--tracking {
+  will-change: transform;
+  transition: box-shadow 0.32s var(--motion-ease);
+}
+
+.language-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.language-card:hover::after,
+.language-card:focus-visible::after {
+  opacity: 1;
+}
+
+.language-card:hover,
+.language-card:focus-visible {
+  --home-lift: -6px;
+  box-shadow: rgba(32, 55, 43, 0.094) 0px 13px 30px;
+  outline: none;
+}
+
+.language-card:focus-visible {
+  box-shadow:
+    rgba(32, 55, 43, 0.094) 0px 13px 30px,
+    0 0 0 3px color-mix(in srgb, var(--language-color) 35%, transparent);
+}
+
+@keyframes language-card-enter {
+  from {
+    opacity: 0;
+    transform: perspective(1200px) rotateX(4deg) translateY(12px);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.home-language-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.flag-orb {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: var(--dlx-flag-orb-size);
+  height: var(--dlx-flag-orb-size);
+  padding: var(--dlx-flag-orb-padding);
+  border-radius: var(--dlx-flag-orb-radius);
+  background: rgb(255 253 250);
+  box-shadow: 0 4px 12px rgb(35 58 44 / 0.06);
+}
+
+.flag-orb svg {
+  display: block;
+  width: 28px;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.home-language-code {
+  font-family: var(--font-manrope), Manrope, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--language-color);
+}
+
+.home-language-art {
+  position: relative;
+  display: block;
+  width: min(100%, 220px);
+  height: 188px;
+  margin: 0.25rem auto 0;
+}
+
+.home-language-orbit-svg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  color: var(--language-color);
+  overflow: visible;
+  pointer-events: none;
+}
+
+.home-language-orbit-group {
+  transform-origin: 110px 96px;
+  transition: transform 0.38s var(--motion-ease);
+}
+
+.home-language-orbit-path {
+  stroke: currentColor;
+  stroke-width: 1.25;
+  vector-effect: non-scaling-stroke;
+}
+
+.home-language-orbit-path.orbit-outer {
+  stroke-opacity: 0.38;
+}
+
+.home-language-orbit-path.orbit-inner {
+  stroke-opacity: 0.26;
+}
+
+.home-language-core-sphere {
+  filter: drop-shadow(0 10px 18px color-mix(in srgb, var(--language-color) 18%, transparent));
+  transition: transform 0.38s var(--motion-ease);
+  transform-origin: 110px 96px;
+}
+
+.home-language-orbit-dot {
+  fill: currentColor;
+  opacity: 0.92;
+  transition: transform 0.38s var(--motion-ease);
+}
+
+.home-language-orbit-dot.orbit-dot-sm {
+  opacity: 0.78;
+}
+
+.home-language-orbit-dot.orbit-dot-faint {
+  opacity: 0.55;
+}
+
+.home-language-script-stack {
+  position: absolute;
+  left: 50%;
+  top: 48%;
+  z-index: 3;
+  width: 118px;
+  height: 118px;
+  transform: translate(-50%, -50%) rotate(-5deg) translateZ(0);
+  transition: transform 0.38s var(--motion-ease);
+  pointer-events: none;
+}
+
+.home-language-script-plate {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: 22px;
+  background: color-mix(in srgb, var(--language-color) 24%, white);
+  transform: translate(7px, 9px);
+  transition: transform 0.38s var(--motion-ease);
+}
+
+.home-language-script {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  border-radius: 22px;
+  border: 1px solid rgb(255 255 255 / 0.92);
+  background: #fff;
+  font-family: var(--font-manrope), Manrope, sans-serif;
+  font-size: 2.25rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--language-color);
+}
+
+.home-language-bubble,
+.home-language-spark {
+  position: absolute;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  color: var(--language-color);
+  transition: transform 0.38s var(--motion-ease);
+  pointer-events: none;
+}
+
+.home-language-bubble {
+  right: 6%;
+  bottom: 14%;
+}
+
+.home-language-spark {
+  left: 4%;
+  top: 10%;
+}
+
+.language-title {
+  display: block;
+  margin-top: 0.75rem;
+  font-family: var(--font-manrope), Manrope, sans-serif;
+  font-size: var(--dlx-h3-size);
+  font-weight: 800;
+  line-height: var(--dlx-h3-leading);
+  color: var(--dlx-ink);
+}
+
+.language-title b {
+  font-weight: 800;
+}
+
+.language-title small,
+.home-language-desktop-label {
+  margin-left: 0.35rem;
+  font-size: var(--dlx-lang-card-subtitle-size);
+  font-weight: 700;
+  line-height: var(--dlx-lang-card-subtitle-leading);
+  color: var(--dlx-body);
+}
+
+.language-description {
+  display: block;
+  margin-top: 0.75rem;
+  font-family: var(--font-dm-sans), "DM Sans", sans-serif;
+  font-size: var(--dlx-lang-card-description-size);
+  line-height: var(--dlx-lang-card-description-leading);
+  color: var(--dlx-body);
+}
+
+.language-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+  border-top: 1px solid var(--dlx-hairline);
+  padding: 1rem 0 1.25rem;
+}
+
+.home-language-action-label {
+  font-family: var(--font-manrope), Manrope, sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 800;
+  color: var(--language-color);
+}
+
+.home-language-arrow {
+  display: flex;
+  height: 2.5rem;
+  width: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 2px solid var(--language-color);
+  color: var(--language-color);
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+@media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
+  .language-card:hover .home-language-orbit-group {
+    transform: rotate(3deg) scale(1.02);
+  }
+
+  .language-card:hover .home-language-core-sphere {
+    transform: scale(1.04);
+  }
+
+  .language-card:hover .home-language-orbit-dot {
+    transform: scale(1.08);
+  }
+
+  .language-card:hover .home-language-script-stack {
+    transform: translate(-50%, -54%) rotate(-8deg) scale(1.04);
+  }
+
+  .language-card:hover .home-language-script-plate {
+    transform: translate(8px, 10px);
+  }
+
+  .language-card:hover .home-language-bubble {
+    transform: translate(3px, -4px) rotate(4deg);
+  }
+
+  .language-card:hover .home-language-spark {
+    transform: translate(-2px, -3px) rotate(-5deg) scale(1.05);
+  }
+
+  .language-card:hover .home-language-arrow {
+    background-color: var(--language-color);
+    color: #fff;
+    transform: translateX(2px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .language-card {
+    animation: none;
+  }
+
+  .home-language-orbit-group,
+  .home-language-core-sphere,
+  .home-language-script-stack,
+  .home-language-script-plate,
+  .home-language-bubble,
+  .home-language-spark,
+  .home-language-orbit-dot {
+    transition: none;
+  }
+}

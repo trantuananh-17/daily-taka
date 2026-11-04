@@ -1,0 +1,26 @@
+---
+description: Không sửa file shadcn trong components/ui — chỉ className khi gọi
+globs: "web/app/**/*.{ts,tsx}"
+alwaysApply: false
+---
+
+# shadcn/ui — không chỉnh source
+
+## Cấm
+
+- Sửa Tailwind/className/styles **bên trong** `web/app/src/components/ui/**` (button.tsx, card.tsx, …) để “cho đẹp”.
+- Patch primitive Animate UI trong `components/ui` ngoài lệnh `shadcn add` / `@animate-ui/cli animate`.
+
+## Được phép
+
+- Truyền **`className`**, `variant`, `size` (và props API công khai) **tại chỗ gọi** — page, `components/layout/`, `features/`.
+- Wrapper app-specific: `components/layout/`, `features/` (vd. `LanguageCard` bọc `Card` + className).
+- Theme/token: `globals.css`, `design/*.design.md` — không hard-code override trong file ui.
+
+## Nâng cấp component
+
+```bash
+cd web/app && pnpm dlx shadcn@latest add <name> --overwrite
+```
+
+Chỉ `--overwrite` khi cố ý regen; diff nhỏ, không mix tay styling lẻ.

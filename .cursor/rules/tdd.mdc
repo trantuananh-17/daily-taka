@@ -1,0 +1,32 @@
+---
+description: Test-Driven Development bắt buộc cho logic nghiệp vụ
+globs: "**/*.{ts,tsx}"
+alwaysApply: false
+---
+
+# TDD workflow
+
+Áp dụng cho **packages/core**, repositories, và Hono handlers có logic (UI chỉ khi có `design/<page>.design.md` tương ứng).
+
+## Chu trình
+
+1. **Red:** viết test mô tả hành vi (Given/When/Then hoặc arrange/act/assert).
+2. **Green:** code tối thiểu pass test.
+3. **Refactor:** giữ test xanh; không đổi hành vi không có test.
+
+## Thứ tự file
+
+- Ưu tiên `*.test.ts` cạnh module hoặc `__tests__/` cùng package.
+- Test use case **trước** implementation file.
+
+## Phạm vi test
+
+| Layer | Công cụ | Ghi chú |
+|-------|---------|---------|
+| Use case | Vitest + fakes | Không DB |
+| Repository | Vitest + test DB | migrate/seed fixture |
+| API | Vitest + Hono `app.request` | Auth mock |
+
+## Done definition
+
+- Logic mới có test; `pnpm test` (hoặc script tương đương) pass trước khi báo hoàn thành.

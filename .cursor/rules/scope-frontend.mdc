@@ -1,0 +1,14 @@
+---
+description: Frontend scope — web/app only; no design docs unless @-attached
+globs: "web/app/**/*.{ts,tsx,css}"
+alwaysApply: false
+---
+
+# Frontend scope
+
+Editing under `web/app/`:
+
+- Do **not** read `design/**` or `docs/ui-screen-analysis.md` unless the user `@`-mentions a design file in this chat.
+- Do **not** edit `src/**` — note API gaps for backend agent.
+- shadcn + Animate UI: `ui-implementation.mdc` when spec is in the message or attached file.
+- Lean reads: `.cursor/skills/lean-context/SKILL.md`.

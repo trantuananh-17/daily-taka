@@ -1,0 +1,31 @@
+---
+description: Git commit/push — chỉ tài khoản user, không Co-authored-by Cursor
+alwaysApply: true
+---
+
+# Git commit & push
+
+## Không co-author Cursor
+
+- **Không** thêm `Co-authored-by:`, `Co-Authored-By:`, hay trailer/agent attribution Cursor vào commit message.
+- **Không** dùng `--author` / identity giả để commit thay user.
+- Commit message: chỉ nội dung Conventional Commits (xem `commit-convention.mdc`), không footer attribution agent.
+
+## Push
+
+- Chỉ `git push` khi user **yêu cầu rõ** (như hiện tại).
+- Push dùng credential Git của user trên máy (GitHub CLI / credential manager); agent không cấu hình `user.email` / `user.name` trong repo.
+
+## Khi user yêu cầu commit
+
+- Tuân thủ user rule `committing-changes-with-git`: không amend/push trừ khi được phép.
+- Không commit `.env`, secrets, hoặc file nhạy cảm.
+
+## Cursor IDE
+
+- Tắt trailer commit tự động của Cursor (nếu có): **Settings → Cursor Settings → Agents / Git** — bỏ chọn co-author / attribution trên commit.
+- Repo có hook `.githooks/prepare-commit-msg` gỡ dòng `Co-authored-by: Cursor`. Bật một lần trên máy:
+  ```bash
+  git config core.hooksPath .githooks
+  ```
+  (Chỉ local; agent **không** tự chạy lệnh này thay user.)

@@ -1,0 +1,39 @@
+{
+  "name": "@dailytaka/backend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@9.15.0",
+  "scripts": {
+    "dev:api": "tsx watch src/main.api.ts",
+    "dev:worker": "tsx watch src/main.worker.ts",
+    "dev:web": "pnpm --filter @dailytaka/web dev",
+    "build": "tsup",
+    "start:api": "node dist/main.api.js",
+    "start:worker": "node dist/main.worker.js",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "tsx src/db/migrate.ts",
+    "db:studio": "drizzle-kit studio"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.19.14",
+    "better-auth": "^1.7.2",
+    "dotenv": "^17.3.1",
+    "drizzle-orm": "^0.45.2",
+    "hono": "^4.12.25",
+    "minio": "^8.0.7",
+    "pg": "^8.20.0",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/pg": "^8.20.0",
+    "drizzle-kit": "^0.31.10",
+    "tsup": "^8.5.1",
+    "tsx": "^4.7.1",
+    "typescript": "^5.8.3",
+    "vitest": "^3.0.0"
+  }
+}

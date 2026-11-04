@@ -1,0 +1,5 @@
+process.env.NODE_ENV ??= "test"
+process.env.API_BASE_URL ??= "http://localhost:8080"
+process.env.APP_BASE_URL ??= "http://localhost:3000"
+process.env.BETTER_AUTH_SECRET ??= "test-secret-at-least-32-characters-long!!"
+process.env.DATABASE_URL ??= "postgresql://localhost:5432/dailytaka_test"

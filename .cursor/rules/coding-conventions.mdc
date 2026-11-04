@@ -1,0 +1,32 @@
+---
+description: TypeScript và cấu trúc code Daily Lexis
+globs: "**/*.{ts,tsx}"
+alwaysApply: false
+---
+
+# Coding conventions
+
+## TypeScript
+
+- `strict: true`; tránh `any` — dùng `unknown` + narrow.
+- Export **types** cho DTO API; entity DB không leak ra client.
+- Zod schema cạnh route Hono; infer type từ schema.
+
+## Naming
+
+- Files: `kebab-case.ts`; React components: `PascalCase.tsx`.
+- Use cases: `verbNounUseCase` (e.g. `completeDictationSentenceUseCase`).
+- Repositories: interface `IDictationLessonRepository`, impl `DrizzleDictationLessonRepository`.
+
+## Hono routes
+
+- Một file route = một resource; handler mỏng (validate → use case → map response).
+- HTTP errors: `HTTPException` hoặc helper thống nhất `{ error: { code, message } }`.
+
+## Errors
+
+- Domain errors trong `packages/core` (class hoặc tagged union); map sang status 4xx/5xx ở boundary.
+
+## Imports
+
+- Alias `@dailytaka/*` cho packages; không relative `../../../` quá 2 cấp.

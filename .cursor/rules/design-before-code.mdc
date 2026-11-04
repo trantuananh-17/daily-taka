@@ -1,0 +1,24 @@
+---
+description: Thiết kế tài liệu trước khi implement tính năng
+alwaysApply: true
+---
+
+# Design before code
+
+## Backend / API / schema
+
+`docs/design/YYYY-MM-DD-<feature>.md` hoặc cập nhật `docs/database-design.md` — mục tiêu, API, schema delta, test scenarios.
+
+## UI
+
+- Spec: `design/<page-slug>.design.md`.
+- Lệnh: *code page X theo X.design.md* → đọc file đó → shadcn + Animate UI theo `ui-implementation.mdc`.
+- Thiếu spec → không code UI.
+
+Template: `design/PAGE-DESIGN-TEMPLATE.md`.
+
+## Thứ tự
+
+```
+*.design.md hoặc docs/design → tests (TDD) → implementation
+```

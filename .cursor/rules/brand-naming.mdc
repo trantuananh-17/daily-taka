@@ -1,0 +1,11 @@
+---
+description: Tên sản phẩm Daily Taka — không dùng Daily Lexis trên UI/copy
+alwaysApply: true
+---
+
+# Brand: Daily Taka
+
+- **Tên hiển thị:** **Daily Taka** (logo, title, metadata, footer, copy marketing).
+- **Không** ghi "Daily Lexis" trên UI, email user, hoặc string user-facing mới.
+- Repo/folder `dailytaka` giữ nguyên; file design `landing.design.md` có thể mô tả nguồn cảm hứng Lexis — khi code UI map sang **Daily Taka**.
+- Constant gợi ý: `web/app/src/lib/brand.ts` → `APP_NAME`.

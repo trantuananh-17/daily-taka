@@ -1,0 +1,13 @@
+---
+description: Backend scope — src and drizzle only; no web/design noise
+globs: "src/**/*.{ts,tsx}"
+alwaysApply: false
+---
+
+# Backend scope
+
+Editing under `src/`:
+
+- Do **not** read or modify `web/**`, `design/**`.
+- Schema reference: `docs/database-design.md` only for DB tasks.
+- Use `@dailytaka-backend` agent conventions; lean reads per `.cursor/skills/lean-context/SKILL.md`.

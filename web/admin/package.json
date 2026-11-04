@@ -1,0 +1,9 @@
+{
+  "name": "@dailytaka/admin-web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "echo \"Admin app not initialized yet. Run create-next-app here when ready.\" && exit 1",
+    "build": "echo \"Admin app not initialized yet.\" && exit 1"
+  }
+}

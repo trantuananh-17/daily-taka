@@ -1,0 +1,28 @@
+# Dailytaka — router (read first)
+
+Monorepo: backend Hono at repo root (`src/`), learner Next at `web/app/`.
+
+## Chọn agent (bắt buộc theo loại việc)
+
+1. **Backend** → dùng subagent `dailytaka-backend` (`.cursor/agents/dailytaka-backend.md`)
+   - Chỉ `src/`, `drizzle/`, API docs. Không mở `web/`, `design/`.
+
+2. **Frontend** → `dailytaka-frontend`
+   - Chỉ `web/app/`. **Không đọc** `design/*.design.md` trừ khi user @ file trong chat.
+   - Spec UI: user paste hoặc chuyển sang agent UI.
+
+3. **UI từ design** → `dailytaka-ui`
+   - Đúng **một** file `design/<page>.design.md` user chỉ định + code `web/app/`.
+
+## Tiết kiệm credit
+
+- Đọc `.cursor/skills/lean-context/SKILL.md` trước khi grep/read hàng loạt.
+- Không audit full repo trừ khi user yêu cầu.
+
+## Commit / DB / UI stack
+
+- Commits: `.cursor/rules/commit-convention.mdc`
+- DB: `docs/database-design.md`
+- shadcn + Animate UI: `.cursor/rules/ui-implementation.mdc` (UI agent hoặc frontend khi có spec đính kèm)
+
+Chi tiết: `AGENTS.md`
