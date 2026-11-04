@@ -3,6 +3,9 @@ import { APP_NAME } from "@/lib/brand"
 
 export const PAGE_CONTAINER = "mx-auto w-full max-w-[1120px] px-4 md:px-6"
 
+/** Wider marketing blocks (e.g. listen topic catalog) */
+export const PAGE_CONTAINER_WIDE = "mx-auto w-full max-w-[1280px] px-4 md:px-6"
+
 /** Full-width top bars — same surface as page gradient, not sticky */
 export const PAGE_TOP_BAR =
   "w-full border-b border-[var(--dlx-hairline)] bg-transparent"

@@ -1,0 +1,181 @@
+/* Shared cover tile in topic cards */
+.topic-cover.jp-topic-cover,
+.topic-cover.zh-topic-cover,
+.topic-cover.en-topic-cover {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 5.5rem;
+  height: 5.75rem;
+  border-radius: 14px;
+  overflow: hidden;
+  color: var(--jp-light-ink, var(--zh-light-ink, var(--en-light-ink)));
+  background: var(--jp-light-bg, var(--zh-light-bg, var(--en-light-bg)));
+}
+
+.topic-cover svg {
+  width: 100%;
+  height: auto;
+  max-height: 4.75rem;
+}
+
+/* —— Japanese —— */
+.jp-topic-cover {
+  color: var(--jp-light-ink);
+  background: var(--jp-light-bg);
+}
+
+.jp-cover-wash {
+  fill: var(--jp-light-wash);
+}
+
+.jp-cover-pattern {
+  stroke: color-mix(in srgb, var(--jp-light-ink) 18%, transparent);
+  fill: none;
+}
+
+.jp-cover-grain circle {
+  fill: color-mix(in srgb, var(--jp-light-ink) 22%, transparent);
+}
+
+.jp-cover-shadow {
+  fill: color-mix(in srgb, var(--jp-light-ink) 12%, transparent);
+}
+
+.jp-cover-art .jp-cover-paper {
+  fill: #fff;
+}
+
+.jp-cover-art .jp-cover-accent {
+  fill: color-mix(in srgb, var(--jp-light-accent) 35%, white);
+}
+
+.jp-cover-art .jp-cover-secondary {
+  fill: color-mix(in srgb, var(--jp-light-secondary) 40%, white);
+}
+
+.jp-cover-art .jp-cover-ink {
+  fill: var(--jp-light-ink);
+}
+
+.jp-cover-highlight {
+  stroke: color-mix(in srgb, var(--jp-light-accent) 55%, white);
+}
+
+.jp-cover-signal {
+  stroke: color-mix(in srgb, var(--jp-light-accent) 70%, var(--jp-light-ink));
+  fill: none;
+}
+
+.jp-cover-string {
+  stroke: color-mix(in srgb, var(--jp-light-ink) 35%, transparent);
+}
+
+.jp-cover-lamp {
+  stroke: var(--jp-light-secondary);
+}
+
+.jp-cover-seal {
+  stroke: var(--jp-light-accent);
+  fill: color-mix(in srgb, var(--jp-light-accent) 25%, white);
+}
+
+/* —— Chinese —— */
+.zh-topic-cover {
+  color: var(--zh-light-ink);
+  background: var(--zh-light-bg);
+}
+
+.zh-cover-wash {
+  fill: var(--zh-light-wash);
+}
+
+.zh-cover-border,
+.zh-cover-cloud,
+.zh-cover-mist,
+.zh-cover-fine,
+.zh-cover-signal,
+.zh-cover-leaf,
+.zh-cover-gold-line {
+  stroke: currentColor;
+  fill: none;
+}
+
+.zh-cover-brush-wash {
+  fill: color-mix(in srgb, var(--zh-light-accent) 18%, transparent);
+}
+
+.zh-cover-shadow {
+  fill: color-mix(in srgb, var(--zh-light-ink) 10%, transparent);
+}
+
+.zh-cover-art .zh-cover-paper {
+  fill: #fff;
+}
+
+.zh-cover-art .zh-cover-accent {
+  fill: color-mix(in srgb, var(--zh-light-accent) 38%, white);
+}
+
+.zh-cover-art .zh-cover-secondary {
+  fill: color-mix(in srgb, var(--zh-light-secondary) 42%, white);
+}
+
+.zh-cover-art .zh-cover-landscape {
+  fill: color-mix(in srgb, var(--zh-light-secondary) 35%, white);
+}
+
+.zh-cover-art .zh-cover-ink {
+  fill: var(--zh-light-ink);
+}
+
+.zh-cover-halo {
+  fill: color-mix(in srgb, var(--zh-light-wash) 85%, white);
+  stroke: none;
+}
+
+.zh-cover-dragon-body {
+  fill: color-mix(in srgb, var(--zh-light-accent) 45%, white);
+}
+
+.zh-cover-cinnabar {
+  fill: var(--zh-light-accent);
+}
+
+.zh-cover-brush {
+  fill: color-mix(in srgb, var(--zh-light-ink) 15%, transparent);
+}
+
+.zh-cover-mark {
+  fill: var(--zh-light-accent);
+  stroke: none;
+}
+
+/* —— English —— */
+.en-topic-cover {
+  color: var(--en-light-ink);
+  background: var(--en-light-bg);
+}
+
+.en-cover-wash {
+  fill: var(--en-light-wash);
+}
+
+.en-cover-shadow {
+  fill: color-mix(in srgb, var(--en-light-ink) 10%, transparent);
+}
+
+.en-cover-art .en-cover-paper,
+.en-cover-art .cover-paper {
+  fill: #fff;
+}
+
+.en-cover-art .en-cover-accent,
+.en-cover-art .cover-accent {
+  fill: color-mix(in srgb, var(--en-light-accent) 35%, white);
+}
+
+.en-cover-art .cover-highlight {
+  stroke: color-mix(in srgb, var(--en-light-ink) 35%, white);
+}

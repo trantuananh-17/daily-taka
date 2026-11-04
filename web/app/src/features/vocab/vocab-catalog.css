@@ -1,0 +1,145 @@
+.vocab-catalog {
+  padding: 0;
+}
+
+.vocab-catalog-hero {
+  margin-bottom: 1.5rem;
+}
+
+.vocab-catalog-hero h1 {
+  margin: 0;
+  font-family: var(--font-manrope), Manrope, sans-serif;
+  font-size: var(--dlx-h3-size);
+  font-weight: 800;
+  line-height: var(--dlx-h3-leading);
+  color: var(--dlx-ink);
+}
+
+.vocab-catalog-hero p {
+  margin: 0.625rem 0 0;
+  max-width: 42rem;
+  font-family: var(--font-dm-sans), "DM Sans", sans-serif;
+  font-size: var(--dlx-text-body-size);
+  line-height: var(--dlx-text-body-leading);
+  color: var(--dlx-body);
+}
+
+.vocab-level-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  list-style: none;
+}
+
+@media (min-width: 640px) {
+  .vocab-level-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.125rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .vocab-level-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+.vocab-level-card {
+  --vocab-card-bg: hsl(var(--identity-h) var(--identity-s) 93%);
+  --vocab-card-ink: hsl(var(--identity-h) var(--identity-s) 28%);
+  --vocab-card-muted: hsl(var(--identity-h) var(--identity-s) 38%);
+  --vocab-card-accent: hsl(var(--identity-accent-h) var(--identity-s) 46%);
+  --vocab-card-chip: color-mix(in srgb, #fff 72%, var(--vocab-card-bg));
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  min-height: 100%;
+  border-radius: 24px;
+  border: 1px solid color-mix(in srgb, var(--vocab-card-ink) 8%, transparent);
+  padding: 1.125rem 1.25rem 1rem;
+  text-align: left;
+  background: var(--vocab-card-bg);
+  box-shadow: none;
+  cursor: pointer;
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease,
+    filter 0.2s ease;
+}
+
+.vocab-level-card:hover,
+.vocab-level-card:focus-visible {
+  box-shadow: color-mix(in srgb, var(--vocab-card-ink) 14%, transparent) 0 14px 32px -8px;
+  transform: translateY(-3px);
+  outline: none;
+}
+
+.vocab-level-card-top {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-manrope), Manrope, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--vocab-card-muted);
+}
+
+.vocab-level-card-top small {
+  flex: 1;
+}
+
+.vocab-level-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem;
+  border-radius: 10px;
+  background: var(--vocab-card-chip);
+  color: var(--vocab-card-accent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--vocab-card-ink) 6%, transparent);
+}
+
+.vocab-level-card-top svg:last-child {
+  flex-shrink: 0;
+  color: var(--vocab-card-accent);
+  opacity: 0.9;
+}
+
+.curriculum-level-body {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0.75rem;
+  min-height: 6.75rem;
+  padding: 0.25rem 0 0.125rem;
+}
+
+.curriculum-level-body strong {
+  align-self: center;
+  font-family: var(--font-manrope), Manrope, sans-serif;
+  font-size: clamp(2.25rem, 4.5vw, 2.75rem);
+  font-weight: 750;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--vocab-card-accent);
+}
+
+.vocab-level-card-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.125rem;
+  font-family: var(--font-dm-sans), "DM Sans", sans-serif;
+  font-size: 12px;
+  color: var(--vocab-card-muted);
+}
+
+.vocab-level-card-footer span:last-child {
+  color: var(--vocab-card-ink);
+  font-weight: 500;
+}

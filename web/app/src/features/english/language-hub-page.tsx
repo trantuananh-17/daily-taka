@@ -4,7 +4,7 @@ import {
   PAGE_CONTENT_PY,
 } from "@/components/layout/marketing-page-shell"
 import { EnglishFeatureGrid } from "@/features/english/english-feature-grid"
-import { EnglishHubToolbar } from "@/features/english/english-hub-toolbar"
+import { LanguageHubToolbar } from "@/features/learn/language-hub-toolbar"
 import { LANGUAGE_HUBS, type LanguageHubCode } from "@/lib/learn/hub"
 
 type LanguageHubPageProps = {
@@ -16,7 +16,7 @@ export function LanguageHubPage({ language }: LanguageHubPageProps) {
 
   return (
     <MarketingPageShell>
-      <EnglishHubToolbar language={language} />
+      <LanguageHubToolbar language={language} />
       <main className={PAGE_CONTAINER}>
         <div className={PAGE_CONTENT_PY}>
           <header className="mx-auto mb-10 max-w-[720px] text-center md:mb-12">

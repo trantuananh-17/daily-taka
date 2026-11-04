@@ -1,0 +1,62 @@
+{
+  "sage": {
+    "lightBg": "#edf5f0",
+    "lightWash": "#d4e8dc",
+    "lightInk": "#2a4538",
+    "lightAccent": "#7fb396",
+    "lightSecondary": "#b5c9a8",
+    "darkBg": "#1f2a24",
+    "darkWash": "#2e4538",
+    "darkInk": "#cce8d8",
+    "darkAccent": "#8fc4a8",
+    "darkSecondary": "#a8bc9b"
+  },
+  "blue": {
+    "lightBg": "#edf2f8",
+    "lightWash": "#d4e0ef",
+    "lightInk": "#2e4560",
+    "lightAccent": "#7ba3d4",
+    "lightSecondary": "#94a8bc",
+    "darkBg": "#222a38",
+    "darkWash": "#304058",
+    "darkInk": "#cce0f5",
+    "darkAccent": "#8fb0d8",
+    "darkSecondary": "#98acbc"
+  },
+  "sand": {
+    "lightBg": "#f8f2e8",
+    "lightWash": "#ede0c8",
+    "lightInk": "#5c4a32",
+    "lightAccent": "#d4b07a",
+    "lightSecondary": "#c9a878",
+    "darkBg": "#2d281f",
+    "darkWash": "#453928",
+    "darkInk": "#f0e0c0",
+    "darkAccent": "#d8bc88",
+    "darkSecondary": "#c9a878"
+  },
+  "rose": {
+    "lightBg": "#faf0f0",
+    "lightWash": "#efd8d8",
+    "lightInk": "#6b4048",
+    "lightAccent": "#d4929a",
+    "lightSecondary": "#c9a0a0",
+    "darkBg": "#322428",
+    "darkWash": "#4a3438",
+    "darkInk": "#f5d0d8",
+    "darkAccent": "#e0a0a8",
+    "darkSecondary": "#c99898"
+  },
+  "lavender": {
+    "lightBg": "#f2eef8",
+    "lightWash": "#e0d8ec",
+    "lightInk": "#4a4060",
+    "lightAccent": "#a89bd4",
+    "lightSecondary": "#b8a8c8",
+    "darkBg": "#282434",
+    "darkWash": "#3a3450",
+    "darkInk": "#e5d8f5",
+    "darkAccent": "#b8a8e0",
+    "darkSecondary": "#a898c0"
+  }
+}

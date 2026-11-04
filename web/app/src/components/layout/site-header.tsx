@@ -27,7 +27,7 @@ import { cn } from "@/lib/utils"
 const EXPLORE_LINKS = [
   { label: "Nghe chép chính tả", href: "/learn/en/dictation" },
   { label: "Học từ vựng", href: "/learn/en/vocabulary" },
-  { label: "Học viết", href: "/learn/en/writing" },
+  { label: "Học viết", href: "/en/write" },
 ]
 
 type SiteHeaderProps = {

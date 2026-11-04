@@ -1,0 +1,425 @@
+{
+  "next": null,
+  "rows": [
+    {
+      "id": "category-en-short-stories",
+      "name": "Short Stories",
+      "slug": "short-stories",
+      "levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2",
+        "C1"
+      ],
+      "sort_order": 1,
+      "description": null,
+      "descriptionVi": "Luyện nghe qua truyện ngắn, theo dõi nhân vật và diễn biến câu chuyện.",
+      "lessonCount": 294,
+      "cover": {
+        "variant": "en",
+        "topicKey": "short-stories",
+        "theme": {
+          "lightBg": "#edf5f0",
+          "lightWash": "#d4e8dc",
+          "lightInk": "#2a4538",
+          "lightAccent": "#7fb396",
+          "lightSecondary": "#b5c9a8",
+          "darkBg": "#1f2a24",
+          "darkWash": "#2e4538",
+          "darkInk": "#cce8d8",
+          "darkAccent": "#8fc4a8",
+          "darkSecondary": "#a8bc9b"
+        }
+      }
+    },
+    {
+      "id": "category-en-conversations",
+      "name": "Conversations",
+      "slug": "conversations",
+      "levels": [
+        "A1",
+        "A2",
+        "B1"
+      ],
+      "sort_order": 2,
+      "description": null,
+      "descriptionVi": "Nghe hội thoại đời thường, làm quen cách hỏi đáp và diễn đạt tự nhiên.",
+      "lessonCount": 169,
+      "cover": {
+        "variant": "en",
+        "topicKey": "conversations",
+        "theme": {
+          "lightBg": "#edf2f8",
+          "lightWash": "#d4e0ef",
+          "lightInk": "#2e4560",
+          "lightAccent": "#7ba3d4",
+          "lightSecondary": "#94a8bc",
+          "darkBg": "#222a38",
+          "darkWash": "#304058",
+          "darkInk": "#cce0f5",
+          "darkAccent": "#8fb0d8",
+          "darkSecondary": "#98acbc"
+        }
+      }
+    },
+    {
+      "id": "category-en-toeic",
+      "name": "TOEIC",
+      "slug": "toeic",
+      "levels": [
+        "A2",
+        "B1",
+        "B2",
+        "C1"
+      ],
+      "sort_order": 3,
+      "description": null,
+      "descriptionVi": "Luyện nghe tình huống công việc và đời sống thường gặp trong TOEIC.",
+      "lessonCount": 600,
+      "cover": {
+        "variant": "en",
+        "topicKey": "toeic",
+        "theme": {
+          "lightBg": "#f8f2e8",
+          "lightWash": "#ede0c8",
+          "lightInk": "#5c4a32",
+          "lightAccent": "#d4b07a",
+          "lightSecondary": "#c9a878",
+          "darkBg": "#2d281f",
+          "darkWash": "#453928",
+          "darkInk": "#f0e0c0",
+          "darkAccent": "#d8bc88",
+          "darkSecondary": "#c9a878"
+        }
+      }
+    },
+    {
+      "id": "category-en-ielts-listening",
+      "name": "IELTS Listening",
+      "slug": "ielts-listening",
+      "levels": [
+        "B1",
+        "B2",
+        "C1"
+      ],
+      "sort_order": 4,
+      "description": null,
+      "descriptionVi": "Rèn kỹ năng nắm ý chính và chi tiết qua hội thoại, bài nói theo hướng IELTS.",
+      "lessonCount": 392,
+      "cover": {
+        "variant": "en",
+        "topicKey": "ielts-listening",
+        "theme": {
+          "lightBg": "#faf0f0",
+          "lightWash": "#efd8d8",
+          "lightInk": "#6b4048",
+          "lightAccent": "#d4929a",
+          "lightSecondary": "#c9a0a0",
+          "darkBg": "#322428",
+          "darkWash": "#4a3438",
+          "darkInk": "#f5d0d8",
+          "darkAccent": "#e0a0a8",
+          "darkSecondary": "#c99898"
+        }
+      }
+    },
+    {
+      "id": "category-en-toefl",
+      "name": "TOEFL",
+      "slug": "toefl",
+      "levels": [
+        "B1",
+        "B2",
+        "C1",
+        "C2"
+      ],
+      "sort_order": 5,
+      "description": null,
+      "descriptionVi": "Luyện nghe tiếng Anh học thuật qua bài giảng và hội thoại trong môi trường đại học.",
+      "lessonCount": 50,
+      "cover": {
+        "variant": "en",
+        "topicKey": "toefl",
+        "theme": {
+          "lightBg": "#f2eef8",
+          "lightWash": "#e0d8ec",
+          "lightInk": "#4a4060",
+          "lightAccent": "#a89bd4",
+          "lightSecondary": "#b8a8c8",
+          "darkBg": "#282434",
+          "darkWash": "#3a3450",
+          "darkInk": "#e5d8f5",
+          "darkAccent": "#b8a8e0",
+          "darkSecondary": "#a898c0"
+        }
+      }
+    },
+    {
+      "id": "category-en-kid-stories",
+      "name": "Kid Stories",
+      "slug": "kid-stories",
+      "levels": [
+        "A2",
+        "B1",
+        "B2"
+      ],
+      "sort_order": 6,
+      "description": null,
+      "descriptionVi": "Làm quen tiếng Anh qua những câu chuyện gần gũi dành cho trẻ em.",
+      "lessonCount": 13,
+      "cover": {
+        "variant": "en",
+        "topicKey": "kid-stories",
+        "theme": {
+          "lightBg": "#f8f2e8",
+          "lightWash": "#ede0c8",
+          "lightInk": "#5c4a32",
+          "lightAccent": "#d4b07a",
+          "lightSecondary": "#c9a878",
+          "darkBg": "#2d281f",
+          "darkWash": "#453928",
+          "darkInk": "#f0e0c0",
+          "darkAccent": "#d8bc88",
+          "darkSecondary": "#c9a878"
+        }
+      }
+    },
+    {
+      "id": "category-en-news",
+      "name": "NEWS",
+      "slug": "news",
+      "levels": [
+        "B1",
+        "B2",
+        "C1"
+      ],
+      "sort_order": 7,
+      "description": null,
+      "descriptionVi": "Luyện nắm thông tin chính, sự kiện và chi tiết qua các bản tin tiếng Anh.",
+      "lessonCount": 215,
+      "cover": {
+        "variant": "en",
+        "topicKey": "news",
+        "theme": {
+          "lightBg": "#edf2f8",
+          "lightWash": "#d4e0ef",
+          "lightInk": "#2e4560",
+          "lightAccent": "#7ba3d4",
+          "lightSecondary": "#94a8bc",
+          "darkBg": "#222a38",
+          "darkWash": "#304058",
+          "darkInk": "#cce0f5",
+          "darkAccent": "#8fb0d8",
+          "darkSecondary": "#98acbc"
+        }
+      }
+    },
+    {
+      "id": "category-en-long-listening",
+      "name": "Long Listening",
+      "slug": "long-listening",
+      "levels": [
+        "A2",
+        "B1"
+      ],
+      "sort_order": 8,
+      "description": null,
+      "descriptionVi": "Rèn sự tập trung và khả năng theo dõi mạch ý trong các bài nghe dài.",
+      "lessonCount": 76,
+      "cover": {
+        "variant": "en",
+        "topicKey": "long-listening",
+        "theme": {
+          "lightBg": "#f2eef8",
+          "lightWash": "#e0d8ec",
+          "lightInk": "#4a4060",
+          "lightAccent": "#a89bd4",
+          "lightSecondary": "#b8a8c8",
+          "darkBg": "#282434",
+          "darkWash": "#3a3450",
+          "darkInk": "#e5d8f5",
+          "darkAccent": "#b8a8e0",
+          "darkSecondary": "#a898c0"
+        }
+      }
+    },
+    {
+      "id": "category-en-podcast",
+      "name": "BBC Learnings",
+      "slug": "bbc-learnings",
+      "levels": [
+        "B1",
+        "B2",
+        "C1"
+      ],
+      "sort_order": 9,
+      "description": null,
+      "descriptionVi": "Luyện nghe và mở rộng cách diễn đạt qua nội dung học tiếng Anh của BBC.",
+      "lessonCount": 400,
+      "cover": {
+        "variant": "en",
+        "topicKey": "bbc-learnings",
+        "theme": {
+          "lightBg": "#edf5f0",
+          "lightWash": "#d4e8dc",
+          "lightInk": "#2a4538",
+          "lightAccent": "#7fb396",
+          "lightSecondary": "#b5c9a8",
+          "darkBg": "#1f2a24",
+          "darkWash": "#2e4538",
+          "darkInk": "#cce8d8",
+          "darkAccent": "#8fc4a8",
+          "darkSecondary": "#a8bc9b"
+        }
+      }
+    },
+    {
+      "id": "category-en-ted-talks",
+      "name": "TED Talks",
+      "slug": "ted-talks",
+      "levels": [
+        "B1",
+        "B2",
+        "C1",
+        "C2"
+      ],
+      "sort_order": 10,
+      "description": null,
+      "descriptionVi": "Khám phá ý tưởng và câu chuyện qua các bài diễn thuyết tiếng Anh.",
+      "lessonCount": 151,
+      "cover": {
+        "variant": "en",
+        "topicKey": "ted-talks",
+        "theme": {
+          "lightBg": "#faf0f0",
+          "lightWash": "#efd8d8",
+          "lightInk": "#6b4048",
+          "lightAccent": "#d4929a",
+          "lightSecondary": "#c9a0a0",
+          "darkBg": "#322428",
+          "darkWash": "#4a3438",
+          "darkInk": "#f5d0d8",
+          "darkAccent": "#e0a0a8",
+          "darkSecondary": "#c99898"
+        }
+      }
+    },
+    {
+      "id": "category-en-name-spelling",
+      "name": "Name Spelling",
+      "slug": "name-spelling",
+      "levels": [],
+      "sort_order": 11,
+      "description": null,
+      "descriptionVi": "Luyện nghe tên riêng và cách đánh vần để ghi lại chính xác từng chữ cái.",
+      "lessonCount": 6,
+      "cover": {
+        "variant": "en",
+        "topicKey": "name-spelling",
+        "theme": {
+          "lightBg": "#f8f2e8",
+          "lightWash": "#ede0c8",
+          "lightInk": "#5c4a32",
+          "lightAccent": "#d4b07a",
+          "lightSecondary": "#c9a878",
+          "darkBg": "#2d281f",
+          "darkWash": "#453928",
+          "darkInk": "#f0e0c0",
+          "darkAccent": "#d8bc88",
+          "darkSecondary": "#c9a878"
+        }
+      }
+    },
+    {
+      "id": "category-en-number",
+      "name": "Number",
+      "slug": "number",
+      "levels": [],
+      "sort_order": 12,
+      "description": null,
+      "descriptionVi": "Luyện nghe và phân biệt số, ngày tháng, giờ giấc và các thông tin định lượng.",
+      "lessonCount": 9,
+      "cover": {
+        "variant": "en",
+        "topicKey": "number",
+        "theme": {
+          "lightBg": "#edf2f8",
+          "lightWash": "#d4e0ef",
+          "lightInk": "#2e4560",
+          "lightAccent": "#7ba3d4",
+          "lightSecondary": "#94a8bc",
+          "darkBg": "#222a38",
+          "darkWash": "#304058",
+          "darkInk": "#cce0f5",
+          "darkAccent": "#8fb0d8",
+          "darkSecondary": "#98acbc"
+        }
+      }
+    },
+    {
+      "id": "category-en-medical-oet",
+      "name": "Medical OET",
+      "slug": "medical-oet",
+      "levels": [
+        "B1",
+        "B2",
+        "C1",
+        "C2"
+      ],
+      "sort_order": 13,
+      "description": null,
+      "descriptionVi": "Luyện nghe tiếng Anh y khoa qua giao tiếp và tình huống chăm sóc sức khỏe.",
+      "lessonCount": 80,
+      "cover": {
+        "variant": "en",
+        "topicKey": "medical-oet",
+        "theme": {
+          "lightBg": "#edf5f0",
+          "lightWash": "#d4e8dc",
+          "lightInk": "#2a4538",
+          "lightAccent": "#7fb396",
+          "lightSecondary": "#b5c9a8",
+          "darkBg": "#1f2a24",
+          "darkWash": "#2e4538",
+          "darkInk": "#cce8d8",
+          "darkAccent": "#8fc4a8",
+          "darkSecondary": "#a8bc9b"
+        }
+      }
+    },
+    {
+      "id": "category-en-general-video",
+      "name": "General video",
+      "slug": "general-video",
+      "levels": [
+        "B1",
+        "B2",
+        "C1",
+        "C2"
+      ],
+      "sort_order": 14,
+      "description": null,
+      "descriptionVi": "Luyện nghe tiếng Anh qua video đa dạng về đời sống và nhiều chủ đề khác nhau.",
+      "lessonCount": 170,
+      "cover": {
+        "variant": "en",
+        "topicKey": "general-video",
+        "theme": {
+          "lightBg": "#f2eef8",
+          "lightWash": "#e0d8ec",
+          "lightInk": "#4a4060",
+          "lightAccent": "#a89bd4",
+          "lightSecondary": "#b8a8c8",
+          "darkBg": "#282434",
+          "darkWash": "#3a3450",
+          "darkInk": "#e5d8f5",
+          "darkAccent": "#b8a8e0",
+          "darkSecondary": "#a898c0"
+        }
+      }
+    }
+  ],
+  "version": "5208",
+  "complete": true
+}

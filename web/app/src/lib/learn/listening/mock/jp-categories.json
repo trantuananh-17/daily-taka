@@ -1,0 +1,378 @@
+{
+  "next": null,
+  "rows": [
+    {
+      "id": "category-ja-anime",
+      "name": "Anime",
+      "slug": "anime",
+      "levels": [
+        "N2",
+        "N3",
+        "N4",
+        "N5"
+      ],
+      "sort_order": 1,
+      "description": null,
+      "descriptionVi": "Nghe hội thoại và tình huống từ thế giới anime.",
+      "lessonCount": 67,
+      "cover": {
+        "variant": "jp",
+        "topicKey": "anime",
+        "theme": {
+          "lightBg": "#faefef",
+          "lightWash": "#f1d9dc",
+          "lightInk": "#824354",
+          "lightAccent": "#ce7889",
+          "lightSecondary": "#e8bd91",
+          "darkBg": "#30232d",
+          "darkWash": "#48303e",
+          "darkInk": "#f3cfdb",
+          "darkAccent": "#c67f98",
+          "darkSecondary": "#c3a078"
+        }
+      }
+    },
+    {
+      "id": "category-ja-japan-history",
+      "name": "Japan's History",
+      "slug": "japan-history",
+      "levels": [
+        "N1",
+        "N2"
+      ],
+      "sort_order": 2,
+      "description": null,
+      "descriptionVi": "Khám phá lịch sử Nhật Bản qua các bài nghe.",
+      "lessonCount": 6,
+      "cover": {
+        "variant": "jp",
+        "topicKey": "japan-history",
+        "theme": {
+          "lightBg": "#f5efe2",
+          "lightWash": "#e9dfc6",
+          "lightInk": "#655439",
+          "lightAccent": "#b98e49",
+          "lightSecondary": "#8b9b83",
+          "darkBg": "#2d2922",
+          "darkWash": "#423b2b",
+          "darkInk": "#e8d8b3",
+          "darkAccent": "#b79a61",
+          "darkSecondary": "#8b9e88"
+        }
+      }
+    },
+    {
+      "id": "category-ja-jlpt",
+      "name": "JLPT",
+      "slug": "jlpt",
+      "levels": [
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5"
+      ],
+      "sort_order": 3,
+      "description": null,
+      "descriptionVi": "Luyện nghe phục vụ mục tiêu thi JLPT.",
+      "lessonCount": 75,
+      "cover": {
+        "variant": "jp",
+        "topicKey": "jlpt",
+        "theme": {
+          "lightBg": "#edf1f8",
+          "lightWash": "#dae3f1",
+          "lightInk": "#3e547b",
+          "lightAccent": "#7a96bf",
+          "lightSecondary": "#d28578",
+          "darkBg": "#222a38",
+          "darkWash": "#303f54",
+          "darkInk": "#cbdaf0",
+          "darkAccent": "#89a9d0",
+          "darkSecondary": "#d3998d"
+        }
+      }
+    },
+    {
+      "id": "category-ja-kids",
+      "name": "Kids",
+      "slug": "kids",
+      "levels": [
+        "N3",
+        "N4",
+        "N5"
+      ],
+      "sort_order": 4,
+      "description": null,
+      "descriptionVi": "Nội dung gần gũi, dễ tiếp cận cho người học nhỏ tuổi.",
+      "lessonCount": 51,
+      "cover": {
+        "variant": "jp",
+        "topicKey": "kids",
+        "theme": {
+          "lightBg": "#f9f1df",
+          "lightWash": "#efe0b8",
+          "lightInk": "#846136",
+          "lightAccent": "#d6a14d",
+          "lightSecondary": "#c97e67",
+          "darkBg": "#30291f",
+          "darkWash": "#493d27",
+          "darkInk": "#f0d9ae",
+          "darkAccent": "#d6ab64",
+          "darkSecondary": "#d58e78"
+        }
+      }
+    },
+    {
+      "id": "category-ja-music",
+      "name": "Music",
+      "slug": "music",
+      "levels": [
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5"
+      ],
+      "sort_order": 5,
+      "description": null,
+      "descriptionVi": "Làm quen với tiếng Nhật qua âm nhạc.",
+      "lessonCount": 45,
+      "cover": {
+        "variant": "jp",
+        "topicKey": "music",
+        "theme": {
+          "lightBg": "#f2edf6",
+          "lightWash": "#e3d8ed",
+          "lightInk": "#6c4b7c",
+          "lightAccent": "#a680ba",
+          "lightSecondary": "#d7ad78",
+          "darkBg": "#2b2434",
+          "darkWash": "#41314f",
+          "darkInk": "#e5d0ef",
+          "darkAccent": "#b793ce",
+          "darkSecondary": "#d6b889"
+        }
+      }
+    },
+    {
+      "id": "category-ja-news",
+      "name": "News",
+      "slug": "news",
+      "levels": [
+        "N1",
+        "N2",
+        "N3"
+      ],
+      "sort_order": 6,
+      "description": null,
+      "descriptionVi": "Luyện nghe tiếng Nhật qua tin tức.",
+      "lessonCount": 30,
+      "cover": {
+        "variant": "jp",
+        "topicKey": "news",
+        "theme": {
+          "lightBg": "#ecf2f1",
+          "lightWash": "#d7e4e1",
+          "lightInk": "#466963",
+          "lightAccent": "#80a49a",
+          "lightSecondary": "#c67d68",
+          "darkBg": "#202d2c",
+          "darkWash": "#2e4340",
+          "darkInk": "#cce3dd",
+          "darkAccent": "#8fb6aa",
+          "darkSecondary": "#cf9682"
+        }
+      }
+    },
+    {
+      "id": "category-ja-podcast",
+      "name": "Podcast",
+      "slug": "podcast",
+      "levels": [
+        "N2",
+        "N3",
+        "N4",
+        "N5"
+      ],
+      "sort_order": 7,
+      "description": null,
+      "descriptionVi": "Theo dõi những câu chuyện và trao đổi bằng tiếng Nhật.",
+      "lessonCount": 43,
+      "cover": {
+        "variant": "jp",
+        "topicKey": "podcast",
+        "theme": {
+          "lightBg": "#edf2f7",
+          "lightWash": "#d8e4ee",
+          "lightInk": "#425e78",
+          "lightAccent": "#7c9fb9",
+          "lightSecondary": "#d1a678",
+          "darkBg": "#222d37",
+          "darkWash": "#304251",
+          "darkInk": "#cadfeb",
+          "darkAccent": "#8fb3cb",
+          "darkSecondary": "#d5b58e"
+        }
+      }
+    },
+    {
+      "id": "category-ja-business-japanese",
+      "name": "Business Japanese",
+      "slug": "business-japanese",
+      "levels": [
+        "N1",
+        "N2",
+        "N3"
+      ],
+      "sort_order": 8,
+      "description": null,
+      "descriptionVi": "Luyện nghe giao tiếp trong môi trường công việc.",
+      "lessonCount": 30,
+      "cover": {
+        "variant": "jp",
+        "topicKey": "business-japanese",
+        "theme": {
+          "lightBg": "#f0efeb",
+          "lightWash": "#dfdfd4",
+          "lightInk": "#59634b",
+          "lightAccent": "#98a17d",
+          "lightSecondary": "#bc8664",
+          "darkBg": "#282c24",
+          "darkWash": "#3a4031",
+          "darkInk": "#dae1c7",
+          "darkAccent": "#a7b58b",
+          "darkSecondary": "#c79b7a"
+        }
+      }
+    },
+    {
+      "id": "category-ja-travel",
+      "name": "Travel",
+      "slug": "travel",
+      "levels": [
+        "N1",
+        "N2",
+        "N3",
+        "N4"
+      ],
+      "sort_order": 9,
+      "description": null,
+      "descriptionVi": "Chuẩn bị cho các tình huống khi du lịch Nhật Bản.",
+      "lessonCount": 29,
+      "cover": {
+        "variant": "jp",
+        "topicKey": "travel",
+        "theme": {
+          "lightBg": "#edf3ef",
+          "lightWash": "#d5e7dc",
+          "lightInk": "#3c6e5b",
+          "lightAccent": "#86b6a0",
+          "lightSecondary": "#ce8175",
+          "darkBg": "#202e28",
+          "darkWash": "#2e4539",
+          "darkInk": "#cce9db",
+          "darkAccent": "#8fc4ac",
+          "darkSecondary": "#d89a8e"
+        }
+      }
+    },
+    {
+      "id": "category-ja-daily-conversation",
+      "name": "Daily Conversation",
+      "slug": "daily-conversation",
+      "levels": [
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5"
+      ],
+      "sort_order": 10,
+      "description": null,
+      "descriptionVi": "Luyện nghe hội thoại trong cuộc sống hằng ngày.",
+      "lessonCount": 52,
+      "cover": {
+        "variant": "jp",
+        "topicKey": "daily-conversation",
+        "theme": {
+          "lightBg": "#faefea",
+          "lightWash": "#f0d9cc",
+          "lightInk": "#925d4c",
+          "lightAccent": "#d49b80",
+          "lightSecondary": "#97ab8e",
+          "darkBg": "#342722",
+          "darkWash": "#4d362e",
+          "darkInk": "#f1d5c5",
+          "darkAccent": "#d8a38a",
+          "darkSecondary": "#a8bc9b"
+        }
+      }
+    },
+    {
+      "id": "category-ja-folk-tales",
+      "name": "Folk tales",
+      "slug": "folk-tales",
+      "levels": [
+        "N1",
+        "N2",
+        "N3",
+        "N4",
+        "N5"
+      ],
+      "sort_order": 11,
+      "description": null,
+      "descriptionVi": "Khám phá tiếng Nhật qua truyện dân gian.",
+      "lessonCount": 34,
+      "cover": {
+        "variant": "jp",
+        "topicKey": "folk-tales",
+        "theme": {
+          "lightBg": "#f8ede6",
+          "lightWash": "#ecd2c3",
+          "lightInk": "#8d503d",
+          "lightAccent": "#cb7b5a",
+          "lightSecondary": "#c8ad71",
+          "darkBg": "#32251f",
+          "darkWash": "#4c3429",
+          "darkInk": "#f0d0b7",
+          "darkAccent": "#d9956e",
+          "darkSecondary": "#d8bd84"
+        }
+      }
+    },
+    {
+      "id": "category-ja-mixing",
+      "name": "Mixing",
+      "slug": "mixing",
+      "levels": [
+        "N2",
+        "N3",
+        "N4",
+        "N5"
+      ],
+      "sort_order": 12,
+      "description": null,
+      "descriptionVi": "Luyện nghe đa dạng chủ đề và tình huống.",
+      "lessonCount": 20,
+      "cover": {
+        "variant": "jp",
+        "topicKey": "mixing",
+        "theme": {
+          "lightBg": "#eeeff8",
+          "lightWash": "#dedff0",
+          "lightInk": "#5d608b",
+          "lightAccent": "#9699c3",
+          "lightSecondary": "#c9989f",
+          "darkBg": "#252638",
+          "darkWash": "#363a52",
+          "darkInk": "#d7d9f2",
+          "darkAccent": "#a7acd9",
+          "darkSecondary": "#d3a6af"
+        }
+      }
+    }
+  ],
+  "version": "691",
+  "complete": true
+}

@@ -1,0 +1,26 @@
+.curriculum-cover {
+  --art-wash: hsl(var(--identity-h) var(--identity-s) 88%);
+  --art-paper: color-mix(in srgb, #fff 88%, hsl(var(--identity-h) var(--identity-s) 93%));
+  --art-accent: hsl(var(--identity-accent-h) var(--identity-s) 52%);
+
+  display: block;
+  width: 100%;
+  max-width: 12.5rem;
+  margin-left: auto;
+  color: hsl(var(--identity-h) var(--identity-s) 36%);
+  overflow: visible;
+}
+
+.curriculum-cover svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.curriculum-level-art {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  min-width: 0;
+}
