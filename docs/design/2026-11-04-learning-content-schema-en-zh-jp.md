@@ -111,6 +111,14 @@ UNIQUE `(section_id, slug)`. Index `(category_id, section_id, display_order)`.
 
 **List endpoint:** JOIN category + section → trả đúng shape `rows[]` (có thể VIEW `listening_lesson_catalog`).
 
+**Query `level`:** `GET .../sections/:sectionId/lessons?level=A1` — lọc theo `level_code` (mặc định all).
+
+**HTTP (public, no auth):** prefix `/v1/languages/{en|zh|jp}/listening` — xem `src/modules/listening/listening.routes.ts`.
+
+**Admin CUD:** `/v1/admin/languages/{code}/listening` — `ADMIN_API_KEY` (`Authorization: Bearer` hoặc `x-admin-api-key`); Better Auth admin role sau. POST/PATCH/DELETE category, section, lesson; PUT `/lessons/:id/sentences`; PATCH/DELETE sentence.
+
+**Seed JSON (EN / ZH / JP — cùng shape):** `languageCode`, `category` (id, slug, name, levels[], cover?), `sections[]` (id, sectionNumber, title, access), `lessons[]` (id, slug, title, levelCode, displayOrder, audioStorageKey?, durationMs?, metadata?, `sentences[]`: position, startMs, endMs, transcript, metadata). ZH/JP khác `language_code`, slug/title nội dung, `level_code` (HSK/JLPT), id prefix `category-zh-*` / `category-jp-*`.
+
 ### 1.3 Lesson detail + sentences
 
 **API `lesson`:** + `audio_url`, `media`, `sentences[]`, `nextLesson`.
@@ -131,7 +139,61 @@ UNIQUE `(lesson_id, position)`. Index `(lesson_id, position)`.
 
 **`nextLesson`:** query `display_order + 1` cùng `section_id`, không cần bảng riêng.
 
-**Audio URL:** không lưu full URL trong DB nếu có thể — `audio_storage_key` + app build `/api/listening/audio/{key}`.
+**Audio bytes:** Postgres chỉ `audio_storage_key` (vd. `listening/en/lessons/{lessonId}/audio.mp3`). Bytes trong **MinIO/S3** (`STORAGE_*`, `docker compose` service `minio`). Seed: `FIRST_SNOW_AUDIO_SOURCE` → `putObject`, không commit MP3 vào repo. **Stream:** `GET /v1/languages/{code}/listening/audio/{key...}` (Range + CORS); detail trả `audioUrl` qua `buildListeningAudioUrl`.
+
+**Chia timeline theo câu (SRT):** mỗi row `listening_sentences` = một câu với `start_ms` / `end_ms` (milliseconds trên file audio lesson). Player seek theo câu; **không** cần bảng riêng “trạng thái audio” — đó là **nội dung**, không phải progress user.
+
+**Import legacy (package/SRT):** map vào `listening_lessons.metadata` (`importMode`, `sourceFilename`, `alignmentProvider`, …), `audio_storage_key` / `media.key`, bulk insert `listening_sentences` với đủ 21 câu như payload mẫu.
+
+### 1.4 Trạng thái lesson theo user (progress) — **chưa migration**
+
+Payload kiểu `lessons[]` trên section/card (khi đã login):
+
+```json
+{
+  "lessonId": "uuid",
+  "starCount": 0,
+  "isStarred": false,
+  "isCompleted": false,
+  "completionCount": 0,
+  "completedSentenceCount": 0,
+  "completionCycleActive": true
+}
+```
+
+| API field | Bảng / cột (đề xuất) |
+|-----------|----------------------|
+| `lessonId` | `user_listen_lesson_progress.lesson_id` → FK `listening_lessons.id` |
+| `isCompleted` | `status = 'completed'` (hoặc derive từ `completed_sentence_count >= sentence_count`) |
+| `completedSentenceCount` | `completed_sentence_count` |
+| `completionCount` | `completion_count` — số lần hoàn thành full bài (replay) |
+| `completionCycleActive` | `completion_cycle_active` — đang trong một vòng dictation (reset khi user “làm lại”) |
+| `isStarred` / `starCount` | `is_starred`, `star_count` (0–5) — **rating user**, khác `listening_lessons.stars` (mock catalog) |
+
+Bảng đề xuất **`user_listen_lesson_progress`**:
+
+| Column | Type | Notes |
+|--------|------|--------|
+| `user_id` | text FK | Better Auth |
+| `lesson_id` | text/uuid FK | |
+| `status` | text | `not_started` \| `in_progress` \| `completed` |
+| `completed_sentence_count` | int | |
+| `last_sentence_position` | int | resume |
+| `last_position_ms` | int nullable | optional — vị trí trong file audio |
+| `completion_count` | int default 0 | |
+| `completion_cycle_active` | boolean default false | |
+| `is_starred` | boolean default false | |
+| `star_count` | smallint default 0 | |
+| `completed_at` | timestamptz nullable | |
+| `updated_at` | timestamptz | |
+
+PK `(user_id, lesson_id)`.
+
+**Per-sentence chép (analytics / chấm điểm):** `user_listen_sentence_attempts` — `sentence_id`, `user_input`, `is_correct`, `duration_ms`, `created_at` (nhiều lần submit / câu).
+
+**Guest:** cùng shape, lưu localStorage; sau login `POST .../guest-progress/merge` → upsert `user_listen_lesson_progress` (xem `2026-11-04-listening-sections-lazy-load.md`).
+
+**Repo hiện tại:** chỉ có content `listening_*` + seed; **chưa** có Drizzle cho `user_listen_*`. FE EN dùng `guest-listening-progress` local.
 
 ---
 
@@ -330,8 +392,8 @@ erDiagram
 | Bảng | Mục đích |
 |------|----------|
 | `user_profiles` | locale, preferred language |
-| `user_listen_lesson_progress` | lesson_id, last_sentence_position, completed_at |
-| `user_listen_sentence_attempts` | sentence_id, user_input, is_correct, ms |
+| `user_listen_lesson_progress` | §1.4 — status, completed_sentence_count, completion_count, star, resume |
+| `user_listen_sentence_attempts` | sentence_id, user_input, is_correct, duration_ms |
 | `user_vocab_lesson_progress` | step, mastered_count, weak_word_ids cache |
 | `user_vocab_word_states` | SRS / mastered |
 | `user_vocab_weak_items` | queue ôn nhanh — xem database-design.md |

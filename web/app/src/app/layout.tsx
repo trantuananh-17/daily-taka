@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { DM_Sans, Manrope } from "next/font/google"
 
+import { QueryProvider } from "@/lib/api/query-provider"
 import { APP_NAME } from "@/lib/brand"
 import "./globals.css"
 
@@ -25,7 +26,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="vi" className={`${manrope.variable} ${dmSans.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col font-body">{children}</body>
+      <body className="min-h-full flex flex-col font-body">
+        <QueryProvider>{children}</QueryProvider>
+      </body>
     </html>
   )
 }

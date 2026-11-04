@@ -23,6 +23,7 @@ import {
   sanitizeDictationInput,
 } from "@/lib/learn/listening/dictation-answer-check"
 import { dictationGradingHintLabel } from "@/lib/learn/listening/dictation-grading-hint"
+import { resolvePlayerAudioUrl } from "@/lib/learn/listening/resolve-player-audio-url"
 import type { DictationLessonDetail } from "@/lib/learn/listening/types"
 
 import { PlaybackRateSelect } from "@/features/listen/dictation/playback-rate-select"
@@ -51,10 +52,15 @@ export function DictationPlayer({ language, detail }: DictationPlayerProps) {
     categorySlug,
     categoryName,
     sectionTitle,
-    audioUrl,
-    durationMs = 0,
+    audioUrl: detailAudioUrl,
     gradingDefaults,
   } = detail
+  const audioUrl = useMemo(() => resolvePlayerAudioUrl(detailAudioUrl), [detailAudioUrl])
+  const durationMs = useMemo(() => {
+    if (detail.durationMs != null && detail.durationMs > 0) return detail.durationMs
+    const last = sentences.at(-1)
+    return last?.endMs ?? 0
+  }, [detail.durationMs, sentences])
   const total = sentences.length
   const [mode, setMode] = useState<PlayerMode>("dictation")
   const [answer, setAnswer] = useState("")
@@ -104,7 +110,7 @@ export function DictationPlayer({ language, detail }: DictationPlayerProps) {
     progressRatio: audioProgressRatio,
     clockLabel,
     hasClip,
-  } = useDictationSentenceAudio(audioUrl, current, playbackRate, {
+  } = useDictationSentenceAudio(audioUrl, current, durationMs, playbackRate, {
     autoReplay: playbackSettings.autoReplay,
     replayGapSeconds: playbackSettings.replayGapSeconds,
   })
@@ -318,7 +324,15 @@ export function DictationPlayer({ language, detail }: DictationPlayerProps) {
             </div>
           </div>
 
-          {audioUrl ? <audio ref={audioRef} src={audioUrl} preload="metadata" /> : null}
+          {audioUrl ? (
+            <audio
+              ref={audioRef}
+              src={audioUrl}
+              preload="auto"
+              crossOrigin="anonymous"
+              className="sr-only"
+            />
+          ) : null}
 
           <DictationAudioBar
             playing={playing}

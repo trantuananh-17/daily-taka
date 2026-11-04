@@ -35,7 +35,7 @@
 | Lesson | `listening_lessons` | uuid, slug, level, audio R2 key, `template_type`, `path` |
 | Câu | `listening_sentences` | position, start/end ms, transcript, metadata jsonb (ipa, properNames) |
 
-Progress (phase 2): `user_listen_lesson_progress`, `user_listen_sentence_attempts`.
+Progress (phase 2, **chưa Drizzle**): `user_listen_lesson_progress` (star/completed/completion cycle — §1.4 `2026-11-04-learning-content-schema-en-zh-jp.md`), `user_listen_sentence_attempts`. Timeline câu = `listening_sentences.start_ms` / `end_ms` (content, đã có bảng).
 
 ### 6–8. Vocabulary — EN · ZH · JP
 

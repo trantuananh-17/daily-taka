@@ -3,37 +3,20 @@ import type { Metadata } from "next"
 import { ListenCategoryPage } from "@/features/listen/listen-category-page"
 import { APP_NAME } from "@/lib/brand"
 import { LANGUAGE_HUBS, type LanguageHubCode } from "@/lib/learn/hub"
-import { getListeningCategoryDetail } from "@/lib/learn/listening/get-listening-category-detail"
 import { getListeningCategories } from "@/lib/learn/listening/get-listening-categories"
 
-type ListenCategoryRouteProps = {
-  params: Promise<{ slug: string }>
-}
-
-export function createListenCategoryPageMetadata(language: LanguageHubCode) {
-  return async function generateMetadata({ params }: ListenCategoryRouteProps): Promise<Metadata> {
-    const { slug } = await params
-    const detail = await getListeningCategoryDetail(language, slug)
-    const hub = LANGUAGE_HUBS[language]
-
-    if (!detail) {
-      return { title: `Không tìm thấy | ${APP_NAME}` }
-    }
-
-    return {
-      title: `${detail.category.name} | Nghe chép chính tả | ${hub.pageTitle} | ${APP_NAME}`,
-      description:
-        detail.category.descriptionVi ??
-        detail.category.description ??
-        `Luyện nghe chủ đề ${detail.category.name}.`,
-    }
+/** Static metadata — dynamic `params` in generateMetadata blocks PPR (`cacheComponents`). */
+export function createListenCategoryPageMetadata(language: LanguageHubCode): Metadata {
+  const hub = LANGUAGE_HUBS[language]
+  return {
+    title: `Chủ đề | Nghe chép chính tả | ${hub.pageTitle} | ${APP_NAME}`,
+    description: `Chọn section và bài nghe để luyện chép chính tả — ${hub.breadcrumbLabel}.`,
   }
 }
 
 export function createListenCategoryPage(language: LanguageHubCode) {
-  return async function ListenCategoryRoute({ params }: ListenCategoryRouteProps) {
-    const { slug } = await params
-    return <ListenCategoryPage language={language} slug={slug} />
+  return function ListenCategoryRoute() {
+    return <ListenCategoryPage language={language} />
   }
 }
 

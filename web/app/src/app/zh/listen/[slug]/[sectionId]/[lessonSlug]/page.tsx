@@ -4,7 +4,7 @@ import {
   createListenLessonStaticParams,
 } from "@/features/listen/create-listen-lesson-page"
 
-export const generateMetadata = createListenLessonPageMetadata("zh")
+export const metadata = createListenLessonPageMetadata("zh")
 
 export const generateStaticParams = createListenLessonStaticParams("zh")
 

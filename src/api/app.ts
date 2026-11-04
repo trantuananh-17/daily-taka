@@ -6,6 +6,10 @@ import { checkDatabaseConnection } from "../db/client"
 import { isStorageConfigured } from "../storage/objects"
 import { errorHandler } from "./middleware/error-handler"
 import { requestContext } from "./middleware/request-context"
+import { requireAdminAuth } from "../auth/require-admin-auth"
+import { createListeningAdminRoutes } from "../modules/listening/listening.admin.routes"
+import { createListeningAudioRoutes } from "../modules/listening/listening.audio.routes"
+import { createListeningRoutes } from "../modules/listening/listening.routes"
 import type { AppEnv } from "./types"
 
 const DEFAULT_ORIGINS = ["http://localhost:*", "https://localhost:*"]
@@ -30,7 +34,8 @@ export function createApp() {
       origin: (origin) =>
         ALLOWED_ORIGINS.some((pattern) => pattern.test(origin)) ? origin : null,
       allowMethods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-      allowHeaders: ["Content-Type", "Authorization", "x-request-id"],
+      allowHeaders: ["Content-Type", "Authorization", "x-request-id", "Range"],
+      exposeHeaders: ["Content-Length", "Content-Range", "Accept-Ranges"],
       credentials: true,
     }),
   )
@@ -50,7 +55,10 @@ export function createApp() {
 
   app.get("/", (c) => c.json({ name: "dailytaka-api", version: "0.1.0" }))
 
-  // Module routes mount here — e.g. app.route("/v1/dictation", dictationRoutes)
+  app.route("/v1/languages/:languageCode/listening", createListeningRoutes())
+  app.route("/v1/languages/:languageCode/listening", createListeningAudioRoutes())
+  app.use("/v1/admin/*", requireAdminAuth())
+  app.route("/v1/admin/languages/:languageCode/listening", createListeningAdminRoutes())
 
   return app
 }

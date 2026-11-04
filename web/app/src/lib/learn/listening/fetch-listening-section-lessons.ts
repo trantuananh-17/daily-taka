@@ -1,31 +1,21 @@
 import type { LanguageHubCode } from "@/lib/learn/hub"
+import { serverGetListeningSectionLessons } from "@/lib/learn/listening/listening-api-server"
 import type { ListeningLesson } from "@/lib/learn/listening/types"
-
-import { getEnShortStoriesLessonsForSection } from "./mock/en-short-stories-sections"
-import { getJpFolkTalesLessonsForSection } from "./mock/jp-folk-tales-sections"
-import { getZhShortStoriesLessonsForSection } from "./mock/zh-short-stories-sections"
 
 type FetchSectionLessonsParams = {
   language: LanguageHubCode
   categorySlug: string
   sectionId: string
+  level?: string
 }
 
-/** Tier 2 data only — UI applies mock latency when opening a section. */
+/** Section lesson list — GET .../sections/:sectionId/lessons (RSC / static params; cached). */
 export async function fetchListeningSectionLessons({
   language,
   categorySlug,
   sectionId,
+  level,
 }: FetchSectionLessonsParams): Promise<ListeningLesson[]> {
-  if (language === "en" && categorySlug === "short-stories") {
-    return getEnShortStoriesLessonsForSection(sectionId) ?? []
-  }
-  if (language === "zh" && categorySlug === "short-stories") {
-    return getZhShortStoriesLessonsForSection(sectionId) ?? []
-  }
-  if (language === "jp" && categorySlug === "folk-tales") {
-    return getJpFolkTalesLessonsForSection(sectionId) ?? []
-  }
-
-  return []
+  const rows = await serverGetListeningSectionLessons(language, categorySlug, sectionId, level)
+  return rows ?? []
 }

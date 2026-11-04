@@ -6,6 +6,6 @@ import {
 
 export const generateStaticParams = createListenCategoryStaticParams("en")
 
-export const generateMetadata = createListenCategoryPageMetadata("en")
+export const metadata = createListenCategoryPageMetadata("en")
 
 export default createListenCategoryPage("en")

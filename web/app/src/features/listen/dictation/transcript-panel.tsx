@@ -7,6 +7,7 @@ import { cn } from "cn"
 import { DictationAudioBar } from "@/features/listen/dictation/dictation-audio-bar"
 import { ListenUiSelect } from "@/features/listen/listen-ui-select"
 import { useTranscriptLessonAudio } from "@/features/listen/dictation/use-transcript-lesson-audio"
+import { resolvePlayerAudioUrl } from "@/lib/learn/listening/resolve-player-audio-url"
 import type { DictationSentence } from "@/lib/learn/listening/types"
 
 type TranscriptPanelProps = {
@@ -16,8 +17,14 @@ type TranscriptPanelProps = {
   playbackRate: number
 }
 
-export function TranscriptPanel({ audioUrl, durationMs, sentences, playbackRate }: TranscriptPanelProps) {
+export function TranscriptPanel({
+  audioUrl: rawAudioUrl,
+  durationMs,
+  sentences,
+  playbackRate,
+}: TranscriptPanelProps) {
   const rowRefs = useRef<Map<number, HTMLButtonElement>>(new Map())
+  const audioUrl = resolvePlayerAudioUrl(rawAudioUrl)
 
   const {
     audioRef,
@@ -51,7 +58,9 @@ export function TranscriptPanel({ audioUrl, durationMs, sentences, playbackRate 
         </div>
       </div>
 
-      {audioUrl ? <audio ref={audioRef} src={audioUrl} preload="metadata" /> : null}
+      {audioUrl ? (
+        <audio ref={audioRef} src={audioUrl} preload="auto" crossOrigin="anonymous" className="sr-only" />
+      ) : null}
 
       <DictationAudioBar
         playing={playing}

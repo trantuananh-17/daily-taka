@@ -1,20 +1,18 @@
 import type { LanguageHubCode } from "@/lib/learn/hub"
+import { serverGetListeningCategories } from "@/lib/learn/listening/listening-api-server"
 import type { ListeningCategoryListResponse } from "@/lib/learn/listening/types"
 
-import enMock from "./mock/en-categories.json"
-import jpMock from "./mock/jp-categories.json"
-import zhMock from "./mock/zh-categories.json"
-
-const MOCKS: Record<LanguageHubCode, ListeningCategoryListResponse> = {
-  en: enMock as ListeningCategoryListResponse,
-  zh: zhMock as ListeningCategoryListResponse,
-  jp: jpMock as ListeningCategoryListResponse,
+const EMPTY_CATALOG: ListeningCategoryListResponse = {
+  next: null,
+  rows: [],
+  version: "1",
+  complete: true,
 }
 
-/** Mock until GET /languages/:code/listening/categories is wired. */
+/** Catalog list — GET /v1/languages/:code/listening/categories (RSC / metadata; cached). */
 export async function getListeningCategories(
   language: LanguageHubCode,
 ): Promise<ListeningCategoryListResponse> {
-  return MOCKS[language]
+  const data = await serverGetListeningCategories(language)
+  return data ?? EMPTY_CATALOG
 }
-

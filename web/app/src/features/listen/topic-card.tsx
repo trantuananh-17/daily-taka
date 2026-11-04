@@ -24,7 +24,16 @@ export function TopicCard({ category, language }: TopicCardProps) {
         aria-label={`Mở chủ đề: ${category.name}`}
         className="flex min-h-full items-stretch gap-3 rounded-2xl border border-[var(--dlx-hairline)] bg-white px-3.5 py-3.5 text-inherit no-underline shadow-[rgba(35,58,44,0.04)_0_2px_8px] transition-[box-shadow,transform,border-color] hover:-translate-y-0.5 hover:border-[color-mix(in_srgb,var(--dlx-hairline)_70%,var(--dlx-link))] hover:shadow-[rgba(32,55,43,0.09)_0_10px_24px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--dlx-primary)]"
       >
-        <LocaleTopicCover cover={category.cover} />
+        {category.cover ? (
+          <LocaleTopicCover cover={category.cover} />
+        ) : (
+          <span
+            className="topic-cover flex size-14 shrink-0 items-center justify-center rounded-xl bg-[var(--dlx-neutral-1)]"
+            aria-hidden
+          >
+            <Headphones width={22} height={22} strokeWidth={2} className="text-[var(--dlx-link)]" />
+          </span>
+        )}
         <span className="flex min-w-0 flex-1 flex-col gap-1.5">
           <span className="flex items-center justify-between gap-2">
             <h2 className="m-0 font-heading text-[17px] font-bold leading-[1.35] text-[var(--dlx-ink)]">

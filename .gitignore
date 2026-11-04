@@ -8,3 +8,5 @@ dist
 .DS_Store
 coverage
 drizzle/meta
+data/listening-media/**
+!data/listening-media/.gitkeep

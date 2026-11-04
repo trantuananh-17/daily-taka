@@ -1,6 +1,3 @@
-/**
- * Drizzle schema — auth (Better Auth), content metadata, progress.
- * See docs/database-design.md
- */
-
-export {}
+export * from "./languages"
+export * from "./listening"
+export * from "./proficiency-levels"

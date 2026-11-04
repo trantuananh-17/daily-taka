@@ -1,10 +1,10 @@
 "use client"
 
-import { useEffect, useMemo, useRef, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { ChevronDown, Search } from "lucide-react"
 import { cn } from "cn"
 
-import { searchListeningLessons } from "@/lib/learn/listening/search-listening-lessons"
+import { useListeningSearchQuery } from "@/lib/learn/listening/use-listening-queries"
 import type { LanguageHubCode } from "@/lib/learn/hub"
 import type {
   ListeningCategory,
@@ -47,11 +47,7 @@ export function SectionAccordion({ language, category, sections }: SectionAccord
   const [query, setQuery] = useState("")
   const [levelFilter, setLevelFilter] = useState<string>("all")
   const [debouncedQuery, setDebouncedQuery] = useState("")
-  const [searchLoading, setSearchLoading] = useState(false)
-  const [searchHits, setSearchHits] = useState<ListeningLessonSearchHit[] | null>(null)
   const [sectionMatchCount, setSectionMatchCount] = useState(sections.length)
-
-  const lessonCacheRef = useRef(new Map<string, ListeningLesson[]>())
 
   const normalizedQuery = normalizeQuery(debouncedQuery)
   const isSearchActive = normalizedQuery.length > 0 || levelFilter !== "all"
@@ -61,42 +57,34 @@ export function SectionAccordion({ language, category, sections }: SectionAccord
     return () => window.clearTimeout(handle)
   }, [query])
 
+  const searchQuery = useListeningSearchQuery(
+    language,
+    category.slug,
+    debouncedQuery,
+    levelFilter,
+    isSearchActive,
+  )
+
+  const searchLoading = isSearchActive && searchQuery.isLoading
+  const searchHits: ListeningLessonSearchHit[] | null = !isSearchActive
+    ? null
+    : searchQuery.isError
+      ? []
+      : searchQuery.isLoading && !searchQuery.data
+        ? null
+        : (searchQuery.data?.hits ?? [])
+
   useEffect(() => {
     if (!isSearchActive) {
-      setSearchHits(null)
       setSectionMatchCount(sections.length)
-      setSearchLoading(false)
       return
     }
-
-    let cancelled = false
-    setSearchLoading(true)
-    setSearchHits(null)
-    setSectionMatchCount(0)
-
-    searchListeningLessons({
-      language,
-      categorySlug: category.slug,
-      q: debouncedQuery,
-      level: levelFilter,
-    })
-      .then((result) => {
-        if (cancelled) return
-        setSearchHits(result.hits)
-        setSectionMatchCount(result.sectionMatchCount)
-        setSearchLoading(false)
-      })
-      .catch(() => {
-        if (cancelled) return
-        setSearchHits([])
-        setSectionMatchCount(0)
-        setSearchLoading(false)
-      })
-
-    return () => {
-      cancelled = true
+    if (searchQuery.data) {
+      setSectionMatchCount(searchQuery.data.sectionMatchCount)
+    } else if (searchQuery.isError) {
+      setSectionMatchCount(0)
     }
-  }, [isSearchActive, debouncedQuery, levelFilter, language, category.slug, sections.length])
+  }, [isSearchActive, searchQuery.data, searchQuery.isError, sections.length])
 
   const hitsBySection = useMemo(() => {
     if (!searchHits) return null
@@ -231,7 +219,6 @@ export function SectionAccordion({ language, category, sections }: SectionAccord
                   ? (hitsBySection.get(section.id) ?? [])
                   : undefined
               }
-              lessonCache={lessonCacheRef.current}
             />
           ))
         )}

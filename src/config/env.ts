@@ -16,6 +16,8 @@ const envSchema = z.object({
   STORAGE_SECRET_KEY: z.string().optional(),
   STORAGE_BUCKET: z.string().default("dailytaka-media"),
   STORAGE_REGION: z.string().default("us-east-1"),
+  /** Bearer / x-admin-api-key for `/v1/admin/*` until Better Auth admin roles. */
+  ADMIN_API_KEY: z.string().min(16).optional(),
 })
 
 const parsed = envSchema.safeParse(process.env)
@@ -46,4 +48,5 @@ export const env = {
           region: raw.STORAGE_REGION,
         }
       : undefined,
+  adminApiKey: raw.ADMIN_API_KEY,
 } as const

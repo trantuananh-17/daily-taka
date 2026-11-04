@@ -1,14 +1,12 @@
 "use client"
 
-import { useEffect, useState } from "react"
 import { ChevronDown } from "lucide-react"
 import { cn } from "cn"
 
 import { countGuestCompletedInSection } from "@/lib/learn/listening/guest-listening-progress"
-import { fetchListeningSectionLessons } from "@/lib/learn/listening/fetch-listening-section-lessons"
-import { mockNetworkDelay } from "@/lib/learn/listening/mock/mock-network-delay"
 import type { LanguageHubCode } from "@/lib/learn/hub"
 import type { ListeningLesson, ListeningSectionSummary } from "@/lib/learn/listening/types"
+import { useListeningSectionLessonsQuery } from "@/lib/learn/listening/use-listening-queries"
 
 import { LessonCard } from "./lesson-card"
 import { LessonGridSkeleton } from "./lesson-card-skeleton"
@@ -20,7 +18,6 @@ type SectionPanelProps = {
   isOpen: boolean
   onToggle: () => void
   searchLessons?: ListeningLesson[]
-  lessonCache: Map<string, ListeningLesson[]>
 }
 
 export function SectionPanel({
@@ -30,74 +27,27 @@ export function SectionPanel({
   isOpen,
   onToggle,
   searchLessons,
-  lessonCache,
 }: SectionPanelProps) {
-  const [openLessons, setOpenLessons] = useState<ListeningLesson[] | null>(null)
-  const [bodyLoading, setBodyLoading] = useState(false)
-  const [loadError, setLoadError] = useState(false)
-
   const isSearchMode = searchLessons !== undefined
-  const filteredCount = isSearchMode ? searchLessons.length : 0
+  const filteredCount = isSearchMode ? (searchLessons?.length ?? 0) : 0
+
+  const {
+    data: fetchedLessons,
+    isLoading,
+    isError,
+  } = useListeningSectionLessonsQuery(language, categorySlug, section.id, {
+    enabled: isOpen && !isSearchMode,
+  })
+
+  const openLessons = isSearchMode ? searchLessons : fetchedLessons
+  const bodyLoading = !isSearchMode && isOpen && isLoading
+  const loadError = !isSearchMode && isOpen && isError
 
   const guestCompleted = countGuestCompletedInSection(language, categorySlug, section.id)
   const completed = section.completedCount + guestCompleted
   const total = section.lessonCount
   const progressPct = total > 0 ? Math.round((completed / total) * 100) : 0
   const panelId = `section-panel-${section.id}`
-
-  useEffect(() => {
-    if (!isOpen) {
-      setOpenLessons(null)
-      setBodyLoading(false)
-      setLoadError(false)
-      return
-    }
-
-    let cancelled = false
-    setBodyLoading(true)
-    setOpenLessons(null)
-    setLoadError(false)
-
-    async function loadSectionBody() {
-      try {
-        let rows: ListeningLesson[]
-
-        if (isSearchMode) {
-          await mockNetworkDelay()
-          rows = searchLessons ?? []
-        } else {
-          const cached = lessonCache.get(section.id)
-          const dataPromise = cached
-            ? Promise.resolve(cached)
-            : fetchListeningSectionLessons({
-                language,
-                categorySlug,
-                sectionId: section.id,
-              }).then((fetched) => {
-                lessonCache.set(section.id, fetched)
-                return fetched
-              })
-
-          const [, fetched] = await Promise.all([mockNetworkDelay(), dataPromise])
-          rows = fetched
-        }
-
-        if (cancelled) return
-        setOpenLessons(rows)
-        setBodyLoading(false)
-      } catch {
-        if (cancelled) return
-        setLoadError(true)
-        setBodyLoading(false)
-      }
-    }
-
-    void loadSectionBody()
-
-    return () => {
-      cancelled = true
-    }
-  }, [isOpen, isSearchMode, searchLessons, section.id, language, categorySlug, lessonCache])
 
   const skeletonCount = isSearchMode
     ? Math.min(Math.max(filteredCount, 3), 9)

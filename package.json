@@ -3,6 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
+  "exports": {
+    "./api-type": "./src/api/app-type.ts",
+    "./api-client": "./src/api/hono-client.ts",
+    "./listening-public-client": "./src/api/listening-public-client.ts"
+  },
   "packageManager": "pnpm@9.15.0",
   "scripts": {
     "dev:api": "tsx watch src/main.api.ts",
@@ -15,6 +20,7 @@
     "test": "vitest run",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "tsx src/db/migrate.ts",
+    "db:seed": "tsx scripts/seed-listening.ts",
     "db:studio": "drizzle-kit studio"
   },
   "dependencies": {

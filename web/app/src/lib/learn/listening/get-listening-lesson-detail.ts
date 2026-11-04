@@ -1,24 +1,13 @@
 import type { LanguageHubCode } from "@/lib/learn/hub"
+import { serverGetListeningLessonDetail } from "@/lib/learn/listening/listening-api-server"
 import type { DictationLessonDetail } from "@/lib/learn/listening/types"
 
-import { getListeningCategories } from "./get-listening-categories"
-import { resolveListeningLessonDetail } from "./resolve-listening-lesson-detail"
-
+/** Lesson player payload — GET .../lessons/:lessonSlug (RSC / metadata; cached). */
 export async function getListeningLessonDetail(
   language: LanguageHubCode,
   categorySlug: string,
   sectionId: string,
   lessonSlug: string,
 ): Promise<DictationLessonDetail | null> {
-  const { rows } = await getListeningCategories(language)
-  const category = rows.find((row) => row.slug === categorySlug)
-  if (!category) return null
-
-  return resolveListeningLessonDetail(
-    language,
-    categorySlug,
-    sectionId,
-    lessonSlug,
-    category.name,
-  )
+  return serverGetListeningLessonDetail(language, categorySlug, sectionId, lessonSlug)
 }
