@@ -58,6 +58,14 @@
 - `lesson_activity_types`: familiarize | flashcard | matching | quiz | quick_review
 - `vocabulary_lesson_activities`: `lesson_id`, activity_type, `order_index`, config jsonb
 - SRS / mastery: `user_vocabulary_item_states`: user, item, ease, interval, due_at, status (new/learning/mastered)
+- **Ôn nhanh — từ sai/yếu (đề xuất):** `user_vocabulary_weak_items`
+  - `user_id`, `vocabulary_item_id`, `lesson_id` (bài phát sinh lỗi)
+  - `weak_source`: `flashcard_again` | `matching_wrong` | `main_quiz_wrong` | `carried_from_lesson`
+  - `review_flashcard_required`: boolean — `true` nếu Học lại / ghép sai / carry; `false` nếu chỉ sai quiz chính (đã “Đã nhớ” flashcard)
+  - `status`: `active` | `cleared` | `carried` — cleared sau quiz xác nhận đúng; carried khi còn yếu sang bài kế (`target_lesson_id` nullable)
+  - `created_at`, `cleared_at`, optional `source_activity` (flashcard | matching | quiz)
+  - Unique partial index gợi ý: `(user_id, vocabulary_item_id, lesson_id)` where `status = 'active'`
+  - **Thứ tự ôn nhanh (UI):** lấy mọi row active ( + carry vào `lesson_id` hiện tại) → sort ổn định → **lượt 1:** flashcard cho `review_flashcard_required = true` → **lượt 2:** một câu quiz / item (full queue). Chi tiết hành vi: `docs/design/2026-11-04-vocab-lesson-story-json.md`.
 
 ### 9. Writing — A1 → topic → lesson (Cooking Breakfast, 12 câu)
 

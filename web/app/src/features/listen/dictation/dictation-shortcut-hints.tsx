@@ -16,7 +16,7 @@ export function DictationShortcutHints({ settings, onRestartFromBeginning }: Dic
   if (!settings.showShortcutTips) return null
 
   return (
-    <div className="mb-4 flex flex-wrap items-center gap-x-3 gap-y-2 font-body text-[11px] text-[var(--dlx-muted)]">
+    <div className="mb-4 flex max-md:hidden flex-wrap items-center gap-x-3 gap-y-2 font-body text-[11px] text-[var(--dlx-muted)]">
       <span className="inline-flex items-center gap-1.5">
         <kbd className="rounded border border-border bg-white px-1.5 py-0.5">
           {formatListeningPlaybackKeyLabel(settings.playPauseKey)}

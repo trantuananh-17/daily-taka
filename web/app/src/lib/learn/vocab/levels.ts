@@ -250,6 +250,4 @@ export function getVocabLanguageMeta(language: LanguageHubCode): VocabLanguageMe
   return META[language]
 }
 
-export function vocabLevelHref(language: LanguageHubCode, level: string): string {
-  return `/${language}/vocab/${encodeURIComponent(level)}`
-}
+export { vocabCatalogHref, vocabLevelHref, vocabLessonHref } from "@/lib/learn/vocab/vocab-hrefs"

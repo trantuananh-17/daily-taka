@@ -4,8 +4,6 @@ import { CurriculumCoverArt } from "@/features/vocab/curriculum/curriculum-cover
 import type { LanguageHubCode } from "@/lib/learn/hub"
 import type { CurriculumLevelCover } from "@/lib/learn/curriculum-level"
 
-import "./curriculum-cover.css"
-
 type CurriculumCoverProps = {
   language: LanguageHubCode
   level: CurriculumLevelCover

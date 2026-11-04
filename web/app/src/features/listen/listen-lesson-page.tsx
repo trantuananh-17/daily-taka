@@ -38,7 +38,6 @@ export async function ListenLessonPage({
         trail={[
           { label: LISTEN_TRAIL_LABEL, href: listeningCatalogHref(language) },
           { label: detail.categoryName, href: listeningCategoryHref(language, categorySlug) },
-          { label: detail.lesson.title },
         ]}
       />
       <main className={`${PAGE_CONTAINER_WIDE} flex flex-1 flex-col`}>

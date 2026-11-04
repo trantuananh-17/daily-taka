@@ -12,8 +12,6 @@ import { LANGUAGE_HUBS } from "@/lib/learn/hub"
 import type { FeatureKind, LanguageFeature } from "@/lib/learn/features"
 import { cn } from "@/lib/utils"
 
-import "./english-feature-card.css"
-
 const FEATURE_ICONS: Record<FeatureKind, LucideIcon> = {
   listening: Headphones,
   vocab: LibraryBig,

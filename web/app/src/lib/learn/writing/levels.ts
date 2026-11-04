@@ -290,6 +290,8 @@ export function getWritingLanguageMeta(language: LanguageHubCode): WritingLangua
   return META[language]
 }
 
-export function writingLevelHref(language: LanguageHubCode, level: string): string {
-  return `/${language}/write/${encodeURIComponent(level)}`
-}
+export {
+  writingCatalogHref,
+  writingLevelHref,
+  writingLessonHref,
+} from "@/lib/learn/writing/writing-hrefs"

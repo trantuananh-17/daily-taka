@@ -1,20 +1,14 @@
 import Link from "next/link"
-import { BookOpen, ChevronRight, Compass, GraduationCap, Library, MapPin } from "lucide-react"
+import { BookOpen, Compass, Library } from "lucide-react"
+import { cn } from "cn"
 
 import { PAGE_HEADER_INNER, PAGE_TOP_BAR } from "@/components/layout/marketing-page-shell"
+import { LanguageHubBreadcrumbs, type HubBreadcrumbItem } from "@/features/learn/language-hub-breadcrumbs"
 import { APP_NAME } from "@/lib/brand"
 import { LANGUAGE_HUBS, type LanguageHubCode } from "@/lib/learn/hub"
 
-import "./learning-topbar.css"
-
-type HubBreadcrumbItem = {
-  label: string
-  href?: string
-}
-
 type LanguageHubToolbarProps = {
   language: LanguageHubCode
-  /** Extra crumbs after the language hub (hub becomes a link when set). */
   trail?: HubBreadcrumbItem[]
 }
 
@@ -30,79 +24,56 @@ function buildBreadcrumbs(language: LanguageHubCode, trail?: HubBreadcrumbItem[]
   return items
 }
 
-export function LanguageHubToolbar({ language, trail }: LanguageHubToolbarProps) {
+const crumbPill = cn(
+  "inline-flex shrink-0 items-center gap-1 rounded-full border px-2.5 py-1.5 font-heading text-[11px] font-bold leading-none",
+  "sm:gap-1.5 sm:px-3 sm:text-[13px]",
+)
+
+const utilityPill = cn(
+  crumbPill,
+  "cursor-pointer border-[#b8d9c8] bg-[var(--dlx-neutral-1)] text-[var(--dlx-link)] transition-colors hover:bg-[#d0e9d8]",
+)
+
+function HubToolbarActions({ language }: { language: LanguageHubCode }) {
   const hub = LANGUAGE_HUBS[language]
+  return (
+    <div
+      className="flex w-full shrink-0 items-center gap-1.5 overflow-x-auto pb-0.5 [-ms-overflow-style:none] [scrollbar-width:none] sm:w-auto sm:justify-end sm:gap-2 sm:overflow-visible sm:pb-0 [&::-webkit-scrollbar]:hidden"
+      aria-label="Công cụ học"
+    >
+      <Link
+        href={hub.learningPathHref}
+        aria-label="Lộ trình học"
+        title="Lộ trình học"
+        className={cn(utilityPill, "no-underline")}
+      >
+        <Compass className="size-4 shrink-0 sm:size-[17px]" strokeWidth={2} aria-hidden />
+        <span className="hidden sm:inline">Lộ trình học</span>
+      </Link>
+      <button type="button" aria-label="Kiến thức" title="Kiến thức" className={utilityPill}>
+        <BookOpen className="size-4 shrink-0 sm:size-[17px]" strokeWidth={2} aria-hidden />
+        <span className="hidden sm:inline">Kiến thức</span>
+      </button>
+      <button type="button" aria-label="Cẩm nang" title="Cẩm nang" className={utilityPill}>
+        <Library className="size-4 shrink-0 sm:size-[17px]" strokeWidth={2} aria-hidden />
+        <span className="hidden sm:inline">Cẩm nang</span>
+      </button>
+    </div>
+  )
+}
+
+export function LanguageHubToolbar({ language, trail }: LanguageHubToolbarProps) {
   const breadcrumbs = buildBreadcrumbs(language, trail)
+
   return (
     <div className={PAGE_TOP_BAR}>
       <div className={PAGE_HEADER_INNER}>
-        <header className="writing-topbar">
-          <nav className="breadcrumbs learning-breadcrumbs" aria-label="Điều hướng">
-            <ol role="list">
-              {breadcrumbs.map((item, index) => {
-                const isLast = index === breadcrumbs.length - 1
-                const isFirst = index === 0
-                return (
-                  <li key={`${item.label}-${index}`}>
-                    {index > 0 ? (
-                      <ChevronRight
-                        width={15}
-                        height={15}
-                        strokeWidth={2}
-                        className="breadcrumb-separator"
-                        aria-hidden
-                      />
-                    ) : null}
-                    {item.href && !isLast ? (
-                      <Link className="breadcrumb-link" href={item.href}>
-                        {isFirst ? (
-                          <GraduationCap width={17} height={17} strokeWidth={2} aria-hidden />
-                        ) : (
-                          <MapPin width={14} height={14} strokeWidth={2} aria-hidden />
-                        )}
-                        <span className="breadcrumb-label">{item.label}</span>
-                      </Link>
-                    ) : (
-                      <span className="breadcrumb-current" aria-current={isLast ? "page" : undefined}>
-                        {isFirst ? (
-                          <GraduationCap width={17} height={17} strokeWidth={2} aria-hidden />
-                        ) : (
-                          <MapPin width={14} height={14} strokeWidth={2} aria-hidden />
-                        )}
-                        <span className="breadcrumb-label">{item.label}</span>
-                      </span>
-                    )}
-                  </li>
-                )
-              })}
-            </ol>
+        <header className="flex flex-col gap-2.5 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+          <nav aria-label="Điều hướng" className="relative min-w-0 max-w-full flex-1">
+            <LanguageHubBreadcrumbs items={breadcrumbs} />
           </nav>
 
-          <div className="content-header-action">
-            <div className="learning-resource-nav">
-              <Link
-                className="knowledge-nav-button learning-path-nav"
-                href={hub.learningPathHref}
-                aria-label="Lộ trình học"
-                title="Lộ trình học"
-              >
-                <Compass width={17} height={17} strokeWidth={2} aria-hidden />
-                <span>Lộ trình học</span>
-              </Link>
-              <button type="button" className="knowledge-nav-button" aria-label="Kiến thức">
-                <BookOpen width={17} height={17} strokeWidth={2} aria-hidden />
-                <span>Kiến thức</span>
-              </button>
-              <button
-                type="button"
-                className="knowledge-nav-button guide-nav-button"
-                aria-label="Cẩm nang"
-              >
-                <Library width={17} height={17} strokeWidth={2} aria-hidden />
-                <span>Cẩm nang</span>
-              </button>
-            </div>
-          </div>
+          <HubToolbarActions language={language} />
         </header>
       </div>
     </div>

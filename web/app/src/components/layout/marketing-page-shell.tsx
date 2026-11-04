@@ -22,10 +22,10 @@ type MarketingPageShellProps = {
 
 export function MarketingPageShell({ children }: MarketingPageShellProps) {
   return (
-    <div className="dlx-hero-gradient flex min-h-full flex-col">
+    <div className="dlx-hero-gradient flex min-h-dvh flex-col">
       <SiteHeader tone="hero" />
-      {children}
-      <footer className="border-t border-[var(--dlx-hairline)] py-6 text-center">
+      <div className="flex flex-1 flex-col">{children}</div>
+      <footer className="mt-auto shrink-0 border-t border-[var(--dlx-hairline)] py-6 text-center">
         <p className="font-body text-[11px] text-[rgb(160,160,152)]">© {APP_NAME}</p>
       </footer>
     </div>

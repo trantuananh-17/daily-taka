@@ -9,8 +9,6 @@ import { usePointerCardMotion } from "@/hooks/use-pointer-card-motion"
 import type { LanguageOption } from "@/lib/landing/languages"
 import { cn } from "@/lib/utils"
 
-import "./language-card.css"
-
 const HOME_CLASS: Record<LanguageOption["code"], string> = {
   en: "home-language-en",
   zh: "home-language-zh",
