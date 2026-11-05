@@ -1,0 +1,53 @@
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ],
+      "@dailytaka/admin-dashboard-contract": [
+        "../../src/modules/admin-dashboard/admin-dashboard.summary.schema.ts"
+      ],
+      "@dailytaka/admin-dashboard-kpis": [
+        "../../src/modules/admin-dashboard/admin-dashboard.kpis.ts"
+      ],
+      "@dailytaka/admin-dashboard-insights-mock": [
+        "../../src/modules/admin-dashboard/admin-dashboard.insights.mock.ts"
+      ]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts",
+    "../../src/modules/admin-dashboard/admin-dashboard.summary.schema.ts",
+    "../../src/modules/admin-dashboard/admin-dashboard.kpis.ts",
+    "../../src/modules/admin-dashboard/admin-dashboard.insights.mock.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

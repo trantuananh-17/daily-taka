@@ -13,7 +13,7 @@ description: Setup và implement UI Daily Lexis với shadcn/ui plus Animate UI 
 ## Workflow page
 
 1. Đọc `design/<page>.design.md` user chỉ định.
-2. Liệt kê shadcn components cần → `pnpm dlx shadcn@latest add button card ...` trong `web/app`.
+2. Liệt kê shadcn components cần → `pnpm dlx shadcn@latest add button card ...` trong `web/app` hoặc `web/admin` (admin: thêm `admin-ui-implementation.mdc`, block `sidebar-07`, `chart`, `table`).
 3. Build feature wrappers; page chỉ compose.
 4. Nếu spec cần motion → chạy / cập nhật Animate UI trên primitives đã cài.
 

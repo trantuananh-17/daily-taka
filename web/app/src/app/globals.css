@@ -142,20 +142,28 @@
   --border: var(--dlx-hairline);
   --input: var(--dlx-hairline);
   --ring: var(--dlx-primary);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
+  /* Charts — admin dashboard palette */
+  --dlx-chart-module-listen: #76d1d1;
+  --dlx-chart-module-vocab: #f4b16d;
+  --dlx-chart-module-writing: #f1979a;
+  --dlx-chart-lang-en: #e85656;
+  --dlx-chart-lang-zh: #f5c842;
+  --dlx-chart-lang-jp: #f4a04a;
+  --chart-1: var(--dlx-chart-module-listen);
+  --chart-2: var(--dlx-chart-module-vocab);
+  --chart-3: var(--dlx-chart-module-writing);
+  --chart-4: var(--dlx-chart-lang-en);
+  --chart-5: var(--dlx-chart-lang-zh);
   --radius: 9px;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  /* Sidebar (admin + future learner shell) — Daily Taka palette */
+  --sidebar: var(--dlx-neutral-1);
+  --sidebar-foreground: var(--dlx-ink);
+  --sidebar-primary: var(--dlx-primary);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #d0e9d8;
+  --sidebar-accent-foreground: var(--dlx-link);
+  --sidebar-border: var(--dlx-hairline);
+  --sidebar-ring: var(--dlx-primary);
 }
 
 .dark {
@@ -177,19 +185,25 @@
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --dlx-chart-module-listen: #8edede;
+  --dlx-chart-module-vocab: #ffc985;
+  --dlx-chart-module-writing: #ffb3b5;
+  --dlx-chart-lang-en: #ff7a7a;
+  --dlx-chart-lang-zh: #ffdd6a;
+  --dlx-chart-lang-jp: #ffb86a;
+  --chart-1: var(--dlx-chart-module-listen);
+  --chart-2: var(--dlx-chart-module-vocab);
+  --chart-3: var(--dlx-chart-module-writing);
+  --chart-4: var(--dlx-chart-lang-en);
+  --chart-5: var(--dlx-chart-lang-zh);
+  --sidebar: #1a2e24;
+  --sidebar-foreground: #f5f9f6;
+  --sidebar-primary: var(--dlx-primary);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #243d30;
+  --sidebar-accent-foreground: #d0e9d8;
+  --sidebar-border: rgb(255 255 255 / 12%);
+  --sidebar-ring: var(--dlx-primary);
 }
 
 @layer base {

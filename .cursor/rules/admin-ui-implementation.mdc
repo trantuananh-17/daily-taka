@@ -1,0 +1,57 @@
+---
+description: Admin CMS (web/admin) — shadcn blocks, chart, stat; không tự thiết kế UI
+globs: "web/admin/**/*.{ts,tsx,css}"
+alwaysApply: false
+---
+
+# Admin UI (`web/admin`)
+
+Áp dụng khi sửa Next admin CMS. **Đồng bộ visual** với learner: `web/app/src/app/globals.css` + `dlx-components.css` (copy khi đổi token).
+
+## 1. Nguồn layout & block (bắt buộc)
+
+- **Shell app:** cài **block shadcn** qua CLI (vd. `sidebar-07`), không tự dựng sidebar/header từ div + Tailwind lạ.
+- **Trang mới (dashboard, CMS list, form):** ưu tiên block/registry shadcn tương ứng; chỉ compose wrapper domain mỏng.
+- Lệnh (trong `web/admin`):
+
+```bash
+pnpm dlx shadcn@latest add sidebar-07 chart table -y
+pnpm dlx @animate-ui/cli@latest animate dialog   # sheet/dialog — khớp web/app
+```
+
+- Spec admin (khi có): `docs/design/admin-*.md` hoặc user mô tả trong chat — **không** tự invent layout dashboard.
+
+## 2. Stat card, chart, bảng — không “AI slop”
+
+| Pattern | Cách làm | Cấm |
+|--------|----------|-----|
+| **Stat / KPI** | `Card`, `CardHeader`, `CardTitle`, `CardDescription`, `CardContent` + `Badge` / icon lucide | Div grid + border tay, “stat card” custom CSS |
+| **Chart** | `pnpm dlx shadcn add chart` → `ChartContainer`, `ChartTooltip`, Recharts qua [shadcn Chart](https://ui.shadcn.com/docs/components/chart) | Bar/div `height: %` tự chế, Chart.js/raw SVG dashboard |
+| **Bảng dữ liệu** | `pnpm dlx shadcn add table` → `Table`, `TableHeader`, `TableBody`, … | `<table className="...">` hand-rolled trong feature |
+| **Empty / loading** | `Skeleton`, `Alert` | Placeholder div xám |
+| **Tabs filter (lang)** | `Tabs`, `TabsList`, `TabsTrigger` | Nút pill custom |
+
+Data layer (mock/API) tách khỏi UI: `lib/admin-dashboard/types.ts` + loader; **component chỉ map field → shadcn**.
+
+## 3. shadcn + Animate UI (giống learner)
+
+- `components/ui/*` — **chỉ** file sinh bởi `shadcn add` / `@animate-ui/cli` — xem `shadcn-immutable.mdc` (cả `web/admin`).
+- Motion: Animate UI primitives cho dialog/sheet/accordion khi block cần — không thêm framer/motion trực tiếp trong feature trừ khi spec yêu cầu.
+- Icon: **lucide-react** (mặc định shadcn).
+
+## 4. Thư viện UI bổ sung
+
+- **Chỉ** thêm lib mà shadcn **đã wrap** (vd. Recharts qua `chart`) hoặc doc shadcn gợi ý.
+- Trước khi cài npm chart/table khác: kiểm tra registry shadcn / blocks — **mặc định không** tự cài Chart.js, MUI, Ant Design.
+- Package manager: **pnpm** ở repo root / `web/admin` (không npm install lẻ trong admin).
+
+## 5. Composition
+
+- `app/**/page.tsx` mỏng → `features/<domain>/` compose từ `components/ui`.
+- Layout: `components/layout/` hoặc block `app-sidebar.tsx` từ CLI; nav data `lib/admin-nav.ts`.
+- Brand: **Daily Taka** (`brand-naming.mdc`).
+
+## 6. Liên quan rule khác
+
+- Learner UI spec: `ui-implementation.mdc` + `design/*.design.md` (admin **không** dùng `design/` learner trừ khi user @ file).
+- Design doc admin API/dashboard: `docs/design/` khi backend + UI thống nhất contract.

@@ -1,6 +1,6 @@
 ---
 description: Không sửa file shadcn trong components/ui — chỉ className khi gọi
-globs: "web/app/**/*.{ts,tsx}"
+globs: "web/{app,admin}/**/*.{ts,tsx}"
 alwaysApply: false
 ---
 
@@ -8,7 +8,7 @@ alwaysApply: false
 
 ## Cấm
 
-- Sửa Tailwind/className/styles **bên trong** `web/app/src/components/ui/**` (button.tsx, card.tsx, …) để “cho đẹp”.
+- Sửa Tailwind/className/styles **bên trong** `web/app/src/components/ui/**` hoặc `web/admin/src/components/ui/**` (button.tsx, card.tsx, …) để “cho đẹp”.
 - Patch primitive Animate UI trong `components/ui` ngoài lệnh `shadcn add` / `@animate-ui/cli animate`.
 
 ## Được phép
@@ -21,6 +21,7 @@ alwaysApply: false
 
 ```bash
 cd web/app && pnpm dlx shadcn@latest add <name> --overwrite
+cd web/admin && pnpm dlx shadcn@latest add <name> --overwrite
 ```
 
 Chỉ `--overwrite` khi cố ý regen; diff nhỏ, không mix tay styling lẻ.

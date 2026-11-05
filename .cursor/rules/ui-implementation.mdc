@@ -41,6 +41,11 @@ alwaysApply: false
 - Một bộ icon (theo spec, mặc định lucide-react như shadcn).
 - Loading/empty/error theo spec; dùng `Skeleton`, `Alert` shadcn khi phù hợp.
 
-## 6. Backend-only task
+## 6. Admin CMS (`web/admin`)
 
-Không tạo `.tsx` nếu user không gọi page + không có `*.design.md` tương ứng.
+- Rule riêng: **`admin-ui-implementation.mdc`** — block shadcn (sidebar-07, chart, table), **không** stat/chart/bảng tự thiết kế.
+- Token CSS: đồng bộ `globals.css` / `dlx-components.css` từ `web/app`.
+
+## 7. Backend-only task
+
+Không tạo `.tsx` nếu user không gọi page + không có `*.design.md` tương ứng (learner). Admin: spec `docs/design/admin-*.md` hoặc mô tả user.

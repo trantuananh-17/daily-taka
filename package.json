@@ -13,6 +13,7 @@
     "dev:api": "tsx watch src/main.api.ts",
     "dev:worker": "tsx watch src/main.worker.ts",
     "dev:web": "pnpm --filter @dailytaka/web dev",
+    "dev:admin": "pnpm --filter @dailytaka/admin-web dev",
     "build": "tsup",
     "start:api": "node dist/main.api.js",
     "start:worker": "node dist/main.worker.js",

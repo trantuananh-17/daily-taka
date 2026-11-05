@@ -16,6 +16,7 @@ import { createListeningRoutes } from "../modules/listening/listening.routes"
 import { createVocabAdminRoutes } from "../modules/vocab/vocab.admin.routes"
 import { createVocabRoutes } from "../modules/vocab/vocab.routes"
 import { createVocabUserRoutes } from "../modules/vocab/vocab-user.routes"
+import { createAdminDashboardRoutes } from "../modules/admin-dashboard/admin-dashboard.routes"
 import { createWritingAdminRoutes } from "../modules/writing/writing.admin.routes"
 import { createWritingRoutes } from "../modules/writing/writing.routes"
 import { createWritingUserRoutes } from "../modules/writing/writing-user.routes"
@@ -43,7 +44,14 @@ export function createApp() {
       origin: (origin) =>
         ALLOWED_ORIGINS.some((pattern) => pattern.test(origin)) ? origin : null,
       allowMethods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-      allowHeaders: ["Content-Type", "Authorization", "x-request-id", "Range", "Cookie"],
+      allowHeaders: [
+        "Content-Type",
+        "Authorization",
+        "x-admin-api-key",
+        "x-request-id",
+        "Range",
+        "Cookie",
+      ],
       exposeHeaders: ["Content-Length", "Content-Range", "Accept-Ranges"],
       credentials: true,
     }),
@@ -74,6 +82,7 @@ export function createApp() {
   app.route("/v1/languages/:languageCode/listening", createListeningRoutes())
   app.route("/v1/languages/:languageCode/listening", createListeningAudioRoutes())
   app.use("/v1/admin/*", requireAdminAuth())
+  app.route("/v1/admin/dashboard", createAdminDashboardRoutes())
   app.route("/v1/admin/languages/:languageCode/listening", createListeningAdminRoutes())
   app.route("/v1/admin/languages/:languageCode/vocab", createVocabAdminRoutes())
   app.route("/v1/admin/languages/:languageCode/writing", createWritingAdminRoutes())

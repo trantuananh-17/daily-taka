@@ -10,6 +10,8 @@ Chọn agent khi chat (hoặc nhắc tên) để giới hạn phạm vi file và
 
 Brand UI: **Daily Taka** (`brand-naming.mdc`). shadcn: không sửa `components/ui/*` (`shadcn-immutable.mdc`).
 
+**Admin CMS** (`web/admin/`): `admin-ui-implementation.mdc` — block shadcn (chart, table, sidebar), không UI stat/chart tự chế.
+
 ## Cách gọi
 
 ```
@@ -28,6 +30,7 @@ Brand UI: **Daily Taka** (`brand-naming.mdc`). shadcn: không sửa `components/
 
 - `scope-backend.mdc` — khi sửa `src/**`
 - `scope-frontend.mdc` — khi sửa `web/app/**`
+- `scope-admin.mdc` + `admin-ui-implementation.mdc` — khi sửa `web/admin/**`
 
 File agent: `.cursor/agents/*.md`
 
@@ -43,4 +46,11 @@ File agent: `.cursor/agents/*.md`
 
 ## Admin UI (khi user yêu cầu code)
 
-Checklist scaffold + API map: `docs/design/2026-11-05-admin-ui-prep.md`. App placeholder: `web/admin/`.
+Checklist scaffold + API map: `docs/design/2026-11-05-admin-ui-prep.md`. App: `web/admin/`.
+
+UI stack: shadcn blocks + chart/table CLI; Animate UI sheet như learner — **`admin-ui-implementation.mdc`**.
+
+## Admin dashboard data
+
+- Contract Zod: `src/modules/admin-dashboard/admin-dashboard.summary.schema.ts`.
+- **Mock-first:** `web/admin` dashboard home không fetch API cho đến khi user yêu cầu — xem `docs/design/2026-11-05-admin-dashboard-data.md`, `scope-admin.mdc`.
