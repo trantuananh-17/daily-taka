@@ -24,6 +24,8 @@
     "db:seed": "tsx scripts/seed-listening.ts",
     "db:seed:vocab": "tsx scripts/seed-vocab.ts",
     "db:seed:writing": "tsx scripts/seed-writing.ts",
+    "db:bootstrap-curricula": "tsx scripts/seed-curricula-bootstrap.ts",
+    "db:reset-content": "tsx scripts/db-reset-content.ts",
     "db:studio": "drizzle-kit studio"
   },
   "dependencies": {

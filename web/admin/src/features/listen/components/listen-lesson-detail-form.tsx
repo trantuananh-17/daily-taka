@@ -13,18 +13,35 @@ import { Switch } from "@/components/ui/switch"
 import { DashboardPanel } from "@/features/dashboard/components/dashboard-panel"
 import { ListenLessonAudioField } from "@/features/listen/components/listen-lesson-audio-field"
 import { ListenLessonSentencesPanel } from "@/features/listen/components/listen-lesson-sentences-panel"
-import {
-  normalizeListenSentencesForLesson,
-  type ListenLessonRow,
-  type ListenSentenceRow,
-} from "@/features/listen/lib/listen-cms-mock"
+import type { ListeningLesson, ListeningSentence } from "@/features/listen/lib/listen-admin-api"
 import { useUnsavedChangesGuard } from "@/hooks/use-unsaved-changes-guard"
 
+type SentenceDraft = {
+  position: number
+  startMs: number
+  endMs: number
+  transcript: string
+}
+
+function normalizeSentences(rows: SentenceDraft[]): SentenceDraft[] {
+  return rows
+    .filter((r) => r.transcript.trim().length > 0)
+    .sort((a, b) => a.position - b.position)
+    .map((r, index) => ({
+      ...r,
+      position: index + 1,
+      transcript: r.transcript.trim(),
+      startMs: Math.max(0, Math.floor(r.startMs)),
+      endMs: Math.max(0, Math.floor(r.endMs)),
+    }))
+}
+
 type ListenLessonDetailFormProps = {
-  lesson: ListenLessonRow
-  sentences: ListenSentenceRow[]
-  onLessonChange: (lesson: ListenLessonRow) => void
-  onSentencesSave: (sentences: ListenSentenceRow[]) => void
+  lesson: ListeningLesson
+  sectionTitle: string
+  sentences: ListeningSentence[]
+  onLessonChange: (lesson: ListeningLesson) => void
+  onSentencesSave: (sentences: SentenceDraft[]) => void | Promise<void>
   backHref: string
 }
 
@@ -39,20 +56,38 @@ function resolvePlaybackPath(path: string | null): string | null {
 
 export function ListenLessonDetailForm({
   lesson,
+  sectionTitle,
   sentences,
   onLessonChange,
   onSentencesSave,
   backHref,
 }: ListenLessonDetailFormProps) {
-  const grading = lesson.dictationGradingDefaults
-  const [sentenceDraft, setSentenceDraft] = useState<ListenSentenceRow[]>(() => structuredClone(sentences))
+  const grading = lesson.dictationGradingDefaults ?? {
+    ignoreCase: true,
+    ignorePunctuation: false,
+  }
+  const [sentenceDraft, setSentenceDraft] = useState<SentenceDraft[]>(() =>
+    sentences.map((s) => ({
+      position: s.position,
+      startMs: s.startMs,
+      endMs: s.endMs,
+      transcript: s.transcript,
+    })),
+  )
   const [sentencesDirty, setSentencesDirty] = useState(false)
   const [localAudioPreview, setLocalAudioPreview] = useState<string | null>(null)
 
   useUnsavedChangesGuard(sentencesDirty)
 
   useEffect(() => {
-    setSentenceDraft(structuredClone(sentences))
+    setSentenceDraft(
+      sentences.map((s) => ({
+        position: s.position,
+        startMs: s.startMs,
+        endMs: s.endMs,
+        transcript: s.transcript,
+      })),
+    )
     setSentencesDirty(false)
     setLocalAudioPreview(null)
   }, [lesson.id, sentences])
@@ -63,10 +98,11 @@ export function ListenLessonDetailForm({
   )
 
   function handleSaveSentences() {
-    const normalized = normalizeListenSentencesForLesson(lesson.id, sentenceDraft)
-    onSentencesSave(normalized)
-    setSentenceDraft(structuredClone(normalized))
-    setSentencesDirty(false)
+    const normalized = normalizeSentences(sentenceDraft)
+    void Promise.resolve(onSentencesSave(normalized)).then(() => {
+      setSentenceDraft(structuredClone(normalized))
+      setSentencesDirty(false)
+    })
   }
 
   return (
@@ -79,7 +115,7 @@ export function ListenLessonDetailForm({
           <ArrowLeftIcon className="size-4" aria-hidden />
           Quay lại
         </Link>
-        <Badge variant="outline">{lesson.sectionTitle}</Badge>
+        <Badge variant="outline">{sectionTitle}</Badge>
         <Badge variant="secondary">{lesson.levelCode}</Badge>
       </div>
 
@@ -208,11 +244,22 @@ export function ListenLessonDetailForm({
 
       <ListenLessonSentencesPanel
         lessonId={lesson.id}
-        rows={sentenceDraft}
+        rows={sentenceDraft.map((r, i) => ({
+          id: `s-${i}`,
+          lessonId: lesson.id,
+          ...r,
+        }))}
         audioPlaybackSrc={audioPlaybackSrc}
         saveDisabled={!sentencesDirty}
         onRowsChange={(rows) => {
-          setSentenceDraft(rows)
+          setSentenceDraft(
+            rows.map((r) => ({
+              position: r.position,
+              startMs: r.startMs,
+              endMs: r.endMs,
+              transcript: r.transcript,
+            })),
+          )
           setSentencesDirty(true)
         }}
         onSave={handleSaveSentences}

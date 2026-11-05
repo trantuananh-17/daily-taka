@@ -2,11 +2,7 @@
 
 import { useCallback, useMemo, useState } from "react"
 import { useRouter } from "next/navigation"
-import { PlusIcon } from "lucide-react"
-
 import { AdminDataTablePanel } from "@/components/data-table/admin-data-table-panel"
-import { Button } from "@/components/ui/button"
-import { VocabCreateTopicDialog } from "@/features/vocab/components/vocab-create-topic-dialog"
 import { VocabPageHeader } from "@/features/vocab/components/vocab-page-header"
 import {
   buildVocabTopicsTableColumns,
@@ -26,9 +22,9 @@ export function VocabTopicsScreen() {
     setLanguage,
     setLevel,
     topics,
-    createTopic,
+    error,
+    loading,
   } = useVocabCms()
-  const [dialogOpen, setDialogOpen] = useState(false)
 
   const openTopic = useCallback(
     (row: VocabTopicRow) => {
@@ -44,6 +40,11 @@ export function VocabTopicsScreen() {
 
   return (
     <>
+      {error ? (
+        <p className="text-sm text-destructive" role="alert">
+          {error}
+        </p>
+      ) : null}
       <VocabPageHeader
         language={language}
         languageLabel={languageLabel}
@@ -60,20 +61,10 @@ export function VocabTopicsScreen() {
             topic theo curriculum. Bấm tiêu đề để mở bài học.
           </>
         }
-        action={
-          <Button size="sm" onClick={() => setDialogOpen(true)}>
-            <PlusIcon className="size-4" aria-hidden />
-            Thêm chủ đề
-          </Button>
-        }
+        action={null}
         columns={columns}
-        data={topics}
+        data={loading ? [] : topics}
         filter={VOCAB_TOPICS_TABLE_FILTER}
-      />
-      <VocabCreateTopicDialog
-        open={dialogOpen}
-        onOpenChange={setDialogOpen}
-        onSubmit={createTopic}
       />
     </>
   )

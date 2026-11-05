@@ -1,6 +1,6 @@
 "use client"
 
-import { useCallback, useMemo, useState } from "react"
+import { useCallback, useEffect, useMemo, useState } from "react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { ArrowLeftIcon, PlusIcon } from "lucide-react"
@@ -13,30 +13,32 @@ import {
   buildListenLessonsTableColumns,
   LISTEN_LESSONS_TABLE_FILTER,
 } from "@/features/listen/components/listen-lessons-table-columns"
-import {
-  useListenCms,
-  useListenCmsGuardRedirect,
-} from "@/features/listen/context/listen-cms-context"
-import {
-  listenCmsRootHref,
-  listenLessonDetailHref,
-} from "@/features/listen/lib/listen-cms-hrefs"
-import type { ListenLessonRow } from "@/features/listen/lib/listen-cms-mock"
+import { useListenCms } from "@/features/listen/context/listen-cms-context"
+import { fetchSectionLessons } from "@/features/listen/lib/listen-admin-api"
+import { listenCmsRootHref, listenLessonDetailHref } from "@/features/listen/lib/listen-cms-hrefs"
+import type { ListeningLesson } from "@/features/listen/lib/listen-admin-api"
 
-type ListenSectionLessonsScreenProps = {
-  sectionId: string
-}
+type Props = { sectionId: string }
 
-export function ListenSectionLessonsScreen({ sectionId }: ListenSectionLessonsScreenProps) {
+export function ListenSectionLessonsScreen({ sectionId }: Props) {
   const router = useRouter()
-  const { language, lessonsForSection, createLesson } = useListenCms()
-  const { ready, section } = useListenCmsGuardRedirect({ sectionId })
-  const [lessonDialogOpen, setLessonDialogOpen] = useState(false)
+  const { language, createLesson } = useListenCms()
+  const [lessons, setLessons] = useState<ListeningLesson[]>([])
+  const [sectionTitle, setSectionTitle] = useState("—")
+  const [dialogOpen, setDialogOpen] = useState(false)
+  const [loadError, setLoadError] = useState<string | null>(null)
 
-  const sectionLessons = lessonsForSection(sectionId)
+  useEffect(() => {
+    void fetchSectionLessons(language, sectionId)
+      .then((data) => {
+        setSectionTitle(data.section.title)
+        setLessons(data.lessons)
+      })
+      .catch((err) => setLoadError(err instanceof Error ? err.message : "Load failed"))
+  }, [language, sectionId])
 
   const openLesson = useCallback(
-    (row: ListenLessonRow) => {
+    (row: ListeningLesson) => {
       router.push(listenLessonDetailHref(sectionId, row.id, language))
     },
     [language, router, sectionId],
@@ -47,12 +49,9 @@ export function ListenSectionLessonsScreen({ sectionId }: ListenSectionLessonsSc
     [openLesson],
   )
 
-  if (!ready || !section) {
-    return null
-  }
-
-  function handleCreateLesson(input: Parameters<typeof createLesson>[1]) {
-    const row = createLesson(sectionId, input)
+  async function handleCreateLesson(input: Record<string, unknown>) {
+    const row = await createLesson(sectionId, input)
+    setLessons((prev) => [...prev, row])
     router.push(listenLessonDetailHref(sectionId, row.id, language))
   }
 
@@ -64,24 +63,33 @@ export function ListenSectionLessonsScreen({ sectionId }: ListenSectionLessonsSc
           className={cn(buttonVariants({ variant: "outline", size: "sm" }), "inline-flex gap-2")}
         >
           <ArrowLeftIcon className="size-4" aria-hidden />
-          Quay lại
+          Quay lại categories
         </Link>
       </div>
+      {loadError ? (
+        <p className="mb-4 text-sm text-destructive" role="alert">
+          {loadError}
+        </p>
+      ) : null}
       <AdminDataTablePanel
-        title={`Bài học · ${section.title}`}
+        title={`Bài học · ${sectionTitle}`}
         action={
-          <Button size="sm" onClick={() => setLessonDialogOpen(true)}>
+          <Button size="sm" onClick={() => setDialogOpen(true)}>
             <PlusIcon className="size-4" aria-hidden />
             Thêm bài học
           </Button>
         }
         columns={lessonColumns}
-        data={sectionLessons}
+        data={lessons.map((l) => ({
+          ...l,
+          sectionTitle,
+          sectionId,
+        }))}
         filter={LISTEN_LESSONS_TABLE_FILTER}
       />
       <ListenCreateLessonDialog
-        open={lessonDialogOpen}
-        onOpenChange={setLessonDialogOpen}
+        open={dialogOpen}
+        onOpenChange={setDialogOpen}
         onSubmit={handleCreateLesson}
       />
     </>

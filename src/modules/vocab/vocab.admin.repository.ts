@@ -14,6 +14,24 @@ import type { UpsertVocabWordsInput, UpdateVocabLessonInput } from "./vocab.admi
 export class VocabAdminRepository {
   constructor(private readonly db: DbExecutor) {}
 
+  async findCurriculumById(curriculumId: string) {
+    const rows = await this.db
+      .select()
+      .from(vocabCurricula)
+      .where(eq(vocabCurricula.id, curriculumId))
+      .limit(1)
+    return rows[0] ?? null
+  }
+
+  async findTopicById(topicId: string) {
+    const rows = await this.db
+      .select()
+      .from(vocabTopics)
+      .where(eq(vocabTopics.id, topicId))
+      .limit(1)
+    return rows[0] ?? null
+  }
+
   async findCurriculum(languageCode: VocabLanguageCode, levelCode: string) {
     const normalized = normalizeVocabLevelCode(levelCode)
     const rows = await this.db
@@ -71,6 +89,37 @@ export class VocabAdminRepository {
       .set(patch)
       .where(eq(vocabLessons.id, lessonId))
       .returning()
+    return rows[0] ?? null
+  }
+
+  async insertTopic(input: {
+    id: string
+    curriculumId: string
+    slug: string
+    title: string
+    sortOrder: number
+    isPublished: boolean
+  }) {
+    const rows = await this.db.insert(vocabTopics).values(input).returning()
+    return rows[0] ?? null
+  }
+
+  async insertLesson(input: {
+    id: string
+    topicId: string
+    curriculumId: string
+    languageCode: string
+    slug: string
+    storyId: string
+    title: string
+    description: string
+    wordCount: number
+    sortOrder: number
+    nextStoryId: string | null
+    nextStoryTitle: string | null
+    isPublished: boolean
+  }) {
+    const rows = await this.db.insert(vocabLessons).values(input).returning()
     return rows[0] ?? null
   }
 

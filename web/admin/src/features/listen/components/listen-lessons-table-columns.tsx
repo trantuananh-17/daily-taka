@@ -6,7 +6,9 @@ import { Badge } from "@/components/ui/badge"
 import { buttonVariants } from "@/components/ui/button"
 import { adminTableSelectColumn } from "@/components/data-table/admin-table-columns"
 import { DataTableColumnHeader } from "@/components/data-table/data-table-column-header"
-import type { ListenLessonRow } from "@/features/listen/lib/listen-cms-mock"
+import type { ListeningLesson } from "@/features/listen/lib/listen-admin-api"
+
+type ListenLessonTableRow = ListeningLesson & { sectionTitle?: string; sectionId?: string }
 import { cn } from "cn"
 
 export const LISTEN_LESSONS_TABLE_FILTER = {
@@ -15,10 +17,10 @@ export const LISTEN_LESSONS_TABLE_FILTER = {
 } as const
 
 export function buildListenLessonsTableColumns(options: {
-  onOpen: (row: ListenLessonRow) => void
-}): ColumnDef<ListenLessonRow>[] {
+  onOpen: (row: ListenLessonTableRow) => void
+}): ColumnDef<ListenLessonTableRow>[] {
   return [
-    adminTableSelectColumn<ListenLessonRow>(),
+    adminTableSelectColumn<ListenLessonTableRow>(),
     {
       accessorKey: "title",
       header: ({ column }) => <DataTableColumnHeader column={column} title="Tiêu đề" />,

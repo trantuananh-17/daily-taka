@@ -9,7 +9,6 @@ import {
   ScrollText,
   Settings,
   Languages,
-  Tags,
 } from "lucide-react"
 
 export type AdminNavItem = {
@@ -39,13 +38,7 @@ export const ADMIN_NAV_GROUPS: AdminNavGroup[] = [
   {
     label: "Nội dung học",
     items: [
-      {
-        title: "Topic",
-        href: "/topics",
-        icon: Tags,
-        description: "Chủ đề dùng chung (Listen, Vocab, …)",
-      },
-      { title: "Listen", href: "/listen", icon: Headphones, description: "Section, bài nghe theo topic" },
+      { title: "Listen", href: "/listen", icon: Headphones, description: "Category, section, bài nghe" },
       { title: "Từ vựng", href: "/vocab", icon: Languages, description: "Level, topic, lesson, từ" },
       { title: "Luyện viết", href: "/writing", icon: PenLine, description: "Prompt và câu mẫu" },
       {

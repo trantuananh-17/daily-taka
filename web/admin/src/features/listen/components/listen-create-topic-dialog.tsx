@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useId, useState } from "react"
+import { useId, useState } from "react"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -14,15 +14,19 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
-import type { CreateTopicInput } from "@/features/topics/lib/topics-mock"
+type CreateCategoryInput = {
+  slug: string
+  name: string
+  isPublished?: boolean
+}
 
 type ListenCreateTopicDialogProps = {
   open: boolean
   onOpenChange: (open: boolean) => void
-  onSubmit: (input: CreateTopicInput) => void
+  onSubmit: (input: CreateCategoryInput) => void | Promise<void>
 }
 
-const emptyForm = (): CreateTopicInput => ({
+const emptyForm = (): CreateCategoryInput => ({
   slug: "",
   name: "",
   isPublished: true,
@@ -37,25 +41,23 @@ export function ListenCreateTopicDialog({
   const [form, setForm] = useState(emptyForm)
   const [error, setError] = useState<string | null>(null)
 
-  useEffect(() => {
-    if (!open) {
-      setForm(emptyForm())
-      setError(null)
-    }
-  }, [open])
-
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     if (!form.name.trim() || !form.slug.trim()) {
       setError("Nhập tên và slug.")
       return
     }
-    onSubmit({
-      slug: form.slug.trim(),
-      name: form.name.trim(),
-      isPublished: form.isPublished ?? true,
+    void Promise.resolve(
+      onSubmit({
+        slug: form.slug.trim(),
+        name: form.name.trim(),
+        isPublished: form.isPublished ?? true,
+      }),
+    ).then(() => {
+      setForm(emptyForm())
+      setError(null)
+      onOpenChange(false)
     })
-    onOpenChange(false)
   }
 
   return (
@@ -64,8 +66,8 @@ export function ListenCreateTopicDialog({
         <DialogHeader>
           <DialogTitle>Thêm chủ đề</DialogTitle>
           <DialogDescription>
-            Mock — <code className="text-xs">name</code>, <code className="text-xs">slug</code>,{" "}
-            <code className="text-xs">isPublished</code>
+            POST listening category — <code className="text-xs">name</code>,{" "}
+            <code className="text-xs">slug</code>
           </DialogDescription>
         </DialogHeader>
         <form id={formId} className="grid gap-4" onSubmit={handleSubmit}>
@@ -104,7 +106,7 @@ export function ListenCreateTopicDialog({
             Hủy
           </Button>
           <Button type="submit" form={formId}>
-            Tạo (mock)
+            Tạo chủ đề
           </Button>
         </DialogFooter>
       </DialogContent>

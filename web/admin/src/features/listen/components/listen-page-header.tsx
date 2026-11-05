@@ -29,7 +29,7 @@ export function ListenPageHeader({
       <div className="flex flex-wrap items-center gap-2">
         <h2 className="font-heading text-xl font-bold tracking-tight">Listen CMS</h2>
         <Badge variant="secondary">{languageLabel}</Badge>
-        <Badge variant="outline">Mock</Badge>
+        <Badge variant="outline">API</Badge>
       </div>
       <Select
         value={language}

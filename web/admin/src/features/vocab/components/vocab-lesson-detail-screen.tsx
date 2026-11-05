@@ -1,6 +1,6 @@
 "use client"
 
-import { useMemo } from "react"
+import { useEffect, useState } from "react"
 
 import { VocabLessonDetailForm } from "@/features/vocab/components/vocab-lesson-detail-form"
 import {
@@ -8,29 +8,37 @@ import {
   useVocabCmsGuardRedirect,
 } from "@/features/vocab/context/vocab-cms-context"
 import { vocabTopicLessonsHref } from "@/features/vocab/lib/vocab-cms-hrefs"
+import type { VocabWordRow } from "@/features/vocab/lib/vocab-cms-mock"
 
-type VocabLessonDetailScreenProps = {
-  topicId: string
-  lessonId: string
-}
+type Props = { topicId: string; lessonId: string }
 
-export function VocabLessonDetailScreen({ topicId, lessonId }: VocabLessonDetailScreenProps) {
-  const { language, level, wordsForLesson, updateLesson, saveWords } = useVocabCms()
+export function VocabLessonDetailScreen({ topicId, lessonId }: Props) {
+  const { language, level, loadLessonWords, updateLesson, saveWords } = useVocabCms()
   const { ready, lesson } = useVocabCmsGuardRedirect({ topicId, lessonId })
+  const [words, setWords] = useState<VocabWordRow[]>([])
+  const [error, setError] = useState<string | null>(null)
 
-  const words = useMemo(
-    () => (lesson ? wordsForLesson(lesson.id) : []),
-    [lesson, wordsForLesson],
-  )
+  useEffect(() => {
+    if (!ready || !lesson) return
+    void loadLessonWords(lessonId)
+      .then(setWords)
+      .catch((err) => setError(err instanceof Error ? err.message : "Load failed"))
+  }, [lesson, lessonId, loadLessonWords, ready])
 
   if (!ready || !lesson) return null
+  if (error) return <p className="text-sm text-destructive">{error}</p>
 
   return (
     <VocabLessonDetailForm
       lesson={lesson}
       words={words}
-      onLessonChange={updateLesson}
-      onWordsSave={(rows) => saveWords(lessonId, rows)}
+      onLessonChange={(next) => {
+        void updateLesson(next)
+      }}
+      onWordsSave={async (rows) => {
+        await saveWords(lessonId, rows)
+        setWords(rows)
+      }}
       backHref={vocabTopicLessonsHref(topicId, language, level)}
     />
   )

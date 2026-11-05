@@ -1,5 +1,5 @@
-import { TopicsPageView } from "@/features/topics/topics-page-view"
+import { redirect } from "next/navigation"
 
-export default function TopicsAdminPage() {
-  return <TopicsPageView />
+export default function TopicsRedirectPage() {
+  redirect("/listen")
 }

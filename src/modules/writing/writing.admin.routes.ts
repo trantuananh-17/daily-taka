@@ -3,7 +3,12 @@ import { Hono } from "hono"
 import type { AppEnv } from "../../api/types"
 import { db } from "../../db/client"
 import { NotFoundError } from "../../shared/errors"
-import { upsertWritingSentencesBodySchema } from "./writing.admin.dto"
+import {
+  createWritingLessonBodySchema,
+  createWritingTopicBodySchema,
+  updateWritingLessonBodySchema,
+  upsertWritingSentencesBodySchema,
+} from "./writing.admin.dto"
 import { WritingAdminRepository } from "./writing.admin.repository"
 import { WritingAdminService } from "./writing.admin.service"
 import { parseWritingLanguageCode } from "./writing.constants"
@@ -36,6 +41,39 @@ export function createWritingAdminRoutes() {
       payload,
     )
     return c.json({ sentences })
+  })
+
+  app.patch("/lessons/:lessonId", async (c) => {
+    const languageCode = languageParam(c)
+    const body = updateWritingLessonBodySchema.parse(await c.req.json())
+    const lesson = await createService().updateLesson(
+      languageCode,
+      c.req.param("lessonId"),
+      body,
+    )
+    return c.json({ lesson })
+  })
+
+  app.post("/:levelCode/topics", async (c) => {
+    const languageCode = languageParam(c)
+    const body = createWritingTopicBodySchema.parse(await c.req.json())
+    const topic = await createService().createTopic(
+      languageCode,
+      c.req.param("levelCode") ?? "",
+      body,
+    )
+    return c.json({ topic }, 201)
+  })
+
+  app.post("/topics/:topicId/lessons", async (c) => {
+    const languageCode = languageParam(c)
+    const body = createWritingLessonBodySchema.parse(await c.req.json())
+    const lesson = await createService().createLesson(
+      languageCode,
+      c.req.param("topicId"),
+      body,
+    )
+    return c.json({ lesson }, 201)
   })
 
   app.get("/:levelCode", async (c) => {

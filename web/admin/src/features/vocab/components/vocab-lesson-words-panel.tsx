@@ -68,16 +68,19 @@ export function VocabLessonWordsPanel({
             <TableRow>
               <TableHead className="w-[90px]">Slug</TableHead>
               <TableHead className="w-[100px]">Từ</TableHead>
+              <TableHead className="w-[90px]">IPA</TableHead>
               <TableHead className="w-[80px]">Loại</TableHead>
               <TableHead>Nghĩa VI</TableHead>
               <TableHead>Definition</TableHead>
+              <TableHead>Ví dụ EN</TableHead>
+              <TableHead>Ví dụ VI</TableHead>
               <TableHead className="w-[40px]" />
             </TableRow>
           </TableHeader>
           <TableBody>
             {rows.length === 0 ? (
               <TableRow>
-                <TableCell colSpan={6} className="text-center text-muted-foreground">
+                <TableCell colSpan={9} className="text-center text-muted-foreground">
                   Chưa có từ — bấm Thêm từ.
                 </TableCell>
               </TableRow>
@@ -100,6 +103,13 @@ export function VocabLessonWordsPanel({
                   </TableCell>
                   <TableCell>
                     <Input
+                      value={row.ipa}
+                      onChange={(e) => updateRow(row.id, { ipa: e.target.value })}
+                      className="h-8 font-mono text-xs"
+                    />
+                  </TableCell>
+                  <TableCell>
+                    <Input
                       value={row.partOfSpeech}
                       onChange={(e) => updateRow(row.id, { partOfSpeech: e.target.value })}
                       className="h-8 text-xs"
@@ -118,6 +128,20 @@ export function VocabLessonWordsPanel({
                       onChange={(e) => updateRow(row.id, { definition: e.target.value })}
                       rows={2}
                       className="min-h-8 text-xs"
+                    />
+                  </TableCell>
+                  <TableCell>
+                    <Input
+                      value={row.example}
+                      onChange={(e) => updateRow(row.id, { example: e.target.value })}
+                      className="h-8 text-xs"
+                    />
+                  </TableCell>
+                  <TableCell>
+                    <Input
+                      value={row.exampleVi}
+                      onChange={(e) => updateRow(row.id, { exampleVi: e.target.value })}
+                      className="h-8 text-xs"
                     />
                   </TableCell>
                   <TableCell>

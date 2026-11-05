@@ -21,45 +21,71 @@ import {
   writeListenLanguagePreference,
 } from "@/features/listen/lib/listen-language-preference"
 import {
-  buildInitialListenSentencesMap,
-  deriveLessonDurationMs,
-  getListenLessonsMock,
-  getListenSectionsMock,
-  type CreateListenLessonInput,
-  type CreateListenSectionInput,
-  type ListenLessonRow,
-  type ListenSectionRow,
-  type ListenSentenceRow,
-} from "@/features/listen/lib/listen-cms-mock"
+  createListeningCategory,
+  createListeningLesson,
+  createListeningSection,
+  fetchListeningCategories,
+  fetchCategoryWithSections,
+  fetchLessonDetail,
+  fetchSectionLessons,
+  patchListeningLesson,
+  putListeningSentences,
+  type ListeningCategory,
+  type ListeningLesson,
+  type ListeningSection,
+  type ListeningSentence,
+} from "@/features/listen/lib/listen-admin-api"
 import { listenCmsRootHref } from "@/features/listen/lib/listen-cms-hrefs"
-import { useTopicsCatalog } from "@/features/topics/hooks/use-topics-catalog"
+import { AdminApiError } from "@/lib/admin-api/client"
+
+type CreateCategoryInput = {
+  slug: string
+  name: string
+  isPublished?: boolean
+  levels?: string[]
+}
+
+type CreateSectionInput = {
+  sectionNumber: number
+  title: string
+  sortOrder?: number
+  access?: "full" | "preview" | "locked"
+}
 
 type ListenCmsContextValue = {
   language: ListenLanguageCode
   languageLabel: string
   setLanguage: (code: ListenLanguageCode) => void
-  sections: ListenSectionRow[]
-  lessons: ListenLessonRow[]
-  sentencesByLesson: Record<string, ListenSentenceRow[]>
-  topics: ReturnType<typeof useTopicsCatalog>["topics"]
-  refreshTopics: () => void
-  findSection: (id: string) => ListenSectionRow | undefined
-  findLesson: (id: string) => ListenLessonRow | undefined
-  lessonsForSection: (sectionId: string) => ListenLessonRow[]
-  sentencesForLesson: (lessonId: string) => ListenSentenceRow[]
-  createSection: (input: CreateListenSectionInput) => void
-  createLesson: (sectionId: string, input: CreateListenLessonInput) => ListenLessonRow
-  updateLesson: (lesson: ListenLessonRow) => void
-  saveSentences: (lessonId: string, rows: ListenSentenceRow[]) => void
+  loading: boolean
+  error: string | null
+  categories: ListeningCategory[]
+  refreshCategories: () => Promise<void>
+  createCategory: (input: CreateCategoryInput) => Promise<void>
+  loadCategorySections: (categoryId: string) => Promise<ListeningSection[]>
+  loadSectionLessons: (sectionId: string) => Promise<ListeningLesson[]>
+  loadLessonDetail: (lessonId: string) => Promise<{ lesson: ListeningLesson; sentences: ListeningSentence[] }>
+  createSection: (categoryId: string, input: CreateSectionInput) => Promise<ListeningSection>
+  createLesson: (sectionId: string, input: Record<string, unknown>) => Promise<ListeningLesson>
+  updateLesson: (lesson: ListeningLesson) => Promise<void>
+  saveSentences: (
+    lessonId: string,
+    sentences: { position: number; startMs: number; endMs: number; transcript: string }[],
+  ) => Promise<void>
+  findCategory: (id: string) => ListeningCategory | undefined
 }
 
 const ListenCmsContext = createContext<ListenCmsContextValue | null>(null)
+
+function formatApiError(err: unknown): string {
+  if (err instanceof AdminApiError) return err.message
+  if (err instanceof Error) return err.message
+  return "Lỗi không xác định"
+}
 
 export function ListenCmsProvider({ children }: { children: ReactNode }) {
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
-  const { topics, refresh: refreshTopics } = useTopicsCatalog()
 
   const langFromUrl = parseListenLanguageParam(searchParams.get("lang"))
   const language: ListenLanguageCode = langFromUrl ?? readListenLanguagePreference()
@@ -87,119 +113,141 @@ export function ListenCmsProvider({ children }: { children: ReactNode }) {
     [pathname, router, searchParams],
   )
 
-  const [sections, setSections] = useState(() => getListenSectionsMock())
-  const [lessons, setLessons] = useState(() => getListenLessonsMock())
-  const [sentencesByLesson, setSentencesByLesson] = useState(buildInitialListenSentencesMap)
+  const [categories, setCategories] = useState<ListeningCategory[]>([])
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
-  const findSection = useCallback(
-    (id: string) => sections.find((s) => s.id === id),
-    [sections],
-  )
-
-  const findLesson = useCallback((id: string) => lessons.find((l) => l.id === id), [lessons])
-
-  const lessonsForSection = useCallback(
-    (sectionId: string) =>
-      lessons.filter((l) => l.sectionId === sectionId && l.languageCode === language),
-    [lessons, language],
-  )
-
-  const sentencesForLesson = useCallback(
-    (lessonId: string) => sentencesByLesson[lessonId] ?? [],
-    [sentencesByLesson],
-  )
-
-  function createSection(input: CreateListenSectionInput) {
-    const topic = topics.find((t) => t.id === input.topicId)
-    const row: ListenSectionRow = {
-      id: `sec-${Date.now()}`,
-      topicId: input.topicId,
-      topicName: topic?.name ?? "—",
-      sortOrder: input.sortOrder,
-      title: input.title,
-      lessonCount: 0,
-      access: input.access ?? "full",
+  const refreshCategories = useCallback(async () => {
+    setLoading(true)
+    setError(null)
+    try {
+      const rows = await fetchListeningCategories(language)
+      setCategories(rows)
+    } catch (err) {
+      setError(formatApiError(err))
+      setCategories([])
+    } finally {
+      setLoading(false)
     }
-    setSections((prev) => [...prev, row])
-  }
+  }, [language])
 
-  function createLesson(sectionId: string, input: CreateListenLessonInput): ListenLessonRow {
-    const section = sections.find((s) => s.id === sectionId)
-    const row: ListenLessonRow = {
-      id: `les-${Date.now()}`,
-      sectionId,
-      sectionTitle: section?.title ?? "—",
-      languageCode: language,
-      slug: input.slug,
-      title: input.title,
-      levelCode: input.levelCode,
-      displayOrder: input.displayOrder,
-      sentenceCount: 0,
-      durationMs: input.durationMs ?? null,
-      stars: input.stars ?? 0,
-      templateType: input.templateType ?? "audio",
-      audioPublicPath: input.audioPublicPath ?? null,
-      dictationGradingDefaults: input.dictationGradingDefaults ?? {
-        ignoreCase: true,
-        ignorePunctuation: false,
-      },
-      isPublished: input.isPublished ?? false,
-    }
-    setLessons((prev) => [...prev, row])
-    setSections((prev) =>
-      prev.map((s) => (s.id === sectionId ? { ...s, lessonCount: s.lessonCount + 1 } : s)),
-    )
-    return row
-  }
+  const createCategory = useCallback(
+    async (input: CreateCategoryInput) => {
+      await createListeningCategory(language, {
+        slug: input.slug,
+        name: input.name,
+        isPublished: input.isPublished ?? true,
+        levels: input.levels ?? [],
+        sortOrder: categories.length,
+      })
+      await refreshCategories()
+    },
+    [categories.length, language, refreshCategories],
+  )
 
-  function updateLesson(lesson: ListenLessonRow) {
-    setLessons((prev) => prev.map((l) => (l.id === lesson.id ? lesson : l)))
-  }
+  const loadCategorySections = useCallback(
+    async (categoryId: string) => {
+      const data = await fetchCategoryWithSections(language, categoryId)
+      return data.sections.map((s) => s.section)
+    },
+    [language],
+  )
 
-  function saveSentences(lessonId: string, rows: ListenSentenceRow[]) {
-    setSentencesByLesson((prev) => ({ ...prev, [lessonId]: rows }))
-    const durationMs = deriveLessonDurationMs(rows)
-    setLessons((prev) =>
-      prev.map((l) =>
-        l.id === lessonId
-          ? { ...l, sentenceCount: rows.length, durationMs: durationMs ?? l.durationMs }
-          : l,
-      ),
-    )
-  }
+  const loadSectionLessons = useCallback(
+    async (sectionId: string) => {
+      const data = await fetchSectionLessons(language, sectionId)
+      return data.lessons
+    },
+    [language],
+  )
+
+  const loadLessonDetail = useCallback(
+    async (lessonId: string) => fetchLessonDetail(language, lessonId),
+    [language],
+  )
+
+  const createSection = useCallback(
+    async (categoryId: string, input: CreateSectionInput) =>
+      createListeningSection(language, categoryId, input),
+    [language],
+  )
+
+  const createLesson = useCallback(
+    async (sectionId: string, input: Record<string, unknown>) =>
+      createListeningLesson(language, sectionId, input),
+    [language],
+  )
+
+  const updateLesson = useCallback(
+    async (lesson: ListeningLesson) => {
+      const { id, ...rest } = lesson
+      await patchListeningLesson(language, id, {
+        slug: rest.slug,
+        title: rest.title,
+        levelCode: rest.levelCode,
+        displayOrder: rest.displayOrder,
+        durationMs: rest.durationMs,
+        stars: rest.stars,
+        audioPublicPath: rest.audioPublicPath,
+        dictationGradingDefaults: rest.dictationGradingDefaults ?? undefined,
+        isPublished: rest.isPublished,
+      })
+    },
+    [language],
+  )
+
+  const saveSentences = useCallback(
+    async (
+      lessonId: string,
+      sentences: { position: number; startMs: number; endMs: number; transcript: string }[],
+    ) => {
+      if (sentences.length === 0) return
+      await putListeningSentences(language, lessonId, sentences)
+    },
+    [language],
+  )
+
+  const findCategory = useCallback(
+    (id: string) => categories.find((c) => c.id === id),
+    [categories],
+  )
 
   const value = useMemo<ListenCmsContextValue>(
     () => ({
       language,
       languageLabel,
       setLanguage,
-      sections,
-      lessons,
-      sentencesByLesson,
-      topics,
-      refreshTopics,
-      findSection,
-      findLesson,
-      lessonsForSection,
-      sentencesForLesson,
+      loading,
+      error,
+      categories,
+      refreshCategories,
+      createCategory,
+      loadCategorySections,
+      loadSectionLessons,
+      loadLessonDetail,
       createSection,
       createLesson,
       updateLesson,
       saveSentences,
+      findCategory,
     }),
     [
       language,
       languageLabel,
       setLanguage,
-      sections,
-      lessons,
-      sentencesByLesson,
-      topics,
-      refreshTopics,
-      findSection,
-      findLesson,
-      lessonsForSection,
-      sentencesForLesson,
+      loading,
+      error,
+      categories,
+      refreshCategories,
+      createCategory,
+      loadCategorySections,
+      loadSectionLessons,
+      loadLessonDetail,
+      createSection,
+      createLesson,
+      updateLesson,
+      saveSentences,
+      findCategory,
     ],
   )
 
@@ -208,37 +256,28 @@ export function ListenCmsProvider({ children }: { children: ReactNode }) {
 
 export function useListenCms() {
   const ctx = useContext(ListenCmsContext)
-  if (!ctx) {
-    throw new Error("useListenCms must be used within ListenCmsProvider")
-  }
+  if (!ctx) throw new Error("useListenCms must be used within ListenCmsProvider")
   return ctx
 }
 
-/** Redirect to /listen when section or lesson id is invalid (mock). */
 export function useListenCmsGuardRedirect(options: {
+  categoryId?: string
   sectionId?: string
   lessonId?: string
 }) {
   const router = useRouter()
-  const { language, findSection, findLesson } = useListenCms()
-
-  const section = options.sectionId ? findSection(options.sectionId) : undefined
-  const lesson = options.lessonId ? findLesson(options.lessonId) : undefined
-
-  const invalidSection = Boolean(options.sectionId && !section)
-  const invalidLesson = Boolean(
-    options.lessonId && (!lesson || lesson.sectionId !== options.sectionId),
-  )
+  const { language, findCategory } = useListenCms()
+  const category = options.categoryId ? findCategory(options.categoryId) : undefined
 
   useEffect(() => {
-    if (invalidSection || invalidLesson) {
+    if (options.categoryId && !category) {
       router.replace(listenCmsRootHref(language))
     }
-  }, [invalidLesson, invalidSection, language, router])
+  }, [category, language, options.categoryId, router])
 
-  if (invalidSection || invalidLesson) {
-    return { ready: false as const, section: undefined, lesson: undefined }
+  if (options.categoryId && !category) {
+    return { ready: false as const, category: undefined }
   }
 
-  return { ready: true as const, section, lesson }
+  return { ready: true as const, category }
 }

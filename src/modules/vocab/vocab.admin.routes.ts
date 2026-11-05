@@ -4,6 +4,8 @@ import type { AppEnv } from "../../api/types"
 import { db } from "../../db/client"
 import { NotFoundError } from "../../shared/errors"
 import {
+  createVocabLessonBodySchema,
+  createVocabTopicBodySchema,
   updateVocabLessonBodySchema,
   upsertVocabWordsBodySchema,
 } from "./vocab.admin.dto"
@@ -45,6 +47,28 @@ export function createVocabAdminRoutes() {
     const service = createService()
     const words = await service.upsertLessonWords(languageCode, c.req.param("lessonId"), body)
     return c.json({ words })
+  })
+
+  app.post("/:levelCode/topics", async (c) => {
+    const languageCode = languageParam(c)
+    const body = createVocabTopicBodySchema.parse(await c.req.json())
+    const topic = await createService().createTopic(
+      languageCode,
+      c.req.param("levelCode") ?? "",
+      body,
+    )
+    return c.json({ topic }, 201)
+  })
+
+  app.post("/topics/:topicId/lessons", async (c) => {
+    const languageCode = languageParam(c)
+    const body = createVocabLessonBodySchema.parse(await c.req.json())
+    const lesson = await createService().createLesson(
+      languageCode,
+      c.req.param("topicId"),
+      body,
+    )
+    return c.json({ lesson }, 201)
   })
 
   app.get("/:levelCode", async (c) => {

@@ -6,19 +6,25 @@ import { Badge } from "@/components/ui/badge"
 import { buttonVariants } from "@/components/ui/button"
 import { adminTableSelectColumn } from "@/components/data-table/admin-table-columns"
 import { DataTableColumnHeader } from "@/components/data-table/data-table-column-header"
-import type { ListenSectionRow } from "@/features/listen/lib/listen-cms-mock"
+import type { ListeningSection } from "@/features/listen/lib/listen-admin-api"
+
+type ListenSectionTableRow = ListeningSection & {
+  topicName?: string
+  topicId?: string
+  lessonCount?: number
+}
 import { cn } from "cn"
 
 export const LISTEN_SECTIONS_TABLE_FILTER = {
   primary: { columnId: "title", placeholder: "Lọc tiêu đề chương…" },
-  secondary: { columnId: "topicName", placeholder: "Lọc topic…" },
+  secondary: { columnId: "title", placeholder: "Lọc tiêu đề…" },
 } as const
 
 export function buildListenSectionsTableColumns(options: {
-  onOpen: (row: ListenSectionRow) => void
-}): ColumnDef<ListenSectionRow>[] {
+  onOpen: (row: ListenSectionTableRow) => void
+}): ColumnDef<ListenSectionTableRow>[] {
   return [
-    adminTableSelectColumn<ListenSectionRow>(),
+    adminTableSelectColumn<ListenSectionTableRow>(),
     {
       accessorKey: "title",
       header: ({ column }) => <DataTableColumnHeader column={column} title="Tiêu đề" />,
@@ -39,10 +45,12 @@ export function buildListenSectionsTableColumns(options: {
       },
     },
     {
-      accessorKey: "topicName",
-      header: "Topic",
+      accessorKey: "sectionNumber",
+      header: ({ column }) => (
+        <DataTableColumnHeader column={column} title="#" className="justify-end" />
+      ),
       cell: ({ row }) => (
-        <span className="text-muted-foreground">{row.getValue("topicName")}</span>
+        <div className="text-right tabular-nums">{row.getValue("sectionNumber")}</div>
       ),
     },
     {

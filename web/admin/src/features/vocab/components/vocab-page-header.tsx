@@ -33,7 +33,7 @@ export function VocabPageHeader({
         <h2 className="font-heading text-xl font-bold tracking-tight">Vocab CMS</h2>
         <Badge variant="secondary">{languageLabel}</Badge>
         <Badge variant="outline">{level}</Badge>
-        <Badge variant="outline">Mock</Badge>
+        <Badge variant="outline">API</Badge>
       </div>
       <div className="flex flex-wrap items-center gap-2">
         <Select value={level} onValueChange={(v) => v && onLevelChange(v)}>

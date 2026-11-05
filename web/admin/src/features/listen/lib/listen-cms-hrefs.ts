@@ -8,6 +8,13 @@ export function listenCmsRootHref(language: ListenLanguageCode): string {
   return withLang("/listen", language)
 }
 
+export function listenCategorySectionsHref(
+  categoryId: string,
+  language: ListenLanguageCode,
+): string {
+  return withLang(`/listen/categories/${encodeURIComponent(categoryId)}`, language)
+}
+
 export function listenSectionLessonsHref(
   sectionId: string,
   language: ListenLanguageCode,
