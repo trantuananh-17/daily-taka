@@ -25,6 +25,7 @@ type VocabQuickReviewPanelProps = {
   onQuizWrong: (wordId: string) => void
   onComplete: () => void
   onProgressChange?: (current: number, total: number) => void
+  quizSeed: string
 }
 
 export function VocabQuickReviewPanel({
@@ -38,6 +39,7 @@ export function VocabQuickReviewPanel({
   onQuizWrong,
   onComplete,
   onProgressChange,
+  quizSeed,
 }: VocabQuickReviewPanelProps) {
   const [stepIndex, setStepIndex] = useState(0)
   const [revealed, setRevealed] = useState(false)
@@ -63,9 +65,9 @@ export function VocabQuickReviewPanel({
 
   const quizByWordId = useMemo(() => {
     const uniqueWords = [...new Map(steps.map((s) => [s.word.id, s.word])).values()]
-    const questions = generateVocabQuizQuestions(uniqueWords, { distractorPool })
+    const questions = generateVocabQuizQuestions(uniqueWords, { seed: quizSeed, distractorPool })
     return new Map(questions.map((q) => [q.wordId, q]))
-  }, [steps, distractorPool])
+  }, [steps, distractorPool, quizSeed])
 
   useEffect(() => {
     setRevealed(false)

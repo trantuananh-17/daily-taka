@@ -6,7 +6,7 @@ import { ArrowRight, MessageSquare, PencilLine } from "lucide-react"
 
 import { Button, buttonVariants } from "@/components/ui/button"
 import { vocabFlowKickerClass, vocabFlowPrimaryButtonClass, vocabLessonPanelClass } from "@/features/vocab/lesson/vocab-lesson-styles"
-import { useGuestWritingProgress } from "@/features/writing/lesson/use-guest-writing-progress"
+import { useWritingLessonProgress } from "@/features/writing/lesson/use-writing-lesson-progress"
 import { WritingBlankInput } from "@/features/writing/lesson/writing-blank-input"
 import { WritingScriptModeSwitch } from "@/features/writing/lesson/writing-script-mode-switch"
 import { useWritingKeyboardShortcuts } from "@/features/writing/lesson/use-writing-keyboard-shortcuts"
@@ -54,13 +54,14 @@ export function WritingLessonPlayer({
     markSentenceDone,
     setDraft,
     doneCount,
-  } = useGuestWritingProgress({
+  } = useWritingLessonProgress({
     language,
     level,
     sectionId,
-    lessonContentId: progressLessonId,
+    lesson,
+    scriptModeId,
+    progressLessonId,
     sentenceCount: total,
-    seed: lesson.progress,
   })
 
   const sentences = useMemo(

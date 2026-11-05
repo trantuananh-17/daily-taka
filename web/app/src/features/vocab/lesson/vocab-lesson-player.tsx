@@ -19,13 +19,12 @@ import {
 import { VocabQuizQuestionPanel } from "@/features/vocab/lesson/vocab-quiz-question-panel"
 import { generateVocabQuizQuestions } from "@/lib/learn/vocab/quiz/generate-vocab-quiz-questions"
 import { speakVocabTerm } from "@/lib/learn/vocab/speak-vocab-term"
+import { resolveInitialVocabStep } from "@/lib/learn/vocab/resolve-initial-vocab-step"
 import type { VocabLessonStep, VocabLessonStory, VocabWord } from "@/lib/learn/vocab/types/lesson-story"
-import {
-  loadCarriedWeakWords,
-  saveCarriedWeakWordsForLesson,
-  toCarriedWeakWord,
-  type CarriedWeakWord,
-} from "@/lib/learn/vocab/weak-word-carry"
+import { toCarriedWeakWord, type CarriedWeakWord } from "@/lib/learn/vocab/weak-word-carry"
+import { useVocabLessonProgress } from "@/features/vocab/lesson/use-vocab-lesson-progress"
+import { useVocabWeakSync } from "@/features/vocab/lesson/use-vocab-weak-sync"
+import type { LanguageHubCode } from "@/lib/learn/hub"
 
 type LessonFinalStats = {
   correct: number
@@ -38,6 +37,9 @@ function carriedToVocabWord(c: CarriedWeakWord): VocabWord {
 }
 
 type VocabLessonPlayerProps = {
+  language: LanguageHubCode
+  level: string
+  sectionId: string
   story: VocabLessonStory
   backHref: string
   nextLessonHref: string | null
@@ -55,11 +57,19 @@ const STEP_LABEL: Record<VocabLessonStep, string> = {
   lessonComplete: "Hoàn thành",
 }
 
-export function VocabLessonPlayer({ story, backHref, nextLessonHref, onFocusModeChange }: VocabLessonPlayerProps) {
+export function VocabLessonPlayer({
+  language,
+  level,
+  sectionId,
+  story,
+  backHref,
+  nextLessonHref,
+  onFocusModeChange,
+}: VocabLessonPlayerProps) {
   const words = story.words
   const total = words.length
 
-  const [step, setStep] = useState<VocabLessonStep>("overview")
+  const [step, setStep] = useState<VocabLessonStep>(() => resolveInitialVocabStep(story))
 
   const learningInProgress =
     step !== "overview" && step !== "lessonComplete"
@@ -71,7 +81,17 @@ export function VocabLessonPlayer({ story, backHref, nextLessonHref, onFocusMode
   const [weakWordIds, setWeakWordIds] = useState<Set<string>>(() => new Set())
   /** Flashcard “Học lại” / ghép thẻ sai → ôn nhanh gồm flashcard + quiz. */
   const [flashcardReviewIds, setFlashcardReviewIds] = useState<Set<string>>(() => new Set())
-  const [carriedWeak] = useState(() => loadCarriedWeakWords(story.id))
+  const { carriedWeak, syncWeak, clearCarriedWord, clearWeakWord, persistCarryForNextLesson } =
+    useVocabWeakSync(story)
+
+  useVocabLessonProgress({
+    language,
+    level,
+    sectionId,
+    story,
+    step,
+    masteredCount: masteredIds.size,
+  })
   const [finalStats, setFinalStats] = useState<LessonFinalStats | null>(null)
 
   const [flashIndex, setFlashIndex] = useState(0)
@@ -82,7 +102,10 @@ export function VocabLessonPlayer({ story, backHref, nextLessonHref, onFocusMode
 
   const [matchProgress, setMatchProgress] = useState(0)
 
-  const quizQuestions = useMemo(() => generateVocabQuizQuestions(words), [words])
+  const quizQuestions = useMemo(
+    () => generateVocabQuizQuestions(words, { seed: story.id }),
+    [words, story.id],
+  )
   const [quizIndex, setQuizIndex] = useState(0)
   const [quizSelected, setQuizSelected] = useState<number | null>(null)
   const [quizCorrectCount, setQuizCorrectCount] = useState(0)
@@ -92,18 +115,30 @@ export function VocabLessonPlayer({ story, backHref, nextLessonHref, onFocusMode
   const [reviewProgress, setReviewProgress] = useState({ current: 0, total: 1 })
 
   /** Quiz-correct only — drives “Tiến độ toàn bài / đã thành thạo”. */
-  const markQuizMastered = useCallback((id: string) => {
-    setMasteredIds((prev) => new Set(prev).add(id))
-  }, [])
+  const markQuizMastered = useCallback(
+    (id: string) => {
+      setMasteredIds((prev) => new Set(prev).add(id))
+      clearWeakWord(id)
+    },
+    [clearWeakWord],
+  )
 
-  const addFlashcardReview = useCallback((wordId: string) => {
-    setFlashcardReviewIds((prev) => new Set(prev).add(wordId))
-    setWeakWordIds((prev) => new Set(prev).add(wordId))
-  }, [])
+  const addFlashcardReview = useCallback(
+    (wordId: string) => {
+      setFlashcardReviewIds((prev) => new Set(prev).add(wordId))
+      setWeakWordIds((prev) => new Set(prev).add(wordId))
+      syncWeak(wordId, "flashcard_again", true)
+    },
+    [syncWeak],
+  )
 
-  const addQuizOnlyWeak = useCallback((wordId: string) => {
-    setWeakWordIds((prev) => new Set(prev).add(wordId))
-  }, [])
+  const addQuizOnlyWeak = useCallback(
+    (wordId: string) => {
+      setWeakWordIds((prev) => new Set(prev).add(wordId))
+      syncWeak(wordId, "main_quiz_wrong", false)
+    },
+    [syncWeak],
+  )
 
   const reviewWords = useMemo(() => {
     const seen = new Set<string>()
@@ -180,10 +215,8 @@ export function VocabLessonPlayer({ story, backHref, nextLessonHref, onFocusMode
   }, [])
 
   const persistWeakCarryForNextLesson = useCallback(() => {
-    const nextId = story.nextStory?.id
-    if (!nextId) return
-    saveCarriedWeakWordsForLesson(nextId, buildCarryPayload())
-  }, [buildCarryPayload, story.nextStory?.id])
+    persistCarryForNextLesson(buildCarryPayload())
+  }, [buildCarryPayload, persistCarryForNextLesson])
 
   const currentWord = words[flashIndex]
 
@@ -423,8 +456,13 @@ export function VocabLessonPlayer({ story, backHref, nextLessonHref, onFocusMode
         <VocabLessonPanel>
           <VocabMatchingPanel
             words={words}
+            shuffleSeed={`${story.id}:matching`}
             onProgress={handleMatchProgress}
-            onWeakWord={addFlashcardReview}
+            onWeakWord={(wordId) => {
+              setFlashcardReviewIds((prev) => new Set(prev).add(wordId))
+              setWeakWordIds((prev) => new Set(prev).add(wordId))
+              syncWeak(wordId, "matching_wrong", true)
+            }}
             onContinue={() => setStep("quiz")}
           />
         </VocabLessonPanel>
@@ -486,14 +524,17 @@ export function VocabLessonPlayer({ story, backHref, nextLessonHref, onFocusMode
               onReviewRemembered={(id) => {
                 if (carriedWeak.some((c) => c.id === id)) {
                   setClearedCarriedIds((prev) => new Set(prev).add(id))
+                  clearCarriedWord(id)
                 }
               }}
+              quizSeed={`${story.id}:review`}
               onQuizCorrect={(wordId) => {
                 setWeakWordIds((prev) => {
                   const next = new Set(prev)
                   next.delete(wordId)
                   return next
                 })
+                clearWeakWord(wordId)
               }}
               onQuizWrong={addQuizOnlyWeak}
               onComplete={finishLessonComplete}

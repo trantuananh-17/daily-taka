@@ -8,6 +8,9 @@ import { curriculumLessonHref } from "@/lib/learn/curriculum/curriculum-lesson-h
 import { fetchCurriculumSectionLessons } from "@/lib/learn/curriculum/fetch-curriculum-section-lessons"
 import type { CurriculumLesson, CurriculumModule, CurriculumSectionSummary } from "@/lib/learn/curriculum/types"
 import type { LanguageHubCode } from "@/lib/learn/hub"
+import { authClient } from "@/lib/auth/client"
+import { countGuestVocabCompletedInSection } from "@/lib/learn/vocab/guest-vocab-lesson-progress"
+import { countGuestWritingCompletedInSection } from "@/lib/learn/writing/guest-writing-lesson-progress"
 import { mockNetworkDelay } from "@/lib/learn/listening/mock/mock-network-delay"
 
 import { LevelLessonCard } from "./level-lesson-card"
@@ -39,7 +42,14 @@ export function LevelSectionPanel({
   const [loadError, setLoadError] = useState(false)
 
   const isSearchMode = searchLessons !== undefined
-  const completed = section.completedCount
+  const { data: session } = authClient.useSession()
+  const guestCompleted =
+    !session?.user && module === "vocab"
+      ? countGuestVocabCompletedInSection(language, level, section.id)
+      : !session?.user && module === "writing"
+        ? countGuestWritingCompletedInSection(language, level, section.id)
+        : 0
+  const completed = section.completedCount + guestCompleted
   const total = section.lessonCount
   const progressPct = total > 0 ? Math.round((completed / total) * 100) : 0
   const panelId = `level-section-panel-${section.id}`

@@ -24,7 +24,7 @@ export async function VocabLevelPage({ language, level }: VocabLevelPageProps) {
   const allowed = getVocabLevels(language).some((row) => row.level === decodedLevel)
   if (!allowed) notFound()
 
-  const detail = getCurriculumLevelDetail(language, "vocab", decodedLevel)
+  const detail = await getCurriculumLevelDetail(language, "vocab", decodedLevel)
   if (!detail) notFound()
 
   const meta = getVocabLanguageMeta(language)

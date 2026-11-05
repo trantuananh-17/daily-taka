@@ -1,4 +1,20 @@
-import { boolean, integer, jsonb, pgTable, smallint, text, uniqueIndex, uuid } from "drizzle-orm/pg-core"
+import {
+  boolean,
+  customType,
+  integer,
+  jsonb,
+  pgTable,
+  smallint,
+  text,
+  uniqueIndex,
+  uuid,
+} from "drizzle-orm/pg-core"
+
+const tsvector = customType<{ data: string | null }>({
+  dataType() {
+    return "tsvector"
+  },
+})
 
 import { languages } from "./languages"
 
@@ -65,6 +81,7 @@ export const listeningLessons = pgTable(
     metadata: jsonb("metadata"),
     path: text("path"),
     dictationGradingDefaults: jsonb("dictation_grading_defaults"),
+    searchVector: tsvector("search_vector"),
     isPublished: boolean("is_published").notNull().default(true),
   },
   (table) => [uniqueIndex("listening_lessons_section_slug_idx").on(table.sectionId, table.slug)],

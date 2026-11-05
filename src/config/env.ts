@@ -18,6 +18,8 @@ const envSchema = z.object({
   STORAGE_REGION: z.string().default("us-east-1"),
   /** Bearer / x-admin-api-key for `/v1/admin/*` until Better Auth admin roles. */
   ADMIN_API_KEY: z.string().min(16).optional(),
+  /** `ilike` (default) or `fts` for listening lesson title search. */
+  LISTENING_SEARCH_MODE: z.enum(["ilike", "fts"]).default("ilike"),
 })
 
 const parsed = envSchema.safeParse(process.env)
@@ -49,4 +51,5 @@ export const env = {
         }
       : undefined,
   adminApiKey: raw.ADMIN_API_KEY,
+  listeningSearchMode: raw.LISTENING_SEARCH_MODE,
 } as const

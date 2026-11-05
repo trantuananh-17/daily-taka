@@ -31,6 +31,7 @@ describe("resolveLessonAudioUrl", () => {
         metadata: null,
         path: null,
         dictationGradingDefaults: null,
+        searchVector: null,
         isPublished: true,
       },
     })

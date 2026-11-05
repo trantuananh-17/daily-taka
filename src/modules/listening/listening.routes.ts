@@ -1,9 +1,13 @@
+import { Hono } from "hono"
 import { z } from "zod"
 
+import type { AppEnv } from "../../api/types"
+import { attachOptionalUser } from "../../auth/attach-optional-user"
 import { db } from "../../db/client"
 import { NotFoundError } from "../../shared/errors"
 import { parseListeningLanguageCode } from "./listening.constants"
 import { createListeningRoutesApp } from "./listening.routes.builder"
+import { ListeningProgressRepository } from "./listening-progress.repository"
 import { ListeningRepository } from "./listening.repository"
 import { ListeningService } from "./listening.service"
 
@@ -17,7 +21,11 @@ const searchQuerySchema = z.object({
 })
 
 function createListeningService() {
-  return new ListeningService(new ListeningRepository(db))
+  return new ListeningService(new ListeningRepository(db), new ListeningProgressRepository(db))
+}
+
+function optionalUserId(c: { get: (key: "userId") => string | undefined }) {
+  return c.get("userId")
 }
 
 function parseQuery<T extends z.ZodTypeAny>(schema: T, query: Record<string, string | string[]>) {
@@ -42,7 +50,11 @@ export const listeningRoutesApp = createListeningRoutesApp({
     if (!languageCode) throw new NotFoundError("Language")
 
     const service = createListeningService()
-    const body = await service.getCategoryDetail(languageCode, c.req.param("categorySlug") ?? "")
+    const body = await service.getCategoryDetail(
+      languageCode,
+      c.req.param("categorySlug") ?? "",
+      optionalUserId(c),
+    )
     return c.json(body)
   },
   listSectionLessons: async (c) => {
@@ -56,6 +68,7 @@ export const listeningRoutesApp = createListeningRoutesApp({
       c.req.param("categorySlug") ?? "",
       c.req.param("sectionId") ?? "",
       level,
+      optionalUserId(c),
     )
     return c.json(body)
   },
@@ -89,5 +102,8 @@ export const listeningRoutesApp = createListeningRoutesApp({
 })
 
 export function createListeningRoutes() {
-  return listeningRoutesApp
+  const app = new Hono<AppEnv>()
+  app.use("*", attachOptionalUser())
+  app.route("/", listeningRoutesApp)
+  return app
 }

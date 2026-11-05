@@ -10,8 +10,11 @@ export const listeningPublicApp = new Hono().route(
 
 export type ListeningPublicAppType = typeof listeningPublicApp
 
-export function createListeningPublicClient(baseUrl: string) {
-  return hc<ListeningPublicAppType>(baseUrl)
+export function createListeningPublicClient(
+  baseUrl: string,
+  options?: { fetch?: typeof fetch },
+) {
+  return hc<ListeningPublicAppType>(baseUrl, options)
 }
 
 export type ListeningPublicClient = ReturnType<typeof createListeningPublicClient>

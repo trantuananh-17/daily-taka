@@ -24,7 +24,7 @@ export async function WritingLevelPage({ language, level }: WritingLevelPageProp
   const allowed = getWritingLevels(language).some((row) => row.level === decodedLevel)
   if (!allowed) notFound()
 
-  const detail = getCurriculumLevelDetail(language, "writing", decodedLevel)
+  const detail = await getCurriculumLevelDetail(language, "writing", decodedLevel)
   if (!detail) notFound()
 
   const meta = getWritingLanguageMeta(language)

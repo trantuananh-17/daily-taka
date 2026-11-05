@@ -33,7 +33,7 @@ import { DictationShortcutHints } from "@/features/listen/dictation/dictation-sh
 import { ListeningPlaybackSettingsDialog } from "@/features/listen/dictation/listening-playback-settings-dialog"
 import { TranscriptPanel } from "@/features/listen/dictation/transcript-panel"
 import { useDictationKeyboardShortcuts } from "@/features/listen/dictation/use-dictation-keyboard-shortcuts"
-import { useGuestDictationProgress } from "@/features/listen/dictation/use-guest-dictation-progress"
+import { useDictationProgress } from "@/features/listen/dictation/use-dictation-progress"
 import { useDictationSentenceAudio } from "@/features/listen/dictation/use-dictation-sentence-audio"
 import { useListeningPlaybackSettings } from "@/features/listen/dictation/use-listening-playback-settings"
 
@@ -78,7 +78,7 @@ export function DictationPlayer({ language, detail }: DictationPlayerProps) {
     correctCount,
     setCorrectCount,
     resetProgress,
-  } = useGuestDictationProgress({
+  } = useDictationProgress({
     language,
     categorySlug,
     sectionId: lesson.sectionId,

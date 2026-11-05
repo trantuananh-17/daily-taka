@@ -9,6 +9,7 @@ import { getLevelTopicSeeds } from "@/lib/learn/curriculum/level-topic-seeds"
 import type { LanguageHubCode } from "@/lib/learn/hub"
 import { getVocabLevels } from "@/lib/learn/vocab/levels"
 import { resolveVocabStory } from "@/lib/learn/vocab/resolve-vocab-story"
+import { serverGetVocabLessonStory } from "@/lib/learn/vocab/vocab-api-server"
 import { vocabCatalogHref, vocabLessonHref, vocabLevelHref } from "@/lib/learn/vocab/vocab-hrefs"
 
 const VOCAB_TRAIL_LABEL = "Từ vựng"
@@ -25,7 +26,8 @@ export async function VocabLessonPage({ language, level, sectionId, lessonSlug }
   const allowed = getVocabLevels(language).some((row) => row.level === decodedLevel)
   if (!allowed) notFound()
 
-  const story = resolveVocabStory(language, decodedLevel, sectionId, lessonSlug)
+  const fromApi = await serverGetVocabLessonStory(language, decodedLevel, sectionId, lessonSlug)
+  const story = fromApi ?? resolveVocabStory(language, decodedLevel, sectionId, lessonSlug)
   if (!story) notFound()
 
   const topics = getLevelTopicSeeds(language, "vocab", decodedLevel)
@@ -46,6 +48,8 @@ export async function VocabLessonPage({ language, level, sectionId, lessonSlug }
   return (
     <VocabLessonPageView
       language={language}
+      level={decodedLevel}
+      sectionId={sectionId}
       trail={[
         { label: VOCAB_TRAIL_LABEL, href: vocabCatalogHref(language) },
         { label: decodedLevel, href: vocabLevelHref(language, decodedLevel) },

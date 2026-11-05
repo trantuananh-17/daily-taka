@@ -1,6 +1,8 @@
 import type { Metadata } from "next"
 import { DM_Sans, Manrope } from "next/font/google"
 
+import { SessionAuthBar } from "@/components/auth/session-auth-bar"
+import { AuthSessionProvider } from "@/lib/auth/auth-session-provider"
 import { QueryProvider } from "@/lib/api/query-provider"
 import { APP_NAME } from "@/lib/brand"
 import "./globals.css"
@@ -27,7 +29,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="vi" className={`${manrope.variable} ${dmSans.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col font-body">
-        <QueryProvider>{children}</QueryProvider>
+        <QueryProvider>
+          <AuthSessionProvider>
+            <SessionAuthBar />
+            {children}
+          </AuthSessionProvider>
+        </QueryProvider>
       </body>
     </html>
   )

@@ -3,6 +3,7 @@
 import { ChevronDown } from "lucide-react"
 import { cn } from "cn"
 
+import { authClient } from "@/lib/auth/client"
 import { countGuestCompletedInSection } from "@/lib/learn/listening/guest-listening-progress"
 import type { LanguageHubCode } from "@/lib/learn/hub"
 import type { ListeningLesson, ListeningSectionSummary } from "@/lib/learn/listening/types"
@@ -43,7 +44,10 @@ export function SectionPanel({
   const bodyLoading = !isSearchMode && isOpen && isLoading
   const loadError = !isSearchMode && isOpen && isError
 
-  const guestCompleted = countGuestCompletedInSection(language, categorySlug, section.id)
+  const { data: session } = authClient.useSession()
+  const guestCompleted = session?.user
+    ? 0
+    : countGuestCompletedInSection(language, categorySlug, section.id)
   const completed = section.completedCount + guestCompleted
   const total = section.lessonCount
   const progressPct = total > 0 ? Math.round((completed / total) * 100) : 0

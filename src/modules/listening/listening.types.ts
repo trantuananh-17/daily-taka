@@ -28,6 +28,15 @@ export type ListeningSectionSummaryDto = {
   access?: "full" | "preview" | "locked"
 }
 
+export type ListeningLessonProgressDto = {
+  status: "not_started" | "in_progress" | "completed"
+  completedSentenceCount: number
+  isCompleted: boolean
+  starCount: number
+  isStarred: boolean
+  completionCount: number
+}
+
 export type ListeningLessonDto = {
   id: string
   slug: string
@@ -37,6 +46,7 @@ export type ListeningLessonDto = {
   sentenceCount: number
   level: string
   stars: number
+  progress?: ListeningLessonProgressDto
 }
 
 export type DictationSentenceDto = {

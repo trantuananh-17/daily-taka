@@ -20,10 +20,19 @@ export function createListenCategoryPage(language: LanguageHubCode) {
   }
 }
 
-/** Mock catalog slugs — compatible with nextConfig.cacheComponents. */
+/** Build-time fallback when API/DB unavailable — satisfies Cache Components (≥1 param). */
+const LISTEN_CATEGORY_STATIC_FALLBACK: Record<LanguageHubCode, string[]> = {
+  en: ["short-stories"],
+  zh: ["short-stories"],
+  jp: ["folk-tales"],
+}
+
+/** Catalog slugs from API, with mock fallback — compatible with nextConfig.cacheComponents. */
 export function createListenCategoryStaticParams(language: LanguageHubCode) {
   return async function generateStaticParams() {
     const { rows } = await getListeningCategories(language)
-    return rows.map((row) => ({ slug: row.slug }))
+    const fromApi = rows.map((row) => ({ slug: row.slug }))
+    if (fromApi.length > 0) return fromApi
+    return LISTEN_CATEGORY_STATIC_FALLBACK[language].map((slug) => ({ slug }))
   }
 }

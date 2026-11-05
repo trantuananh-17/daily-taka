@@ -42,4 +42,5 @@ export type WritingLesson = {
   scriptModes?: WritingScriptModeDef[]
   /** Default seed; merged with guest localStorage at runtime. */
   progress: WritingLessonProgress
+  lessonDbId?: string
 }

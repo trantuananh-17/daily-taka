@@ -12,6 +12,13 @@ export type VocabWord = {
   distractors: string[]
 }
 
+export type VocabLessonServerProgress = {
+  status: "not_started" | "in_progress" | "completed"
+  currentStep: VocabLessonStep
+  masteredCount: number
+  isCompleted: boolean
+}
+
 export type VocabLessonStory = {
   id: string
   title: string
@@ -19,6 +26,11 @@ export type VocabLessonStory = {
   words: VocabWord[]
   /** Next story in sequence (mock). */
   nextStory?: Pick<VocabLessonStory, "id" | "title"> | null
+  /** DB lesson id — from API for progress / weak-items. */
+  lessonDbId?: string
+  nextLessonDbId?: string | null
+  /** From API when session cookie forwarded on SSR. */
+  lessonProgress?: VocabLessonServerProgress | null
 }
 
 export type VocabLessonStep =

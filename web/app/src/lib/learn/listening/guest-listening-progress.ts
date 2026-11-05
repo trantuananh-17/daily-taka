@@ -19,6 +19,10 @@ type GuestListeningProgressStore = {
   entries: GuestListeningProgressEntry[]
 }
 
+export function readGuestListeningStoreEntries(): GuestListeningProgressEntry[] {
+  return readStore().entries
+}
+
 function readStore(): GuestListeningProgressStore {
   if (typeof window === "undefined") {
     return { version: 1, updatedAt: "", entries: [] }

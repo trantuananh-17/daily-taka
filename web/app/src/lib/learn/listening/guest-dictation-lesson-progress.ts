@@ -26,6 +26,10 @@ export type GuestDictationLessonKey = {
   lessonId: string
 }
 
+export function readGuestDictationStoreEntries(): GuestDictationLessonProgress[] {
+  return readStore().entries
+}
+
 function readStore(): GuestDictationLessonProgressStore {
   if (typeof window === "undefined") {
     return { version: 1, entries: [] }

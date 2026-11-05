@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation"
-import { connection } from "next/server"
 
 import { WritingLessonPageView } from "@/features/writing/writing-lesson-page-view"
 import {
@@ -10,6 +9,7 @@ import { getLevelTopicSeeds } from "@/lib/learn/curriculum/level-topic-seeds"
 import type { LanguageHubCode } from "@/lib/learn/hub"
 import { getWritingLevels } from "@/lib/learn/writing/levels"
 import { resolveWritingLesson } from "@/lib/learn/writing/resolve-writing-lesson"
+import { serverGetWritingLesson } from "@/lib/learn/writing/writing-api-server"
 import { writingCatalogHref, writingLessonHref, writingLevelHref } from "@/lib/learn/writing/writing-hrefs"
 
 const WRITING_TRAIL_LABEL = "Luyện viết"
@@ -27,13 +27,12 @@ export async function WritingLessonPage({
   sectionId,
   lessonSlug,
 }: WritingLessonPageProps) {
-  await connection()
-
   const decodedLevel = decodeURIComponent(level)
   const allowed = getWritingLevels(language).some((row) => row.level === decodedLevel)
   if (!allowed) notFound()
 
-  const lesson = resolveWritingLesson(language, decodedLevel, sectionId, lessonSlug)
+  const fromApi = await serverGetWritingLesson(language, decodedLevel, sectionId, lessonSlug)
+  const lesson = fromApi ?? resolveWritingLesson(language, decodedLevel, sectionId, lessonSlug)
   if (!lesson) notFound()
 
   const topics = getLevelTopicSeeds(language, "writing", decodedLevel)

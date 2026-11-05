@@ -8,6 +8,9 @@ export type GuestWritingLessonProgress = WritingLessonProgress & {
   level: string
   sectionId: string
   lessonContentId: string
+  lessonDbId?: string
+  status?: "in_progress" | "completed"
+  scriptModeId?: string | null
   updatedAt: string
 }
 
@@ -21,6 +24,31 @@ export type GuestWritingLessonKey = {
   level: string
   sectionId: string
   lessonContentId: string
+  lessonDbId?: string
+}
+
+export function readGuestWritingStoreEntries(): GuestWritingLessonProgress[] {
+  return readStore().entries
+}
+
+export function countGuestWritingCompletedInSection(
+  language: LanguageHubCode,
+  level: string,
+  sectionId: string,
+): number {
+  const normalizedLevel = decodeURIComponent(level)
+  return readStore().entries.filter(
+    (entry) =>
+      entry.language === language &&
+      entry.level === normalizedLevel &&
+      entry.sectionId === sectionId &&
+      entry.status === "completed",
+  ).length
+}
+
+export function clearGuestWritingProgressStore() {
+  if (typeof window === "undefined") return
+  window.localStorage.removeItem(STORAGE_KEY)
 }
 
 function readStore(): GuestWritingLessonProgressStore {
@@ -59,13 +87,19 @@ export function readGuestWritingLessonProgress(
 
 export function saveGuestWritingLessonProgress(
   key: GuestWritingLessonKey,
-  payload: WritingLessonProgress,
+  payload: WritingLessonProgress & {
+    status?: "in_progress" | "completed"
+    scriptModeId?: string | null
+  },
 ) {
   const store = readStore()
   const id = entryKey(key)
   const nextEntry: GuestWritingLessonProgress = {
     ...key,
     ...payload,
+    status:
+      payload.status ??
+      (payload.doneSentenceIndexes.length > 0 ? "in_progress" : "in_progress"),
     updatedAt: new Date().toISOString(),
   }
   const index = store.entries.findIndex((row) => entryKey(row) === id)

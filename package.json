@@ -21,6 +21,8 @@
     "db:generate": "drizzle-kit generate",
     "db:migrate": "tsx src/db/migrate.ts",
     "db:seed": "tsx scripts/seed-listening.ts",
+    "db:seed:vocab": "tsx scripts/seed-vocab.ts",
+    "db:seed:writing": "tsx scripts/seed-writing.ts",
     "db:studio": "drizzle-kit studio"
   },
   "dependencies": {

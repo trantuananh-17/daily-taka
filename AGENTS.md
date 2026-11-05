@@ -30,3 +30,17 @@ Brand UI: **Daily Taka** (`brand-naming.mdc`). shadcn: không sửa `components/
 - `scope-frontend.mdc` — khi sửa `web/app/**`
 
 File agent: `.cursor/agents/*.md`
+
+## Vocab scope (ghi nhớ)
+
+- Admin vocab: **endpoint only** — không làm `web/admin` UI trừ khi user yêu cầu code admin UI.
+- Vocab **ZH/JP**: chưa DB/progress merge — xem `docs/design/2026-11-05-vocab-scope-conventions.md`.
+
+## Writing scope
+
+- Learner **UI** nối API; admin writing **endpoint only** — xem `docs/design/2026-11-05-writing-scope-conventions.md`.
+- Writing **ZH/JP**: mock FE only, chưa DB.
+
+## Admin UI (khi user yêu cầu code)
+
+Checklist scaffold + API map: `docs/design/2026-11-05-admin-ui-prep.md`. App placeholder: `web/admin/`.

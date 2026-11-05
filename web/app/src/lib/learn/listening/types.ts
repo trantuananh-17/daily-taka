@@ -20,6 +20,15 @@ export type ListeningCategoryListResponse = {
   complete: boolean
 }
 
+export type ListeningLessonProgress = {
+  status: "not_started" | "in_progress" | "completed"
+  completedSentenceCount: number
+  isCompleted: boolean
+  starCount: number
+  isStarred: boolean
+  completionCount: number
+}
+
 export type ListeningLesson = {
   id: string
   slug: string
@@ -28,8 +37,9 @@ export type ListeningLesson = {
   title: string
   sentenceCount: number
   level: string
-  /** User star rating 0–5 (display only until progress API exists). */
+  /** Catalog metadata (not user star rating). */
   stars: number
+  progress?: ListeningLessonProgress
 }
 
 export type DictationGradingOptions = {

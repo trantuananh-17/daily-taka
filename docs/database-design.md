@@ -35,7 +35,7 @@
 | Lesson | `listening_lessons` | uuid, slug, level, audio R2 key, `template_type`, `path` |
 | Câu | `listening_sentences` | position, start/end ms, transcript, metadata jsonb (ipa, properNames) |
 
-Progress (phase 2, **chưa Drizzle**): `user_listen_lesson_progress` (star/completed/completion cycle — §1.4 `2026-11-04-learning-content-schema-en-zh-jp.md`), `user_listen_sentence_attempts`. Timeline câu = `listening_sentences.start_ms` / `end_ms` (content, đã có bảng).
+Progress (phase 2 — **MVP done**): `user_listen_lesson_progress`, `user_settings`; API merge guest, admin read, FTS — `docs/design/2026-11-05-listening-progress-settings-admin-search.md`. **Backlog sau MVP:** `docs/design/2026-11-05-listen-post-mvp-backlog.md`. Optional: `user_listen_sentence_attempts`. Timeline câu = `listening_sentences.start_ms` / `end_ms` (content, đã có bảng). Chi tiết field §1.4 `2026-11-04-learning-content-schema-en-zh-jp.md`.
 
 ### 6–8. Vocabulary — EN · ZH · JP
 
@@ -47,7 +47,9 @@ Progress (phase 2, **chưa Drizzle**): `user_listen_lesson_progress` (star/compl
 | Topic | `vocab_topics` — slug `communication-and-everyday-language` |
 | Lesson | `vocab_lessons` — `lesson-01`, title, description |
 | Từ | `vocab_words` — term, ipa, meaning_vi, examples, collocations |
-| Quiz | `vocab_word_distractors` hoặc `distractors text[]` trên word |
+| Quiz | `distractors jsonb` trên `vocab_words` (MVP) |
+
+**Vocab MVP schema/API:** `src/modules/vocab/`, `user_vocab_lesson_progress`, `user_vocab_weak_items`, `pnpm db:seed:vocab`. Phạm vi EN / admin API-only / TTS: `docs/design/2026-11-05-vocab-scope-conventions.md`. Backlog: `docs/design/2026-11-05-vocab-post-mvp-backlog.md`.
 
 ### 8b. Vocab — luồng bài & progress (phase 2)
 
@@ -89,7 +91,7 @@ Progress (phase 2, **chưa Drizzle**): `user_listen_lesson_progress` (star/compl
 | Lesson | `writing_lessons` — `script_modes` jsonb (Han/Pinyin, Standard/Kana) |
 | Câu | `writing_sentences` — `prompt_vi`, `target_default`, `targets_by_mode`, `pronunciation` jsonb (ipa / pinyin / romaji) |
 
-Progress (phase 2): `user_writing_lesson_progress` (drafts, done sentence indexes).
+Progress (MVP EN): `user_writing_lesson_progress`, API + learner UI — `docs/design/2026-11-05-writing-scope-conventions.md`, `pnpm db:seed:writing`.
 
 ### 12. Chung — auth, gamification, thông báo
 

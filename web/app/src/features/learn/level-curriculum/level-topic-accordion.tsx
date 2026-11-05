@@ -1,6 +1,10 @@
 "use client"
 
 import { useEffect, useMemo, useRef, useState } from "react"
+
+import { authClient } from "@/lib/auth/client"
+import { apiGetVocabLevelDetail } from "@/lib/learn/vocab/vocab-api"
+import { apiGetWritingLevelDetail } from "@/lib/learn/writing/writing-api"
 import { Search } from "lucide-react"
 import { cn } from "cn"
 
@@ -57,6 +61,50 @@ export function LevelTopicAccordion({
     null,
   )
   const [sectionMatchCount, setSectionMatchCount] = useState(sections.length)
+  const { data: session } = authClient.useSession()
+  const [apiSectionCompleted, setApiSectionCompleted] = useState<Map<number, number>>(
+    () => new Map(),
+  )
+
+  useEffect(() => {
+    if (!session?.user || language !== "en" || (module !== "vocab" && module !== "writing")) {
+      setApiSectionCompleted(new Map())
+      return
+    }
+    let cancelled = false
+    const loader =
+      module === "vocab"
+        ? apiGetVocabLevelDetail(language, level)
+        : apiGetWritingLevelDetail(language, level)
+    void loader
+      .then((detail) => {
+        if (cancelled) return
+        const map = new Map<number, number>()
+        for (const topic of detail.topics) {
+          map.set(topic.sortOrder, topic.completedCount ?? 0)
+        }
+        setApiSectionCompleted(map)
+      })
+      .catch(() => {
+        if (!cancelled) setApiSectionCompleted(new Map())
+      })
+    return () => {
+      cancelled = true
+    }
+  }, [module, session?.user, language, level])
+
+  const displaySections = useMemo(
+    () =>
+      sections.map((section) =>
+        (module === "vocab" || module === "writing") && session?.user
+          ? {
+              ...section,
+              completedCount: apiSectionCompleted.get(section.sortOrder) ?? section.completedCount,
+            }
+          : section,
+      ),
+    [sections, module, session?.user, apiSectionCompleted],
+  )
 
   const lessonCacheRef = useRef(new Map<string, CurriculumLesson[]>())
 
@@ -106,11 +154,11 @@ export function LevelTopicAccordion({
   }, [searchHits])
 
   const visibleSections = useMemo(() => {
-    if (!isSearchActive) return sections
+    if (!isSearchActive) return displaySections
     if (searchLoading && searchHits === null) return []
     if (!hitsBySection) return []
-    return sections.filter((section) => hitsBySection.has(section.id))
-  }, [sections, isSearchActive, searchLoading, searchHits, hitsBySection])
+    return displaySections.filter((section) => hitsBySection.has(section.id))
+  }, [displaySections, isSearchActive, searchLoading, searchHits, hitsBySection])
 
   const displayMatchCount = isSearchActive ? sectionMatchCount : sections.length
   const matchLabel = searchLoading

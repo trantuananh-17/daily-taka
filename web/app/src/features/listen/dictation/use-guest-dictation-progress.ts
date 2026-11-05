@@ -13,6 +13,8 @@ import { upsertGuestLessonProgress } from "@/lib/learn/listening/guest-listening
 
 type UseGuestDictationProgressOptions = GuestDictationLessonKey & {
   sentenceCount: number
+  /** When false, in-memory only (logged-in server sync). */
+  persistLocal?: boolean
 }
 
 export function useGuestDictationProgress({
@@ -21,6 +23,7 @@ export function useGuestDictationProgress({
   sectionId,
   lessonId,
   sentenceCount,
+  persistLocal = true,
 }: UseGuestDictationProgressOptions) {
   const storageKey = useMemo(
     () => ({ language, categorySlug, sectionId, lessonId }),
@@ -45,7 +48,7 @@ export function useGuestDictationProgress({
   }, [storageKey, sentenceCount])
 
   useEffect(() => {
-    if (!ready) return
+    if (!ready || !persistLocal) return
     saveGuestDictationLessonProgress(storageKey, {
       correctCount,
       currentSentenceIndex: sentenceIndex,
@@ -69,7 +72,18 @@ export function useGuestDictationProgress({
         status: "in_progress",
       })
     }
-  }, [ready, storageKey, correctCount, sentenceIndex, sentenceCount, language, categorySlug, sectionId, lessonId])
+  }, [
+    ready,
+    persistLocal,
+    storageKey,
+    correctCount,
+    sentenceIndex,
+    sentenceCount,
+    language,
+    categorySlug,
+    sectionId,
+    lessonId,
+  ])
 
   const resetProgress = useCallback(() => {
     clearGuestDictationLessonProgress(storageKey)

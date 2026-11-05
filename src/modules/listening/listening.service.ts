@@ -2,6 +2,8 @@ import { env } from "../../config/env"
 import { NotFoundError } from "../../shared/errors"
 import type { ListeningLanguageCode } from "./listening.constants"
 import { mapCategoryRow, mapLessonDetail, mapLessonRow, mapSectionRow } from "./listening.mapper"
+import { mapListenProgressRow } from "./listening-progress.mapper"
+import type { ListeningProgressRepository } from "./listening-progress.repository"
 import type { ListeningRepository } from "./listening.repository"
 import type {
   DictationLessonDetailDto,
@@ -12,7 +14,10 @@ import type {
 } from "./listening.types"
 
 export class ListeningService {
-  constructor(private readonly repo: ListeningRepository) {}
+  constructor(
+    private readonly repo: ListeningRepository,
+    private readonly progressRepo?: ListeningProgressRepository,
+  ) {}
 
   async assertLanguage(languageCode: ListeningLanguageCode): Promise<void> {
     const ok = await this.repo.languageExists(languageCode)
@@ -33,17 +38,25 @@ export class ListeningService {
   async getCategoryDetail(
     languageCode: ListeningLanguageCode,
     categorySlug: string,
+    userId?: string,
   ): Promise<ListeningCategoryDetailDto> {
     await this.assertLanguage(languageCode)
     const category = await this.repo.findCategory(languageCode, categorySlug)
     if (!category) throw new NotFoundError("Listening category")
 
     const sectionsWithCounts = await this.repo.listSections(category.id)
+    const sectionIds = sectionsWithCounts.map(({ section }) => section.id)
+    const completedBySection =
+      userId && this.progressRepo
+        ? await this.progressRepo.countCompletedInSections(userId, sectionIds)
+        : new Map<string, number>()
+
     return {
       category: mapCategoryRow(category),
       sections: sectionsWithCounts.map(({ section, lessonCount }) => ({
         ...mapSectionRow(section),
         lessonCount,
+        completedCount: completedBySection.get(section.id) ?? 0,
       })),
     }
   }
@@ -53,6 +66,7 @@ export class ListeningService {
     categorySlug: string,
     sectionId: string,
     level?: string,
+    userId?: string,
   ): Promise<ListeningLessonDto[]> {
     await this.assertLanguage(languageCode)
     const category = await this.repo.findCategory(languageCode, categorySlug)
@@ -64,7 +78,31 @@ export class ListeningService {
     }
 
     const lessons = await this.repo.listLessonsInSection(sectionId, level)
-    return lessons.map((lesson) => mapLessonRow(lesson, sectionId))
+    const progressByLesson =
+      userId && this.progressRepo
+        ? await this.progressRepo.listProgressForLessons(
+            userId,
+            lessons.map((lesson) => lesson.id),
+          )
+        : new Map()
+
+    return lessons.map((lesson) => {
+      const dto = mapLessonRow(lesson, sectionId)
+      const progress = progressByLesson.get(lesson.id)
+      if (!progress) return dto
+      const mapped = mapListenProgressRow(progress)
+      return {
+        ...dto,
+        progress: {
+          status: mapped.status,
+          completedSentenceCount: mapped.completedSentenceCount,
+          isCompleted: mapped.isCompleted,
+          starCount: mapped.starCount,
+          isStarred: mapped.isStarred,
+          completionCount: mapped.completionCount,
+        },
+      }
+    })
   }
 
   async getLessonDetail(

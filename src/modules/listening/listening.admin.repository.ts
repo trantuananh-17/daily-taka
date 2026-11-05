@@ -15,6 +15,38 @@ import type { ListeningLanguageCode } from "./listening.constants"
 export class ListeningAdminRepository {
   constructor(private readonly db: DbExecutor) {}
 
+  async listCategoriesByLanguage(languageCode: ListeningLanguageCode) {
+    return this.db
+      .select()
+      .from(listeningCategories)
+      .where(eq(listeningCategories.languageCode, languageCode))
+      .orderBy(asc(listeningCategories.sortOrder))
+  }
+
+  async listSectionsByCategory(categoryId: string) {
+    return this.db
+      .select()
+      .from(listeningSections)
+      .where(eq(listeningSections.categoryId, categoryId))
+      .orderBy(asc(listeningSections.sortOrder))
+  }
+
+  async listLessonsBySection(sectionId: string) {
+    return this.db
+      .select()
+      .from(listeningLessons)
+      .where(eq(listeningLessons.sectionId, sectionId))
+      .orderBy(asc(listeningLessons.displayOrder))
+  }
+
+  async listSentencesByLesson(lessonId: string) {
+    return this.db
+      .select()
+      .from(listeningSentences)
+      .where(eq(listeningSentences.lessonId, lessonId))
+      .orderBy(asc(listeningSentences.position))
+  }
+
   async findCategoryById(categoryId: string): Promise<ListeningCategoryRow | null> {
     const rows = await this.db
       .select()

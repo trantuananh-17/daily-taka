@@ -5,16 +5,8 @@ import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } fr
 import { cn } from "cn"
 
 import { Button } from "@/components/ui/button"
+import { shuffleSeeded } from "@/lib/learn/shuffle-seeded"
 import type { VocabWord } from "@/lib/learn/vocab/types/lesson-story"
-
-function shuffle<T>(items: T[]): T[] {
-  const copy = [...items]
-  for (let i = copy.length - 1; i > 0; i -= 1) {
-    const j = Math.floor(Math.random() * (i + 1))
-    ;[copy[i], copy[j]] = [copy[j], copy[i]]
-  }
-  return copy
-}
 
 type Connection = {
   termId: string
@@ -26,15 +18,27 @@ type LineCoords = { x1: number; y1: number; x2: number; y2: number; d: string }
 
 type VocabMatchingPanelProps = {
   words: VocabWord[]
+  shuffleSeed: string
   onProgress: (matched: number, total: number) => void
   onWeakWord: (wordId: string) => void
   onContinue: () => void
 }
 
-export function VocabMatchingPanel({ words, onProgress, onWeakWord, onContinue }: VocabMatchingPanelProps) {
+export function VocabMatchingPanel({
+  words,
+  shuffleSeed,
+  onProgress,
+  onWeakWord,
+  onContinue,
+}: VocabMatchingPanelProps) {
   const total = words.length
-  const [leftWords] = useState(() => shuffle(words))
-  const [rightItems] = useState(() => shuffle(words.map((w) => ({ id: w.id, meaning: w.meaningVi }))))
+  const [leftWords] = useState(() => shuffleSeeded(words, `${shuffleSeed}:left`))
+  const [rightItems] = useState(() =>
+    shuffleSeeded(
+      words.map((w) => ({ id: w.id, meaning: w.meaningVi })),
+      `${shuffleSeed}:right`,
+    ),
+  )
 
   const [connections, setConnections] = useState<Connection[]>([])
   const [anchorTermId, setAnchorTermId] = useState<string | null>(null)

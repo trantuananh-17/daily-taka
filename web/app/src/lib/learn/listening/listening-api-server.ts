@@ -1,4 +1,4 @@
-import { getPublicApiBaseUrl } from "@/lib/api/env"
+import { serverFetchJson } from "@/lib/api/server-fetch"
 import type { LanguageHubCode } from "@/lib/learn/hub"
 import type {
   DictationLessonDetail,
@@ -10,16 +10,8 @@ import type {
 /** Required for `generateMetadata` / `generateStaticParams` when `cacheComponents` is on. */
 export const LISTENING_SERVER_REVALIDATE_SECONDS = 60
 
-async function serverFetch<T>(path: string): Promise<T | null> {
-  try {
-    const res = await fetch(`${getPublicApiBaseUrl()}${path}`, {
-      next: { revalidate: LISTENING_SERVER_REVALIDATE_SECONDS },
-    })
-    if (!res.ok) return null
-    return (await res.json()) as T
-  } catch {
-    return null
-  }
+function serverFetch<T>(path: string): Promise<T | null> {
+  return serverFetchJson<T>(path, { revalidateSeconds: LISTENING_SERVER_REVALIDATE_SECONDS })
 }
 
 export function serverGetListeningCategories(language: LanguageHubCode) {

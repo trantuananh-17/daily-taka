@@ -1,25 +1,25 @@
+import { shuffleSeeded } from "@/lib/learn/shuffle-seeded"
 import type { VocabQuizQuestion, VocabWord } from "@/lib/learn/vocab/types/lesson-story"
 
-function shuffle<T>(items: T[]): T[] {
-  const copy = [...items]
-  for (let i = copy.length - 1; i > 0; i -= 1) {
-    const j = Math.floor(Math.random() * (i + 1))
-    ;[copy[i], copy[j]] = [copy[j], copy[i]]
-  }
-  return copy
-}
-
-function pickDistractors(word: VocabWord, pool: VocabWord[], count: number): string[] {
+function pickDistractors(word: VocabWord, pool: VocabWord[], count: number, seed: string): string[] {
   const fromWord = word.distractors.filter(Boolean)
   const fromOthers = pool
     .filter((row) => row.id !== word.id)
     .flatMap((row) => [row.meaningVi, row.term])
-  const merged = shuffle([...fromWord, ...fromOthers])
+  const merged = shuffleSeeded([...fromWord, ...fromOthers], `${seed}:distractors:${word.id}`)
   return merged.slice(0, count)
 }
 
-function withOptions(correct: string, distractors: string[], count = 4): { options: string[]; correctIndex: number } {
-  const unique = shuffle([correct, ...distractors.filter((d) => d !== correct)]).slice(0, count)
+function withOptions(
+  correct: string,
+  distractors: string[],
+  seed: string,
+  count = 4,
+): { options: string[]; correctIndex: number } {
+  const unique = shuffleSeeded(
+    [correct, ...distractors.filter((d) => d !== correct)],
+    `${seed}:options:${correct}`,
+  ).slice(0, count)
   while (unique.length < count) unique.push(`${correct} (${unique.length})`)
   const options = unique.slice(0, count)
   return { options, correctIndex: options.indexOf(correct) }
@@ -32,16 +32,18 @@ function clozeExample(example: string, term: string): string {
 }
 
 type GenerateVocabQuizOptions = {
-  /** Wrong-option pool (defaults to `words`). Use full lesson words when `words` is a weak subset. */
+  /** Stable seed (e.g. lesson story id). Required for shuffled options. */
+  seed: string
   distractorPool?: VocabWord[]
 }
 
-/** Builds one mixed question per word (deterministic order, shuffled options). */
+/** One mixed question per word; option order shuffled deterministically from `seed`. */
 export function generateVocabQuizQuestions(
   words: VocabWord[],
-  options?: GenerateVocabQuizOptions,
+  options: GenerateVocabQuizOptions,
 ): VocabQuizQuestion[] {
-  const pool = options?.distractorPool ?? words
+  const { seed, distractorPool } = options
+  const pool = distractorPool ?? words
   const questions: VocabQuizQuestion[] = []
 
   words.forEach((word, index) => {
@@ -52,18 +54,20 @@ export function generateVocabQuizQuestions(
       "termFromMeaning",
     ]
     const type = typeCycle[index % typeCycle.length]
+    const wordSeed = `${seed}:${word.id}:${index}`
 
     if (type === "meaningChoice") {
-      const { options, correctIndex } = withOptions(
+      const { options: opts, correctIndex } = withOptions(
         word.meaningVi,
-        pickDistractors(word, pool, 3),
+        pickDistractors(word, pool, 3, wordSeed),
+        wordSeed,
       )
       questions.push({
         id: `${word.id}-meaning`,
         type,
         wordId: word.id,
         prompt: `“${word.term}” có nghĩa là gì?`,
-        options,
+        options: opts,
         correctIndex,
         example: word.example,
         exampleVi: word.exampleVi,
@@ -72,16 +76,17 @@ export function generateVocabQuizQuestions(
     }
 
     if (type === "listenChoice") {
-      const { options, correctIndex } = withOptions(
-        word.term,
-        shuffle(pool.filter((w) => w.id !== word.id).map((w) => w.term)).slice(0, 3),
-      )
+      const terms = shuffleSeeded(
+        pool.filter((w) => w.id !== word.id).map((w) => w.term),
+        `${wordSeed}:listen-terms`,
+      ).slice(0, 3)
+      const { options: opts, correctIndex } = withOptions(word.term, terms, wordSeed)
       questions.push({
         id: `${word.id}-listen`,
         type,
         wordId: word.id,
         prompt: "Nghe và chọn từ tiếng Anh bạn vừa nghe",
-        options,
+        options: opts,
         correctIndex,
         example: word.example,
         exampleVi: word.exampleVi,
@@ -90,16 +95,17 @@ export function generateVocabQuizQuestions(
     }
 
     if (type === "clozeChoice") {
-      const { options, correctIndex } = withOptions(
-        word.term,
-        shuffle(pool.filter((w) => w.id !== word.id).map((w) => w.term)).slice(0, 3),
-      )
+      const terms = shuffleSeeded(
+        pool.filter((w) => w.id !== word.id).map((w) => w.term),
+        `${wordSeed}:cloze-terms`,
+      ).slice(0, 3)
+      const { options: opts, correctIndex } = withOptions(word.term, terms, wordSeed)
       questions.push({
         id: `${word.id}-cloze`,
         type,
         wordId: word.id,
         prompt: clozeExample(word.example, word.term),
-        options,
+        options: opts,
         correctIndex,
         example: word.example,
         exampleVi: word.exampleVi,
@@ -107,16 +113,17 @@ export function generateVocabQuizQuestions(
       return
     }
 
-    const { options, correctIndex } = withOptions(
-      word.term,
-      shuffle(pool.filter((w) => w.id !== word.id).map((w) => w.term)).slice(0, 3),
-    )
+    const terms = shuffleSeeded(
+      pool.filter((w) => w.id !== word.id).map((w) => w.term),
+      `${wordSeed}:reverse-terms`,
+    ).slice(0, 3)
+    const { options: opts, correctIndex } = withOptions(word.term, terms, wordSeed)
     questions.push({
       id: `${word.id}-reverse`,
       type: "termFromMeaning",
       wordId: word.id,
       prompt: `Từ tiếng Anh nào có nghĩa “${word.meaningVi}”?`,
-      options,
+      options: opts,
       correctIndex,
       example: word.example,
       exampleVi: word.exampleVi,

@@ -1,5 +1,6 @@
 import { and, asc, eq, ilike, sql } from "drizzle-orm"
 
+import { env } from "../../config/env"
 import type { DbExecutor } from "../../db/client"
 import {
   listeningCategories,
@@ -176,7 +177,13 @@ export class ListeningRepository {
     }
     const normalized = query.trim()
     if (normalized.length > 0) {
-      conditions.push(ilike(listeningLessons.title, `%${normalized}%`))
+      if (env.listeningSearchMode === "fts") {
+        conditions.push(
+          sql`${listeningLessons.searchVector} @@ plainto_tsquery('simple', ${normalized})`,
+        )
+      } else {
+        conditions.push(ilike(listeningLessons.title, `%${normalized}%`))
+      }
     }
 
     const rows = await this.db

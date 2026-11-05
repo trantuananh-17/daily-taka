@@ -34,6 +34,54 @@ function languageParam(c: { req: { param: (key: string) => string } }) {
 export function createListeningAdminRoutes() {
   const app = new Hono<AppEnv>()
 
+  app.get("/categories", async (c) => {
+    const languageCode = languageParam(c)
+    const repo = new ListeningAdminRepository(db)
+    const categories = await repo.listCategoriesByLanguage(languageCode)
+    return c.json({ categories })
+  })
+
+  app.get("/categories/:categoryId", async (c) => {
+    const languageCode = languageParam(c)
+    const repo = new ListeningAdminRepository(db)
+    const category = await repo.findCategoryById(c.req.param("categoryId"))
+    if (!category || category.languageCode !== languageCode) {
+      throw new NotFoundError("Listening category")
+    }
+    const sections = await repo.listSectionsByCategory(category.id)
+    const sectionsWithCounts = await Promise.all(
+      sections.map(async (section) => {
+        const lessons = await repo.listLessonsBySection(section.id)
+        return { section, lessonCount: lessons.length }
+      }),
+    )
+    return c.json({ category, sections: sectionsWithCounts })
+  })
+
+  app.get("/sections/:sectionId", async (c) => {
+    const languageCode = languageParam(c)
+    const repo = new ListeningAdminRepository(db)
+    const section = await repo.findSection(c.req.param("sectionId"))
+    if (!section) throw new NotFoundError("Listening section")
+    const category = await repo.findCategoryById(section.categoryId)
+    if (!category || category.languageCode !== languageCode) {
+      throw new NotFoundError("Listening section")
+    }
+    const lessons = await repo.listLessonsBySection(section.id)
+    return c.json({ section, lessons })
+  })
+
+  app.get("/lessons/:lessonId", async (c) => {
+    const languageCode = languageParam(c)
+    const repo = new ListeningAdminRepository(db)
+    const lesson = await repo.findLesson(c.req.param("lessonId"))
+    if (!lesson || lesson.languageCode !== languageCode) {
+      throw new NotFoundError("Listening lesson")
+    }
+    const sentences = await repo.listSentencesByLesson(lesson.id)
+    return c.json({ lesson, sentences })
+  })
+
   app.post("/categories", async (c) => {
     const languageCode = languageParam(c)
     const body = parseJsonBody(createCategoryBodySchema, await c.req.json())

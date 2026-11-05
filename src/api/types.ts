@@ -5,6 +5,7 @@ import type { Logger } from "../shared/logger"
 export interface AppVariables {
   requestId: string
   logger: Logger
+  userId?: string
 }
 
 export type AppEnv = { Variables: AppVariables }

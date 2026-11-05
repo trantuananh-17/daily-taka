@@ -15,6 +15,8 @@ type TrailItem = { label: string; href?: string }
 
 type VocabLessonPageViewProps = {
   language: LanguageHubCode
+  level: string
+  sectionId: string
   trail: TrailItem[]
   story: VocabLessonStory
   backHref: string
@@ -23,6 +25,8 @@ type VocabLessonPageViewProps = {
 
 export function VocabLessonPageView({
   language,
+  level,
+  sectionId,
   trail,
   story,
   backHref,
@@ -58,12 +62,15 @@ export function VocabLessonPageView({
 
       <main className={focusMode ? "flex flex-1 flex-col px-4 py-6 md:px-6 md:py-8" : PAGE_CONTAINER_WIDE}>
         <div className={focusMode ? "mx-auto w-full max-w-[48rem]" : PAGE_CONTENT_PY}>
-          <VocabLessonPlayer
-            story={story}
-            backHref={backHref}
-            nextLessonHref={nextLessonHref}
-            onFocusModeChange={handleFocusModeChange}
-          />
+        <VocabLessonPlayer
+          language={language}
+          level={level}
+          sectionId={sectionId}
+          story={story}
+          backHref={backHref}
+          nextLessonHref={nextLessonHref}
+          onFocusModeChange={handleFocusModeChange}
+        />
         </div>
       </main>
 

@@ -4,6 +4,7 @@ import {
 } from "@dailytaka/backend/listening-public-client"
 
 import { getPublicApiBaseUrl } from "@/lib/api/env"
+import { listeningFetchInit } from "@/lib/learn/listening/listening-fetch"
 import { unwrapHonoJson } from "@/lib/api/unwrap-hono-json"
 import type { LanguageHubCode } from "@/lib/learn/hub"
 import { normalizeDictationLessonDetail } from "@/lib/learn/listening/normalize-lesson-detail"
@@ -19,7 +20,9 @@ let listeningClient: ListeningPublicClient | undefined
 
 function getListeningClient(): ListeningPublicClient {
   if (!listeningClient) {
-    listeningClient = createListeningPublicClient(getPublicApiBaseUrl())
+    listeningClient = createListeningPublicClient(getPublicApiBaseUrl(), {
+      fetch: (input, init) => fetch(input, listeningFetchInit(init)),
+    })
   }
   return listeningClient
 }
@@ -58,7 +61,7 @@ export async function apiGetListeningSectionLessons(
     param: { languageCode: language, categorySlug, sectionId },
     query: level && level !== "all" ? { level } : {},
   })
-  const res = await fetch(url)
+  const res = await fetch(url, listeningFetchInit())
   return unwrapHonoJson<ListeningLesson[]>(res)
 }
 
@@ -89,6 +92,6 @@ export async function apiSearchListeningLessons(
     param: { languageCode: language, categorySlug },
     query: { q, level },
   })
-  const res = await fetch(url)
+  const res = await fetch(url, listeningFetchInit())
   return unwrapHonoJson<ListeningLessonSearchResponse>(res)
 }

@@ -13,6 +13,9 @@ import type { WritingLessonProgress } from "@/lib/learn/writing/types/lesson"
 type UseGuestWritingProgressOptions = GuestWritingLessonKey & {
   sentenceCount: number
   seed: WritingLessonProgress
+  scriptModeId?: string | null
+  /** When false, use `seed` only (SSR resume) — skip guest localStorage. */
+  loadFromLocalStorage?: boolean
 }
 
 export function useGuestWritingProgress({
@@ -22,16 +25,32 @@ export function useGuestWritingProgress({
   lessonContentId,
   sentenceCount,
   seed,
+  scriptModeId,
+  lessonDbId,
+  loadFromLocalStorage = true,
 }: UseGuestWritingProgressOptions) {
   const storageKey = useMemo(
-    () => ({ language, level, sectionId, lessonContentId }),
-    [language, level, sectionId, lessonContentId],
+    () => ({ language, level, sectionId, lessonContentId, lessonDbId }),
+    [language, level, sectionId, lessonContentId, lessonDbId],
   )
 
   const [ready, setReady] = useState(false)
   const [progress, setProgress] = useState<WritingLessonProgress>(seed)
 
   useEffect(() => {
+    if (!loadFromLocalStorage) {
+      const maxIndex = Math.max(0, sentenceCount - 1)
+      setProgress({
+        currentSentenceIndex: Math.min(maxIndex, Math.max(0, seed.currentSentenceIndex)),
+        doneSentenceIndexes: [...new Set(seed.doneSentenceIndexes)].filter(
+          (index) => index >= 0 && index < sentenceCount,
+        ),
+        drafts: seed.drafts ?? {},
+      })
+      setReady(true)
+      return
+    }
+
     const saved = readGuestWritingLessonProgress(storageKey)
     if (saved) {
       const maxIndex = Math.max(0, sentenceCount - 1)
@@ -46,12 +65,19 @@ export function useGuestWritingProgress({
       setProgress(seed)
     }
     setReady(true)
-  }, [storageKey, sentenceCount, seed])
+  }, [storageKey, sentenceCount, seed, loadFromLocalStorage])
 
   useEffect(() => {
-    if (!ready) return
-    saveGuestWritingLessonProgress(storageKey, progress)
-  }, [ready, storageKey, progress])
+    if (!ready || !loadFromLocalStorage) return
+    saveGuestWritingLessonProgress(storageKey, {
+      ...progress,
+      scriptModeId: scriptModeId ?? null,
+      status:
+        progress.doneSentenceIndexes.length >= sentenceCount && sentenceCount > 0
+          ? "completed"
+          : "in_progress",
+    })
+  }, [ready, storageKey, progress, scriptModeId, sentenceCount, loadFromLocalStorage])
 
   const setSentenceIndex = useCallback(
     (index: number | ((prev: number) => number)) => {
